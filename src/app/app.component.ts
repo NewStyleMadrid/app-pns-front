@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from './components/login/login.component';
+import { EditComponent } from './components/user/edit/edit.component';
 import { RegisterComponent } from './components/user/register/register.component';
 
 @Component({
