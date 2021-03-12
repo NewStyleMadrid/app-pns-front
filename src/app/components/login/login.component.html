@@ -1,0 +1,46 @@
+<div class="modal-header">
+    <h2 class="modal-title col-11 text-center">Login</h2>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeLogin()">
+        <span aria-hidden="true">&#120;</span>
+    </button>
+</div>
+<div class="modal-body d-flex justify-content-center">
+    <form>
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" class="form-control" placeholder="username">
+        </div>
+        <div class="input-group form-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" placeholder="password">
+        </div>
+        <!--
+        <div class="row align-items-center remember">
+            <input type="checkbox">Recordarme
+        </div>
+        -->
+        <div class="input-group form-group">
+            <button type="submit" class="btn btn-outline-danger form-control"><i class="fab fa-google"></i> Iniciar con google</button>
+        </div>
+        <div class="input-group form-group">
+            <button type="submit" class="btn btn-outline-primary form-control"><i class="fab fa-facebook"></i> Iniciar con Facebook</button>
+        </div>
+        <div class="form-group text-center">
+            <button class="btn btn-dark center-block">Acceder</button>
+        </div>
+    </form>
+</div>
+<!--
+<div class="card-footer">
+    <div class="d-flex justify-content-center links">
+        Don't have an account?<a href="#">Sign Up</a>
+    </div>
+    <div class="d-flex justify-content-center">
+        <a href="#">Forgot your password?</a>
+    </div>
+</div>
+-->

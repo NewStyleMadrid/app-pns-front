@@ -1,0 +1,39 @@
+.container {
+    height: 100%;
+    align-content: center;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background-color: #343a40;
+    color: white;
+    border: 0 !important;
+}
+
+input:focus {
+    outline: 0 0 0 0 !important;
+    box-shadow: 0 0 0 0 !important;
+}
+
+.remember {
+    color: black;
+}
+
+.remember input {
+    width: 17px;
+    height: 17px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.modal-header {
+    font-family: helvetica;
+    border: none;
+    background-color: #343a40;
+    color: white;
+    height: 70px;
+}

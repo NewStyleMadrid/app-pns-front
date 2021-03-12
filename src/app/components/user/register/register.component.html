@@ -1,0 +1,61 @@
+<div class="modal-header">
+    <h2 class="modal-title col-11 text-center">Nuevo registro</h2>
+</div>
+<div class="modal-body justify-content-center">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" placeholder="Nombre">
+            </div>
+            <div class="form-group col-md-7">
+                <label for="firstname">Apellidos</label>
+                <input type="text" class="form-control" id="firstname" placeholder="Apellidos">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-5">
+                <label for="username">Usuario</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-user-alt"></i></div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Usuario">
+                </div>
+            </div>
+            <div class="form-group col-md-7">
+                <label for="pwd">Contraseña</label>
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="fas fa-key"></i></div>
+                    </div>
+                    <input type="password" class="form-control" id="pwd" placeholder="Contraseña">
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="input-group mb-2">
+                <div class="input-group-prepend">
+                    <div class="input-group-text"><i class="far fa-envelope"></i></div>
+                </div>
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Correo electrónico">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-outline-danger form-control"><i class="fab fa-google"></i> Google</button>
+            </div>
+            <div class="form-group col-md-6">
+                <button type="submit" class="btn btn-outline-primary form-control"><i class="fab fa-facebook"></i> Facebook</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <button type="button" class="btn btn-dark float-left" (click)="closeRegister()">Cancelar</button>
+            </div>
+            <div class="form-group col-md-6">
+                <button class="btn btn-dark float-right">Registrarse</button>
+            </div>
+        </div>
+    </form>
+</div>
