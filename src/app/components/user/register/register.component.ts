@@ -72,7 +72,8 @@ export class RegisterComponent implements OnInit {
   get pwd() { return this.myForm.get('pwd'); }
   get email() { return this.myForm.get('email'); }
 
-
+  
+  // Validaciones para los campos de registro.
   createForm() {
     return new FormGroup({
       username: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -83,10 +84,12 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  // Resetea el formulario
   onResetForm(): void {
     this.myForm.reset();
   }
 
+  // Registra el usuario en nuestra BBDD.
   registerUser(): void {
     if (this.myForm.valid) {
       this.uService.saveUser(this.myForm.value).subscribe(data => {
@@ -101,6 +104,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  // Cancela el registro y cierra la ventana dialogo.
   closeRegister(): void {
     this.dialogRef.close();
   }
