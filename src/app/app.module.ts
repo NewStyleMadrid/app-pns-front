@@ -11,6 +11,8 @@ import { DetailComponent } from './components/user/detail/detail.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,7 +41,9 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [
     {

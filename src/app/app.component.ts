@@ -32,8 +32,8 @@ export class AppComponent {
   // REGISTER
   dialogRegister(): void {
     const dialogRef = this.uDialog.open(RegisterComponent, {
-      width: '520px',
-      height: '460px'
+      width: '550px',
+      height: '580px'
     });
     console.log("Dialogo registro abierto.");
     dialogRef.afterClosed().subscribe(result => {

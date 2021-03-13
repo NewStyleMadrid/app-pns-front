@@ -37,3 +37,8 @@ input:focus {
     color: white;
     height: 70px;
 }
+
+.alert-danger {
+    background-color: white;
+    color: red;
+}

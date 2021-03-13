@@ -2,43 +2,60 @@
     <h2 class="modal-title col-11 text-center">Nuevo registro</h2>
 </div>
 <div class="modal-body justify-content-center">
-    <form (ngSubmit)="registerUser()" #f="ngForm" novalidate>
+    <form [formGroup]="myForm" (ngSubmit)="registerUser()" novalidate>
         <div class="form-row">
             <div class="form-group col-md-5">
-                <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" placeholder="Nombre" required>
+                <mat-form-field>
+                    <input matInput placeholder="Nombre" class="form-control" formControlName="name" required>
+                </mat-form-field>
+                <!--Mensaje user validación-->
+                <div class="alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+                    <div class="container-error-message" *ngIf="name.errors.required"></div>
+                </div>
             </div>
             <div class="form-group col-md-7">
-                <label for="firstname">Apellidos</label>
-                <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="firstname" placeholder="Apellidos" required>
+                <mat-form-field>
+                    <input matInput placeholder="Apellidos" class="form-control" formControlName="firstname" required>
+                </mat-form-field>
+                <!--Mensaje firstname validación-->
+                <div class="alert-danger" *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)">
+                    <div class="container-error-message" *ngIf="firstname.errors.required"></div>
+                </div>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-5">
-                <label for="username">Usuario</label>
                 <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-user-alt"></i></div>
+                    <mat-form-field>
+                        <input matInput placeholder="Usuario" class="form-control" formControlName="username" required>
+                    </mat-form-field>
+                    <!--Mensaje username validación-->
+                    <div class="alert-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                        <div class="container-error-message" *ngIf="username.errors.required"></div>
                     </div>
-                    <input type="text" class="form-control" id="inlineFormInputGroup" name="username" [(ngModel)]="username" placeholder="Usuario" required>
                 </div>
             </div>
             <div class="form-group col-md-7">
-                <label for="pwd">Contraseña</label>
                 <div class="input-group mb-2">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="fas fa-key"></i></div>
+                    <mat-form-field>
+                        <input matInput placeholder="Contraseña" class="form-control" formControlName="pwd" required>
+                    </mat-form-field>
+                    <!--Mensaje PWD validación-->
+                    <div class="alert-danger" *ngIf="pwd.invalid && (pwd.dirty || pwd.touched)">
+                        <div class="container-error-message" *ngIf="pwd.errors.required"></div>
                     </div>
-                    <input type="password" class="form-control" id="pwd" name="pwd" [(ngModel)]="pwd" placeholder="Contraseña" required>
                 </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="input-group mb-2">
-                <div class="input-group-prepend">
-                    <div class="input-group-text"><i class="far fa-envelope"></i></div>
+            <div class="form-group col-md-5">
+                <div class="input-group mb-2">
+                    <mat-form-field>
+                        <input matInput placeholder="Correo electrónico" class="form-control" formControlName="email" required>
+                    </mat-form-field>
+                    <!--Mensaje email validación-->
+                    <div class="alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+                        <div class="container-error-message" *ngIf="email.errors.required"></div>
+                    </div>
                 </div>
-                <input type="text" class="form-control" id="inlineFormInputGroup" name="email" [(ngModel)]="email" placeholder="Correo electrónico" required>
             </div>
         </div>
         <div class="form-row">
@@ -55,8 +72,33 @@
                 <button type="button" class="btn btn-dark float-left" (click)="closeRegister()">Cancelar</button>
             </div>
             <div class="form-group col-md-6">
-                <button class="btn btn-dark float-right" [disabled]="!f.valid">Registrarse</button>
+                <button class="btn btn-dark float-right">Registrarse</button>
             </div>
         </div>
     </form>
 </div>
+<!--
+    #f="ngForm"
+    [disabled]="!f.valid"
+
+<form id="contactForm" [formGroup]="myForm" (ngSubmit)="ngOnInit()">
+    <mat-form-field>
+        <input matInput placeholder="" class="form-control" name="firstname">
+
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="lastname" class="form-control" name="lastname">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput placeholder="email" class="form-control" name="email">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <textarea rows="4" cols="50" matInput placeholder="message" class="form-control" name="message"></textarea>
+    </mat-form-field>
+    <br>
+    <button id="btnSubmit" mat-raised-button type="submit" color="primary">Submit</button>
+</form>
+-->
