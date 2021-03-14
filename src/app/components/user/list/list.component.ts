@@ -3,7 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
-import { EditComponent } from '../edit/edit.component';
+
 
 @Component({
   selector: 'app-list',

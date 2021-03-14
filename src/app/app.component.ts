@@ -19,8 +19,8 @@ export class AppComponent {
   // LOGIN
   dialogLogin(): void {
     const dialogRef = this.uDialog.open(LoginComponent, {
-      width: '450px',
-      height: '390px'
+      width: '510px',
+      height: '590px'
 
     });
     console.log("Dialogo login abierto.");
@@ -33,7 +33,7 @@ export class AppComponent {
   dialogRegister(): void {
     const dialogRef = this.uDialog.open(RegisterComponent, {
       width: '550px',
-      height: '580px'
+      height: '450px'
     });
     console.log("Dialogo registro abierto.");
     dialogRef.afterClosed().subscribe(result => {

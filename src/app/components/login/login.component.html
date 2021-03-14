@@ -1,22 +1,32 @@
-<div class="modal-header">
-    <h2 class="modal-title col-11 text-center">Login</h2>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeLogin()">
-        <span aria-hidden="true">&#120;</span>
-    </button>
+<div class="row">
+    <div class="col">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeLogin()">
+            <span aria-hidden="true">&#88;</span>
+        </button>
+    </div>
+    <div class="imgLogin">
+
+    </div>
 </div>
-<div class="modal-body d-flex justify-content-center">
-    <form>
-        <div class="input-group form-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-user"></i></span>
+<div class="modal-body justify-content-center">
+    <form novalidate>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="inputLogin-full-width" appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Email">
+                    <mat-icon matSuffix>email</mat-icon>
+                </mat-form-field>
             </div>
-            <input type="text" class="form-control" placeholder="username">
         </div>
-        <div class="input-group form-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="inputLogin-full-width" appearance="outline">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="Email">
+                    <mat-icon matSuffix>https</mat-icon>
+                </mat-form-field>
             </div>
-            <input type="password" class="form-control" placeholder="password">
         </div>
         <!--
         <div class="row align-items-center remember">
@@ -30,7 +40,7 @@
             <button type="submit" class="btn btn-outline-primary form-control"><i class="fab fa-facebook"></i> Iniciar con Facebook</button>
         </div>
         <div class="form-group text-center">
-            <button class="btn btn-dark center-block">Acceder</button>
+            <button type="button" class="btn btn-outline-secondary btn-sm"> Entrar </button>
         </div>
     </form>
 </div>
