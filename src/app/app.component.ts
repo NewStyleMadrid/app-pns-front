@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from './components/login/login.component';
 import { EditComponent } from './components/user/edit/edit.component';
 import { RegisterComponent } from './components/user/register/register.component';
 
@@ -17,17 +16,18 @@ export class AppComponent {
   /****  METÓDOS PARA CREAR LOS DIÁLOGOS ****/
 
   // LOGIN
+  /*
   dialogLogin(): void {
     const dialogRef = this.uDialog.open(LoginComponent, {
       width: '510px',
       height: '590px'
-
     });
     console.log("Dialogo login abierto.");
     dialogRef.afterClosed().subscribe(result => {
       console.log("Dialogo login cerrado.");
     })
   }
+  */
 
   // REGISTER
   dialogRegister(): void {

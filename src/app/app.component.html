@@ -114,7 +114,8 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                <li class="nav-item "><a routerLink="/list" class="nav-link"><i class="fas fa-list"></i> Lista
+                <li class="nav-item "><a routerLink="/list" class="nav-link"><i class="fab fa-product-hunt"></i> Productos</a></li>
+                <li class="nav-item "><a routerLink="/list/user" class="nav-link"><i class="fas fa-list"></i> Lista
         de usuarios</a>
                 </li>
                 <li class="nav-item dropdown">
@@ -122,7 +123,7 @@
                         <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" (click)="dialogLogin()">Login</a>
+                        <a class="dropdown-item" routerLink="/login" class="nav-link">Login</a>
                         <a class="dropdown-item" (click)="dialogRegister()">Register</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Forgot password</a>

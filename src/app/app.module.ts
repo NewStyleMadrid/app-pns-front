@@ -10,10 +10,14 @@ import { EditComponent } from './components/user/edit/edit.component';
 import { DetailComponent } from './components/user/detail/detail.component';
 import { RegisterComponent } from './components/user/register/register.component';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
+import { DetailProductoComponent } from './components/producto/detail-producto/detail-producto.component';
+import { EditProductoComponent } from './components/producto/edit-producto/edit-producto.component';
+import { NuevoProductoComponent} from './components/producto/nuevo-producto/nuevo-producto.component';
+import { ListProductoComponent} from './components/producto/list-producto/list-producto.component';
+import { LoginComponent } from './auth/login/login.component';
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,6 +26,10 @@ import { ToastrModule } from 'ngx-toastr';
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { from } from 'rxjs';
+
+
+
 
 
 @NgModule({
@@ -32,6 +40,11 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     DetailComponent,
     RegisterComponent,
     HomeComponent,
+    DetailProductoComponent,
+    EditProductoComponent,
+    NuevoProductoComponent,
+    ListProductoComponent,
+    DetailProductoComponent,
     LoginComponent
   ],
   imports: [

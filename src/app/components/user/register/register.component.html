@@ -9,8 +9,8 @@
                     <mat-label>
                         Nombre
                     </mat-label>
-                    <input type="text" matInput [formControl]="name" placeholder="Nombre" required>
-                    <mat-error *ngIf="name.hasError('required')">
+                    <input type="text" matInput [formControl]="nombre" placeholder="Nombre" required>
+                    <mat-error *ngIf="nombre.hasError('required')">
                         Campo <strong>nombre</strong> es obligatorio
                     </mat-error>
                 </mat-form-field>
@@ -20,8 +20,8 @@
                     <mat-label>
                         Apellidos
                     </mat-label>
-                    <input type="text" matInput [formControl]="firstname" placeholder="Apellidos" required>
-                    <mat-error *ngIf="firstname.hasError('required')">
+                    <input type="text" matInput [formControl]="apellidos" placeholder="Apellidos" required>
+                    <mat-error *ngIf="apellidos.hasError('required')">
                         Campo <strong>apellidos</strong> es obligatorio
                     </mat-error>
                 </mat-form-field>
@@ -44,6 +44,20 @@
                         Campo <strong>email</strong> es obligatorio
                     </mat-error>
                 </mat-form-field>
+            </div>
+            <div class="form-group col-md-6">
+                <div class="input-group mb-2">
+                    <mat-form-field class="formRegister-full-width">
+                        <mat-label>
+                            Contraseña
+                            <mat-icon MatPrefix>https</mat-icon>
+                        </mat-label>
+                        <input type="username" matInput [formControl]="username" placeholder="Usuario" required>
+                        <mat-error *ngIf="username.hasError('required')">
+                            Campo <strong>contraseña</strong> es obligatorio
+                        </mat-error>
+                    </mat-form-field>
+                </div>
             </div>
             <div class="form-group col-md-6">
                 <div class="input-group mb-2">

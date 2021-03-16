@@ -28,23 +28,26 @@ export class RegisterComponent implements OnInit {
     public fBuilder: FormBuilder,
   ) { this.myForm = this.createForm(); }
 
-  get name() { return this.myForm.get('name'); }
-  get firstname() { return this.myForm.get('firstname'); }
-  get password() { return this.myForm.get('password'); }
+  get nombre() { return this.myForm.get('nombre'); }
+  get apellidos() { return this.myForm.get('apellidos'); }
+  get username() { return this.myForm.get('username'); }
   get email() { return this.myForm.get('email'); }
+  get password() { return this.myForm.get('password'); }
+  
 
   ngOnInit(): void {
 
   }
 
   // Validaciones para los campos de registro.
-  createForm() {
-    return new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      firstname: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
-    });
+    createForm() {
+      return new FormGroup({
+        nombre: new FormControl('', [Validators.required]),
+        apellidos: new FormControl('', [Validators.required]),
+        username: new FormControl('', [Validators.required]),
+        email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
+        password: new FormControl('', [Validators.required])
+      });
 
   }
 
