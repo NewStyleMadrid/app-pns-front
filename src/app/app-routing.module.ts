@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailProductoComponent } from './components/producto/detail-producto/detail-producto.component';
 import { EditProductoComponent } from './components/producto/edit-producto/edit-producto.component';
@@ -8,7 +9,7 @@ import { ListProductoComponent } from './components/producto/list-producto/list-
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { DetailComponent } from './components/user/detail/detail.component';
 import { EditComponent } from './components/user/edit/edit.component';
-import { RegisterComponent } from './components/user/register/register.component';
+
 
 const routes: Routes = [
 
@@ -18,7 +19,7 @@ const routes: Routes = [
   // User
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
- 
+  
   { path: 'datail/:id', component: DetailComponent },
   { path: 'edit/:id', component: EditComponent },
 

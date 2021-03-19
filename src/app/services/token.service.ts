@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-const TOKEN_KEY = 'authToken';
-const USERNAME_KEY = 'authUsername';
-const AUTH_KEY = 'authAuthorities';
+const TOKEN_KEY = 'AuthToken';
+const USERNAME_KEY = 'AuthUsername';
+const AUTHORITIES_KEY = 'AuthAuthorities';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class TokenService {
   constructor() { }
 
   public setToken(token: string): void {
-    window.sessionStorage.removeItem(USERNAME_KEY);
+    window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
@@ -23,32 +23,31 @@ export class TokenService {
   }
 
   public setUsername(username: string): void {
-    window.sessionStorage.removeItem(TOKEN_KEY);
-    window.sessionStorage.setItem(TOKEN_KEY, username);
+    window.sessionStorage.removeItem(USERNAME_KEY);
+    window.sessionStorage.setItem(USERNAME_KEY, username);
   }
 
   public getUsername(): string {
     return sessionStorage.getItem(USERNAME_KEY);
   }
 
-  public setAuthorities(auth: string[]): void {
-    window.sessionStorage.removeItem(AUTH_KEY);
-    window.sessionStorage.setItem(AUTH_KEY, JSON.stringify(auth));
+  public setAuthorities(authorities: string[]): void {
+    window.sessionStorage.removeItem(AUTHORITIES_KEY);
+    window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
 
   public getAuthorities(): string[] {
     this.roles = [];
-
-    if (sessionStorage.getItem(AUTH_KEY)) {
-      JSON.parse(sessionStorage.getItem(AUTH_KEY)).foreach(auth => {
-        this.roles.push(auth.auth);
+    if (sessionStorage.getItem(AUTHORITIES_KEY)) {
+      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)).forEach(authority => {
+        this.roles.push(authority.authority);
       });
     }
     return this.roles;
   }
 
-  public logOut():void{
-    window.sessionStorage.clear(); // Limpia todo lo que tenemos en el sesionstorage.
+  public logOut(): void {
+    window.sessionStorage.clear();
   }
 
 }

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from './auth/login/login.component';
 import { EditComponent } from './components/user/edit/edit.component';
 import { RegisterComponent } from './components/user/register/register.component';
+import { TokenService } from './services/token.service';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,8 @@ import { RegisterComponent } from './components/user/register/register.component
 })
 export class AppComponent {
   title = 'appnewstyle';
+
+
 
   constructor(public uDialog: MatDialog) { }
 
@@ -30,6 +34,7 @@ export class AppComponent {
   */
 
   // REGISTER
+  /*
   dialogRegister(): void {
     const dialogRef = this.uDialog.open(RegisterComponent, {
       width: '550px',
@@ -40,4 +45,7 @@ export class AppComponent {
       console.log("Dialogo registro cerrado.");
     })
   }
+  */
+
+  
 }

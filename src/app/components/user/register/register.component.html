@@ -1,3 +1,4 @@
+<!--
 <div class="modal-header">
     <h2 class="modal-title col-11 text-center">Nuevo registro</h2>
 </div>
@@ -35,11 +36,6 @@
                         <mat-icon MatPrefix>email</mat-icon>
                     </mat-label>
                     <input type="text" matInput [formControl]="email" placeholder="Ex. pat@example.com" required>
-                    <!--
-                    <mat-error *ngIf="(email.dirty || email.touched) && email.invalid && email.errors.pattern">
-                        Introduce un email válido
-                    </mat-error>
-                    -->
                     <mat-error *ngIf="email.hasError('required')">
                         Campo <strong>email</strong> es obligatorio
                     </mat-error>
@@ -93,3 +89,4 @@
         </div>
     </form>
 </div>
+-->
