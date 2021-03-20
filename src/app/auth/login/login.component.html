@@ -23,6 +23,7 @@
                     <input matInput type="password" name="password" id="password" [(ngModel)]="password" placeholder="Contraseña" required>
                     <mat-icon matSuffix>https</mat-icon>
                 </mat-form-field>
+                <p *ngIf="f.submitted && isLoginFail" class="text-danger text-center">{{errMsj}}</p>
                 <div class="input-group form-group">
                     <button type="submit" class="btn btn-outline-danger form-control"><i class="fab fa-google"></i> Iniciar con Google</button>
                 </div>
@@ -34,7 +35,6 @@
                         <i class="fas fa-sign-in-alt"></i> Entrar</button>
                 </div>
             </form>
-            <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger mt-3 text-center">{{errMsj}}</div>
         </div>
     </div>
 </ng-template>

@@ -18,6 +18,7 @@ import { NuevoProductoComponent} from './components/producto/nuevo-producto/nuev
 import { ListProductoComponent} from './components/producto/list-producto/list-producto.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -26,7 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { RegisterComponent } from './auth/register/register.component';
+
 
 
 

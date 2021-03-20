@@ -77,7 +77,8 @@ export class RegisterComponent implements OnInit {
     this.myForm.reset();
   }
 
+  // Cancelamos registo y redirigimos al Home "/"
   onCancel():void{
-    this.router.navigate(['/'])
+    this.dRef.close();
   }
 }

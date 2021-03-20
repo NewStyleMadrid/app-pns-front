@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { RegisterComponent } from 'src/app/auth/register/register.component';
 import { TokenService } from 'src/app/services/token.service';
@@ -14,18 +15,18 @@ export class MenuComponent implements OnInit {
 
   isLogged=false;
 
-  constructor( private tokenService:TokenService,public uDialog: MatDialog) { }
+  constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router) { }
 
   /** Dialogo del LOGIN **/
   dialogLogin(): void {
     const dialogRef = this.uDialog.open(LoginComponent, {
-      width: '510px',
-      height: '590px'
+      width: '530px',
+      height: '600px'
     });
     console.log("Dialogo login abierto.");
     dialogRef.afterClosed().subscribe(result => {
       console.log("Dialogo login cerrado.");
-    })
+    });
   }
 
   /** Dialogo del REGISTER **/
@@ -48,9 +49,9 @@ export class MenuComponent implements OnInit {
     }
   }
 
-  onLogOut(): void {
+  onLogout(): void {
     this.tokenService.logOut();
     window.location.reload();
   }
- 
+  
 }

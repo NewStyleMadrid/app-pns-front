@@ -5,6 +5,7 @@ import { LoginUsuario } from 'src/app/models/login-usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 import { MatDialogRef } from '@angular/material/dialog';
+import { MenuComponent } from 'src/app/components/menu/menu.component';
 import { HomeComponent } from 'src/app/components/home/home.component';
 
 @Component({
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService,
-    private dRef:MatDialogRef<HomeComponent>
+    private dRef: MatDialogRef<HomeComponent>
   ) { }
 
   ngOnInit() {
@@ -48,11 +49,8 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
         this.dRef.close(); // Cierra el Dialogo
-        this.toastr.success('Bienvenido ' + data.username, ' ', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
+        window.location.reload(); // Recarga ventana login
         this.router.navigate(['/']); // Redirigimos al Index
-        
       },
       err => {
         this.isLogged = false;
@@ -67,8 +65,9 @@ export class LoginComponent implements OnInit {
       }
     );
   }
+  
   // Metodo para cerrar con la X del dialogo
-  closeLogin(): void{
+  closeLogin(): void {
     this.dRef.close();
   }
 }
