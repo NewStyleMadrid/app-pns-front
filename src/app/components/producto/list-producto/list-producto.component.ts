@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ProductoService } from 'src/app/services/producto.service';
 import { Producto } from 'src/app/models/producto';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-list-producto',
@@ -11,24 +12,38 @@ import { Producto } from 'src/app/models/producto';
 export class ListProductoComponent implements OnInit {
 
   productos: Producto[] = [];
+  roles: string[];
+  isAdmin = false;
 
-  constructor(private pService: ProductoService, private toastr: ToastrService) { }
+  constructor(
+    private productoService: ProductoService,
+    private toastr: ToastrService,
+    private tokenService: TokenService
+  ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.cargarProductos();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   cargarProductos(): void {
-    this.pService.list().subscribe(data => {
-      this.productos = data
-    }),
+    this.productoService.lista().subscribe(
+      data => {
+        this.productos = data;
+      },
       err => {
         console.log(err);
       }
+    );
   }
 
   borrar(id: number) {
-    this.pService.delete(id).subscribe(
+    this.productoService.eliminar(id).subscribe(
       data => {
         this.toastr.success('Producto Eliminado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -42,6 +57,4 @@ export class ListProductoComponent implements OnInit {
       }
     );
   }
-
-
 }

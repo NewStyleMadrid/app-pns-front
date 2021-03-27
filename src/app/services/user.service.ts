@@ -1,40 +1,42 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../models/user';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  userURL = 'http://localhost:8080/user/';
+  userURL = 'http://localhost:8080/usuario/';
 
   constructor(private http: HttpClient) { }
 
   /***** METODOS BACK-END *****/
 
   // Listado de usuarios
-  public list(): Observable<User[]> {
-    return this.http.get<User[]>(this.userURL + 'list');
+  /*
+  public lista(): Observable<User[]> {
+    return this.http.get<User[]>(this.userURL + 'lista');
   }
 
-  public detail(id: number): Observable<User> {
-    return this.http.get<User>(this.userURL + `detail/${id}`);
+  public detalle(id: number): Observable<User> {
+    return this.http.get<User>(this.userURL + `detalle/${id}`);
   }
 
   // Registro de usuarios
-  public saveUser(user: User): Observable<any> {
-    return this.http.post<any>(this.userURL + 'register', user);
+  public registrar(user: User): Observable<any> {
+    return this.http.post<any>(this.userURL + 'registrar', user);
   }
 
   // Actualizar usuarios
-  public updateUser(id: number, user: User): Observable<any> {
-    return this.http.put<any>(this.userURL + `update/${id}`, user);
+  public actualizar(id: number, user: User): Observable<any> {
+    return this.http.put<any>(this.userURL + `actualizar/${id}`, user);
   }
 
   // Eliminar usuarios
-  public deleteUser(id:number): Observable<any>{
-    return this.http.delete<any>(this.userURL + `delete/${id}`);
+  public eliminar(id:number): Observable<any>{
+    return this.http.delete<any>(this.userURL + `eliminar/${id}`);
   }
+  */
 }

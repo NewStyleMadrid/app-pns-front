@@ -5,9 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ListComponent } from './components/user/list/list.component';
-import { EditComponent } from './components/user/edit/edit.component';
-import { DetailComponent } from './components/user/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,7 +15,8 @@ import { NuevoProductoComponent} from './components/producto/nuevo-producto/nuev
 import { ListProductoComponent} from './components/producto/list-producto/list-producto.component';
 import { LoginComponent } from './auth/login/login.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { RegisterComponent } from './auth/registrar/registrar.component';
+import { interceptorProvider } from './interceptors/producto.service';
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,14 +29,9 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
 
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
-    EditComponent,
-    DetailComponent,
     RegisterComponent,
     HomeComponent,
     DetailProductoComponent,
@@ -81,7 +74,8 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
           }
         ]
       } as SocialAuthServiceConfig,
-    }
+    },
+    interceptorProvider // Este interceptor es de interceptors/producto 
   ],
   bootstrap: [AppComponent]
 })

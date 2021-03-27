@@ -16,7 +16,7 @@ import { HomeComponent } from 'src/app/components/home/home.component';
 export class LoginComponent implements OnInit {
 
   isLogged = false;
-  isLoginFail = true;
+  isLoginFail = false;
   loginUsuario: LoginUsuario;
   username: string;
   password: string;

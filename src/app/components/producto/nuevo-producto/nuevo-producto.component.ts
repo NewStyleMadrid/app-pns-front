@@ -16,7 +16,7 @@ export class NuevoProductoComponent implements OnInit {
   precio: number = null;
 
   constructor(
-    private pService: ProductoService,
+    private productoService: ProductoService,
     private toastr: ToastrService,
     private router: Router
     ) { }
@@ -24,23 +24,22 @@ export class NuevoProductoComponent implements OnInit {
   ngOnInit() {
   }
 
-  crearProducto(): void {
+  onCreate(): void {
     const producto = new Producto(this.nombre, this.precio);
-    this.pService.save(producto).subscribe(
+    this.productoService.guardar(producto).subscribe(
       data => {
         this.toastr.success('Producto Creado', 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/']);
+        this.router.navigate(['/list']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Fail', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/']);
+        // this.router.navigate(['/']);
       }
     );
-
   }
 
 }

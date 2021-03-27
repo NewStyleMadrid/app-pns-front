@@ -8,9 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registrar',
+  templateUrl: './registrar.component.html',
+  styleUrls: ['./registrar.component.css']
 })
 export class RegisterComponent implements OnInit {
 
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
 
   onRegister(): void {
     if (this.myForm.valid) {
-      this.authService.register(this.myForm.value).subscribe(
+      this.authService.registrar(this.myForm.value).subscribe(
         data => {
           this.dRef.close(); // Cierra el Dialogo
           this.toastr.success('Usuario registrado', ' ', {

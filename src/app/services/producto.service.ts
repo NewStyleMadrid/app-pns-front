@@ -12,27 +12,27 @@ export class ProductoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public list(): Observable<Producto[]> {
-    return this.httpClient.get<Producto[]>(this.productoURL + 'list');
+  public lista(): Observable<Producto[]> {
+    return this.httpClient.get<Producto[]>(this.productoURL + 'lista');
   }
 
-  public detail(id: number): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detail/${id}`);
+  public detalle(id: number): Observable<Producto> {
+    return this.httpClient.get<Producto>(this.productoURL + `detalle/${id}`);
   }
 
-  public detailName(nombre: string): Observable<Producto> {
-    return this.httpClient.get<Producto>(this.productoURL + `detailname/${nombre}`);
+  public detalleNombre(nombre: string): Observable<Producto> {
+    return this.httpClient.get<Producto>(this.productoURL + `detallenombre/${nombre}`);
   }
 
-  public save(producto: Producto): Observable<any> {
-    return this.httpClient.post<any>(this.productoURL + 'nuevo', producto);
+  public guardar(producto: Producto): Observable<any> {
+    return this.httpClient.post<any>(this.productoURL + 'crear', producto);
   }
 
-  public update(id: number, producto: Producto): Observable<any> {
-    return this.httpClient.put<any>(this.productoURL + `update/${id}`, producto);
+  public actualizar(id: number, producto: Producto): Observable<any> {
+    return this.httpClient.put<any>(this.productoURL + `actualizar/${id}`, producto);
   }
 
-  public delete(id: number): Observable<any> {
+  public eliminar(id: number): Observable<any> {
     return this.httpClient.delete<any>(this.productoURL + `delete/${id}`);
   }
 }

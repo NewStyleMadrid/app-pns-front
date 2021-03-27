@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/auth/login/login.component';
-import { RegisterComponent } from 'src/app/auth/register/register.component';
+import { RegisterComponent } from 'src/app/auth/registrar/registrar.component';
 import { TokenService } from 'src/app/services/token.service';
 
 
@@ -14,6 +14,8 @@ import { TokenService } from 'src/app/services/token.service';
 export class MenuComponent implements OnInit {
 
   isLogged=false;
+  loggedOut=false;
+  username = '';
 
   constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router) { }
 
@@ -44,11 +46,14 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
+      this.username=this.tokenService.getUsername();
     } else {
       this.isLogged = false;
+      this.username='';
     }
   }
 
+  // Cierra sesion
   onLogout(): void {
     this.tokenService.logOut();
     window.location.reload();
