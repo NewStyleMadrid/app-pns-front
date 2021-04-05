@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginComponent } from 'src/app/auth/login/login.component';
-import { RegisterComponent } from 'src/app/auth/registrar/registrar.component';
-import { TokenService } from 'src/app/services/token.service';
+import { RegistrarComponent } from 'src/app/auth/registrar/registrar.component';
+import { TokenService } from 'src/app/service/token.service';
 
 
 @Component({
@@ -13,13 +13,16 @@ import { TokenService } from 'src/app/services/token.service';
 })
 export class MenuComponent implements OnInit {
 
+
+  roles: string[];
+  authority: string;
   isLogged=false;
   loggedOut=false;
-  username = '';
+  userName = '';
 
   constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router) { }
 
-  /** Dialogo del LOGIN **/
+ 
   dialogLogin(): void {
     const dialogRef = this.uDialog.open(LoginComponent, {
       width: '530px',
@@ -31,9 +34,9 @@ export class MenuComponent implements OnInit {
     });
   }
 
-  /** Dialogo del REGISTER **/
-  dialogRegister(): void {
-    const dialogRef = this.uDialog.open(RegisterComponent, {
+  
+  dialogRegistrar(): void {
+    const dialogRef = this.uDialog.open(RegistrarComponent, {
       width: '660px',
       height: '530px'
     });
@@ -44,19 +47,38 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*
     if (this.tokenService.getToken()) {
       this.isLogged = true;
-      this.username=this.tokenService.getUsername();
     } else {
       this.isLogged = false;
-      this.username='';
+    }
+    */
+    if (this.tokenService.getToken()) {
+      this.isLogged = true;
+      this.roles = [];
+      this.roles = this.tokenService.getAuthorities();
+      this.userName=this.tokenService.getUserName();
+      this.roles.every(rol => {
+        if (rol === 'ROLE_ADMIN') {
+          this.authority = 'admin';
+          return false;
+        }
+        this.authority = 'user';
+        return true;
+      });
+    }else{
+      //this.isLogged = false;
+      this.userName='';
     }
   }
 
   // Cierra sesion
   onLogout(): void {
-    this.tokenService.logOut();
-    window.location.reload();
+   this.tokenService.logOut();
+    this.isLogged = false;
+    this.authority = '';
+    this.router.navigate(['home']);
   }
-  
+
 }

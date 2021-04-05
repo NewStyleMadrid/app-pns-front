@@ -3,20 +3,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { DetailProductoComponent } from './components/producto/detail-producto/detail-producto.component';
-import { EditProductoComponent } from './components/producto/edit-producto/edit-producto.component';
-import { NuevoProductoComponent} from './components/producto/nuevo-producto/nuevo-producto.component';
-import { ListProductoComponent} from './components/producto/list-producto/list-producto.component';
-import { LoginComponent } from './auth/login/login.component';
+import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { RegisterComponent } from './auth/registrar/registrar.component';
-import { interceptorProvider } from './interceptors/producto.service';
+
+// Login
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrarComponent } from './auth/registrar/registrar.component';
+
+
+// Producto
+import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
+import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
+import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
+import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
+
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,22 +30,31 @@ import { ToastrModule } from 'ngx-toastr';
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { interceptorProvider } from './interceptors/producto-interceptor.service';
 
 
 
 
 @NgModule({
   declarations: [
+
+    // APP
     AppComponent,
-    RegisterComponent,
+
+    // Home
     HomeComponent,
-    DetailProductoComponent,
-    EditProductoComponent,
+    MenuComponent,
+
+    // Producto
+    ListaProductoComponent,
     NuevoProductoComponent,
-    ListProductoComponent,
-    DetailProductoComponent,
+    EditarProductoComponent,
+    DetalleProductoComponent,
+
+    // User
     LoginComponent,
-    MenuComponent
+    RegistrarComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -75,7 +89,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
         ]
       } as SocialAuthServiceConfig,
     },
-    interceptorProvider // Este interceptor es de interceptors/producto 
+    interceptorProvider
   ],
   bootstrap: [AppComponent]
 })

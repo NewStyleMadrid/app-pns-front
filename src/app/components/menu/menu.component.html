@@ -23,7 +23,15 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                <li class="nav-item" *ngIf="isLogged"><a routerLink="/list" class="nav-link"><i class="fab fa-product-hunt"></i> Productos</a></li>
+                <li class="nav-item dropdown" *ngIf="isLogged">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Productos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/nuevo-producto"><i class="fas fa-plus-circle"></i> Nuevo producto</a>
+                        <a class="dropdown-item" routerLink="/lista-producto"><i class="fas fa-list"></i> Listar productos</a>
+                    </div>
+                </li>
                 <li class="nav-item" *ngIf="isLogged"><a routerLink="/list/user" class="nav-link"><i class="fas fa-list"></i> Lista
                  de usuarios</a>
                 </li>
@@ -33,23 +41,19 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" (click)="dialogLogin()">Login</a>
-                        <a class="dropdown-item" (click)="dialogRegister()">Register</a>
+                        <a class="dropdown-item" (click)="dialogRegistrar()">Registrarse</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="#">Forgot password</a>
                     </div>
                 </li>
-                <!--
-                <li class="nav-item" *ngIf="isLogged; else loggedOut"><a class="nav-link"><i class="fas fa-user"></i> {{username}}</a></li>
-                <li class="nav-item" *ngIf="isLogged" (click)="onLogout()"><a class="nav-link">Sing Out <i class="fas fa-sign-out-alt"></i></a></li>
-                -->
                 <li class="nav-item dropdown" *ngIf="isLogged; else loggedOut">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i> Hola <strong>{{username}}</strong>
+                        <i class="fas fa-user"></i> Hola <strong>{{userName}}</strong>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" *ngIf="isLogged">Mi perfil</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" *ngIf="isLogged" (click)="onLogout()">Salir</a>
+                        <a class="dropdown-item" *ngIf="isLogged" (click)="onLogout()"><i class="fas fa-sign-out-alt"></i> Salir</a>
                     </div>
                 </li>
             </ul>

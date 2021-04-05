@@ -4,26 +4,24 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HomeComponent } from 'src/app/components/home/home.component';
-import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
+import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
+import { AuthService } from 'src/app/service/auth.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
   styleUrls: ['./registrar.component.css']
 })
-export class RegisterComponent implements OnInit {
+export class RegistrarComponent implements OnInit {
 
-  myForm: FormGroup;
-  errMsj: string;
-  isLogged = false;
-
+  /*
   // Expresion regular para el email
   private exEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   get nombre() { return this.myForm.get('nombre'); }
   get apellidos() { return this.myForm.get('apellidos'); }
-  get username() { return this.myForm.get('username'); }
+  get userName() { return this.myForm.get('userName'); }
   get email() { return this.myForm.get('email'); }
   get password() { return this.myForm.get('password'); }
 
@@ -35,50 +33,48 @@ export class RegisterComponent implements OnInit {
     private dRef:MatDialogRef<HomeComponent>
   ) { this.myForm = this.createForm(); }
 
-  ngOnInit() {
+  ngOnInit(){
     if (this.tokenService.getToken()) {
-      this.isLogged = true;
+      this.isRegister = true;
     }
   }
-
   // Validaciones para los campos de registro.
   createForm() {
     return new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       apellidos: new FormControl('', [Validators.required]),
-      username: new FormControl('', [Validators.required]),
+      userName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
       password: new FormControl('', [Validators.required])
     });
   }
+  */
 
-  onRegister(): void {
-    if (this.myForm.valid) {
-      this.authService.registrar(this.myForm.value).subscribe(
-        data => {
-          this.dRef.close(); // Cierra el Dialogo
-          this.toastr.success('Usuario registrado', ' ', {
-            timeOut: 3000, positionClass: 'toast-top-center'
-          });
-          this.router.navigate(['/']); // Me lleva al home principal
-        },
-        err => {
-          this.errMsj = err.error.mensaje;
-          this.toastr.error(this.errMsj, ' ', {
-            timeOut: 3000, positionClass: 'toast-top-center',
-          });
-          // console.log(err.error.message);
-        });
-    }
+  form: any = {};
+  private usuario: any = {};
+  isRegister = false;
+  isRegisterFail = false;
+  errorMsg = '';
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
+
   }
 
-  // Resetea el formulario
-  onResetForm(): void {
-    this.myForm.reset();
+  onRegister() {
+    this.usuario = new NuevoUsuario(this.form.nombre, this.form.apellidos, this.form.userName, this.form.email, this.form.password);
+    this.authService.registrar(this.usuario).subscribe(data => {
+      this.isRegister = true;
+      this.isRegisterFail = false;
+    },
+      (error: any) => {
+        console.log(error.error.mensaje);
+        this.errorMsg = error.error.mensaje;
+        this.isRegister = false;
+        this.isRegisterFail = true;
+      }
+    );
   }
 
-  // Cancelamos registo y redirigimos al Home "/"
-  onCancel():void{
-    this.dRef.close();
-  }
 }
