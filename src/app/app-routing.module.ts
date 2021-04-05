@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'registrar-usuario', component: RegistrarComponent },
 
   // Producto
-  { path: 'lista-producto', component: ListaProductoComponent },
+  { path: 'lista-producto', component: ListaProductoComponent},
   { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
   { path: 'nuevo-producto', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
   { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },

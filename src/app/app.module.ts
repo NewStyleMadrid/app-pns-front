@@ -21,6 +21,7 @@ import { ListaProductoComponent } from './components/producto/lista-producto/lis
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
+import { interceptorProvider } from './interceptors/producto-interceptor.service';
 
 
 // Externos
@@ -30,7 +31,7 @@ import { ToastrModule } from 'ngx-toastr';
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { interceptorProvider } from './interceptors/producto-interceptor.service';
+
 
 
 
@@ -89,7 +90,7 @@ import { interceptorProvider } from './interceptors/producto-interceptor.service
         ]
       } as SocialAuthServiceConfig,
     },
-    interceptorProvider
+    interceptorProvider // Interceptor de producto
   ],
   bootstrap: [AppComponent]
 })

@@ -19,6 +19,7 @@ export class MenuComponent implements OnInit {
   isLogged=false;
   loggedOut=false;
   userName = '';
+  isAdmin = false;
 
   constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router) { }
 
@@ -59,12 +60,15 @@ export class MenuComponent implements OnInit {
       this.roles = [];
       this.roles = this.tokenService.getAuthorities();
       this.userName=this.tokenService.getUserName();
+      this.isAdmin=true;
       this.roles.every(rol => {
         if (rol === 'ROLE_ADMIN') {
           this.authority = 'admin';
+          this.isAdmin=true;
           return false;
         }
         this.authority = 'user';
+        this.isAdmin=false;
         return true;
       });
     }else{
