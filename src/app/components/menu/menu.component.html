@@ -28,14 +28,23 @@
                     Productos
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" routerLink="/nuevo-producto"><i class="fas fa-plus-circle"></i> Nuevo producto</a>
+                        <a class="dropdown-item" *ngIf="isAdmin" routerLink="/nuevo-producto"><i class="fas fa-plus-circle"></i> Nuevo producto</a>
                         <a class="dropdown-item" routerLink="/lista-producto"><i class="fas fa-list"></i> Listar productos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown" *ngIf="isLogged && isAdmin">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Diseños
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/nuevo-diseño"><i class="fas fa-plus-circle"></i> Nuevo diseño</a>
+                        <a class="dropdown-item" routerLink="/lista-diseño"><i class="fas fa-list"></i> Listar diseños</a>
                     </div>
                 </li>
                 <li class="nav-item" *ngIf="isLogged"><a routerLink="/list/user" class="nav-link"><i class="fas fa-list"></i> Lista
                  de usuarios</a>
                 </li>
-                <li class="nav-item" *ngIf="isAdmin">
+                <li class="nav-item" *ngIf="isAdmin && isLogged">
                     <a routerLink="" class="nav-link">
                         <strong>ROL: </strong> {{authority | uppercase}} </a>
                 </li>

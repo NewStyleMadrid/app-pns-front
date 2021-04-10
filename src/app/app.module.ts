@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatDialogModule } from '@angular/material/dialog';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,7 +15,6 @@ import { MenuComponent } from './components/menu/menu.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrarComponent } from './auth/registrar/registrar.component';
 
-
 // Producto
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
@@ -23,18 +22,21 @@ import { EditarProductoComponent } from './components/producto/editar-producto/e
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { interceptorProvider } from './interceptors/producto-interceptor.service';
 
+// Diseño
+import { NuevoComponent } from './components/diseño/nuevo/nuevo.component';
+import { ListaComponent } from './components/diseño/lista/lista.component';
+import { DetalleComponent } from './components/diseño/detalle/detalle.component';
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-
-
-
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -46,15 +48,20 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     HomeComponent,
     MenuComponent,
 
+    // User
+    LoginComponent,
+    RegistrarComponent,
+
     // Producto
     ListaProductoComponent,
     NuevoProductoComponent,
     EditarProductoComponent,
     DetalleProductoComponent,
 
-    // User
-    LoginComponent,
-    RegistrarComponent,
+    // Diseño
+    NuevoComponent,
+    ListaComponent,
+    DetalleComponent,
 
   ],
   imports: [
@@ -69,7 +76,10 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     ToastrModule.forRoot(),
     MatInputModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule,
+    NgbModalModule,
+    NgxSpinnerModule
   ],
   providers: [
     {
@@ -92,6 +102,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
     },
     interceptorProvider // Interceptor de producto
   ],
+  entryComponents: [DetalleComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
