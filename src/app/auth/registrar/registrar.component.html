@@ -1,17 +1,67 @@
-<div *ngIf="isRegister; else noRegister">
-    Cuenta creada!!
-</div>
-
+<div *ngIf="isRegister; else noRegister"></div>
 <ng-template #noRegister>
     <div class="container">
-        <h3 class="mb-4">Registrarse</h3>
-        <form name="form" #f="ngForm" style="max-width: 250px;" (ngSubmit)="onRegister()" novalidate>
-
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input class="form-control" name="nombre" type="text" [(ngModel)]="form.nombre" #nombre="ngModel" autocomplete="off" required>
+        <div class="row">
+            <div class="col">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeRegistro()">
+                    <span aria-hidden="true">&#88;</span>
+                </button>
             </div>
+        </div>
+        <div class="card mb-4">
+            <h3 class="card-header text-center">REGISTRARSE</h3>
+            <div class="card-body">
+                <form name="form" #f="ngForm" style="max-width: 580px;" (ngSubmit)="onRegister()" novalidate>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <mat-form-field>
+                                <mat-label for="nombre">Nombre</mat-label>
+                                <input matInput name="nombre" [(ngModel)]="form.nombre" #nombre="ngModel" autocomplete="off" required>
+                            </mat-form-field>
+                        </div>
+                        <mat-form-field>
+                            <mat-label for="apellidos">Apellidos</mat-label>
+                            <input matInput name="apellidos" [(ngModel)]="form.apellidos" #apellidos="ngModel" autocomplete="off" required>
+                        </mat-form-field>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <mat-form-field>
+                                <mat-label for="userName">Usuario <i class="fas fa-user"></i></mat-label>
+                                <input matInput name="userName" [(ngModel)]="form.userName" #userName="ngModel" autocomplete="off" required>
+                            </mat-form-field>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <mat-form-field>
+                                <mat-label for="password">Contraseña <i class="fas fa-key"></i></mat-label>
+                                <input matInput type="key" name="password" [(ngModel)]="form.password" #password="ngModel" autocomplete="off" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-8">
+                            <mat-form-field>
+                                <mat-label for="email">Correo electrónico <i class="fas fa-envelope"></i></mat-label>
+                                <input matInput name="email" [(ngModel)]="form.email" #email="ngModel" autocomplete="off" required>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-dark mb-3">Registrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
+        <!--
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <mat-form-field appearance="fill">
+                        <mat-label for="nombre">Apellidos</mat-label>
+                        <input matInput name="nombre" [(ngModel)]="form.nombre" #nombre="ngModel" autocomplete="off" required>
+                    </mat-form-field>
+                </div>
+            </div>
             <div class="form-group">
                 <label for="nombre">Apellidos</label>
                 <input class="form-control" name="nombre" type="text" [(ngModel)]="form.apellidos" #nombre="ngModel" autocomplete="off" required>
@@ -30,10 +80,6 @@
             <div class="form-group">
                 <label for="password">Contraseña:</label>
                 <input class="form-control" type="password" name="password" [(ngModel)]="form.password" #password="ngModel" required>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary mb-3" [disabled]="!f.valid">Registrarse</button>
-            </div>
-        </form>
+            </div>-->
     </div>
 </ng-template>

@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/bootswatch/dist/materia/bootstrap.min.css";
+@font-face {
+    font-family: 'password';
+    font-style: normal;
+    font-weight: 400;
+    src: url(assets/fonts/password.ttf) format("opentype");
+}
+
 html,
 body {
     height: 100%;

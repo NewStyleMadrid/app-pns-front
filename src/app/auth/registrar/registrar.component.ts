@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
 import { AuthService } from 'src/app/service/auth.service';
-import { TokenService } from 'src/app/service/token.service';
+
 
 @Component({
   selector: 'app-registrar',
@@ -56,7 +54,7 @@ export class RegistrarComponent implements OnInit {
   isRegisterFail = false;
   errorMsg = '';
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,private dRef: MatDialogRef<HomeComponent>) { }
 
   ngOnInit() {
 
@@ -67,6 +65,7 @@ export class RegistrarComponent implements OnInit {
     this.authService.registrar(this.usuario).subscribe(data => {
       this.isRegister = true;
       this.isRegisterFail = false;
+      this.closeRegistro();
     },
       (error: any) => {
         console.log(error.error.mensaje);
@@ -77,4 +76,7 @@ export class RegistrarComponent implements OnInit {
     );
   }
 
+  closeRegistro():void{
+    this.dRef.close();
+  }
 }

@@ -47,3 +47,24 @@ input:focus {
     height: 50px;
     font-size: 20px;
 }
+
+input[type=key] {
+    font-family: 'password';
+    width: 100px;
+    height: 16px;
+}
+
+.example-h2 {
+    margin: 10px;
+}
+
+.example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+}
+
+.example-margin {
+    margin: 0 10px;
+}

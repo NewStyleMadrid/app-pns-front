@@ -37,7 +37,7 @@ export class NuevoComponent implements OnInit {
     this.imgService.upload(this.imagen).subscribe(
       data => {
         this.spinner.hide();
-        this.router.navigate(['/']);
+        this.router.navigate(['/lista-diseño']);
       },
       err => {
         alert(err.error.mensaje);

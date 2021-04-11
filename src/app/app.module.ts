@@ -32,6 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { ProgressBarModule } from "angular-progress-bar";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -79,7 +81,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatIconModule,
     NgbModule,
     NgbModalModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
