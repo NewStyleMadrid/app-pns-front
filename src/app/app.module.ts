@@ -39,6 +39,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +65,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NuevoComponent,
     ListaComponent,
     DetalleComponent,
+    QuienessomosComponent,
 
   ],
   imports: [
