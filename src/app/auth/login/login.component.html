@@ -12,16 +12,16 @@
         <div class="modal-body justify-content-center">
             <form #f="ngForm" name="form" (ngSubmit)="onLogin()" novalidate>
                 <mat-form-field class="inputLogin-full-width" appearance="outline">
-                    <mat-label for="userName">Usuario o Email</mat-label>
-                    <input matInput name="userName" id="userName" [(ngModel)]="form.userName" placeholder="Usuario o Email" autocomplete="off" required>
-                    <mat-icon matSuffix>email</mat-icon>
+                    <mat-label for="userName">Usuario</mat-label>
+                    <input matInput name="userName" id="userName" [(ngModel)]="form.userName" placeholder="Usuario" autocomplete="off" required>
+                    <mat-icon matSuffix>account_circle</mat-icon>
                 </mat-form-field>
                 <mat-form-field class="inputLogin-full-width" appearance="outline">
                     <mat-label for="password">Contraseña</mat-label>
                     <input matInput type="key" name="password" id="password" [(ngModel)]="form.password" placeholder="Contraseña" autocomplete="off" required>
                     <mat-icon matSuffix>https</mat-icon>
                 </mat-form-field>
-                <div *ngIf="f.submitted && isLoginFail" class="alert alert-danger text-center">{{ errorMsg }} Verificar campos!</div>
+                <div *ngIf="f.submitted && isLoginFail;" class="alert alert-danger text-center">{{ errorMsg }}</div>
                 <div class="input-group form-group">
                     <button type="submit" class="btn btn-outline-danger form-control"><i class="fab fa-google"></i> Iniciar con Google</button>
                 </div>

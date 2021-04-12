@@ -43,12 +43,12 @@ export class LoginComponent implements OnInit {
       this.isLogged = true;
       this.isLoginFail = false;
       this.roles = this.tokenService.getAuthorities();
-      
       window.location.reload();
     },
       (err: any) => {
         this.isLogged = false;
         this.isLoginFail = true;
+        this.errorMsg="Campos obligatorios.";
         this.errorMsg = err.error.message;
       }
     );
