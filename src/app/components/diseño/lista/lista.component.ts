@@ -3,6 +3,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
+import { TokenService } from 'src/app/service/token.service';
 import { DetalleComponent } from '../detalle/detalle.component';
 
 @Component({
@@ -13,13 +14,16 @@ import { DetalleComponent } from '../detalle/detalle.component';
 export class ListaComponent implements OnInit {
 
   imagenes: Imagen[] = [];
+  roles: string[];
+  isAdmin = false;
 
   constructor(
     private imgService: ImagenService,
     private spinner: NgxSpinnerService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private tokenService: TokenService
     ) { }
-
+/*
   ngOnInit() {
    this.cargarImagenes();
   }
@@ -30,6 +34,25 @@ export class ListaComponent implements OnInit {
         this.imagenes = data;
       }
     );
+  }*/
+  ngOnInit() {
+    this.cargarImagen();
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+  }
+
+  cargarImagen(): void {
+    this.imgService.lista().subscribe(data => {
+      this.imagenes=data;
+    },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 
   borrar(id: number): void {
@@ -37,7 +60,7 @@ export class ListaComponent implements OnInit {
     this.imgService.delete(id).subscribe(
       data => {
         this.spinner.hide();
-        this.cargarImagenes();
+        this.cargarImagen();
       },
       err => {
         this.spinner.hide();
@@ -46,9 +69,9 @@ export class ListaComponent implements OnInit {
     );
   }
 
-  abrirModal(i: number): void {
+  abrirModal(modal: number): void {
     const modalRef = this.modalService.open(DetalleComponent);
-    modalRef.componentInstance.index = i;
+    modalRef.componentInstance.index = modal;
   }
 
 }
