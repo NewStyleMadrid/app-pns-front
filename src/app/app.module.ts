@@ -8,7 +8,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
+// Home
 import { HomeComponent } from './components/home/home.component';
+
+// Menu
 import { MenuComponent } from './components/menu/menu.component';
 
 // Login
@@ -20,7 +24,7 @@ import { ListaProductoComponent } from './components/producto/lista-producto/lis
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
-import { interceptorProvider } from './interceptors/producto-interceptor.service';
+import { interceptorProvider } from './interceptors/producto-interceptor.service'; // Interceptor 
 
 // Diseño
 import { NuevoComponent } from './components/diseño/nuevo/nuevo.component';
@@ -33,14 +37,18 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ProgressBarModule } from "angular-progress-bar";
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+// Quienes somos
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 
+// Footer
+import { FooterComponent } from './components/footer/footer.component';
 @NgModule({
   declarations: [
 
@@ -49,6 +57,8 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
 
     // Home
     HomeComponent,
+
+    // Menu
     MenuComponent,
 
     // User
@@ -65,7 +75,12 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
     NuevoComponent,
     ListaComponent,
     DetalleComponent,
+
+    // Quienes somos
     QuienessomosComponent,
+
+    // Footer
+    FooterComponent,
 
   ],
   imports: [
