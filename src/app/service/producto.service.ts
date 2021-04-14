@@ -1,18 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Producto } from '../models/producto';
 
-const cabecera = {headers: new HttpHeaders({'Content-TYpe': 'application/json'})};
+const cabecera = { headers: new HttpHeaders({ 'Content-TYpe': 'application/json' }) };
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
 
-
-  productoURL = 'http://localhost:8080/producto/';
- 
+  productoURL = environment.productoURL;
 
   constructor(private httpClient: HttpClient) { }
 

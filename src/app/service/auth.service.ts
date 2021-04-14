@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { JwtModel } from '../models/jwt-model';
 import { LoginUsuario } from '../models/login-usuario';
 import { NuevoUsuario } from '../models/nuevo-usuario';
@@ -12,7 +13,7 @@ const cabecera = { headers: new HttpHeaders({ 'Content-Type': 'application/json'
 })
 export class AuthService {
 
-  private authURL = 'http://localhost:8080/auth/'
+  authURL = environment.authURL;
 
   constructor(private httpClient: HttpClient) { }
 
