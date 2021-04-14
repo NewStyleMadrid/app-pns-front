@@ -14,7 +14,6 @@ import { DetalleComponent } from '../detalle/detalle.component';
 export class ListaComponent implements OnInit {
 
   imagenes: Imagen[] = [];
-  roles: string[];
   isAdmin = false;
 
   constructor(
@@ -37,12 +36,7 @@ export class ListaComponent implements OnInit {
   }*/
   ngOnInit() {
     this.cargarImagen();
-    this.roles = this.tokenService.getAuthorities();
-    this.roles.forEach(rol => {
-      if (rol === 'ROLE_ADMIN') {
-        this.isAdmin = true;
-      }
-    });
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   cargarImagen(): void {

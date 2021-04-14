@@ -13,10 +13,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class MenuComponent implements OnInit {
 
-
-  roles: string[];
-  authority: string;
-  isLogged=false;
+  isLogged = false;
   loggedOut=false;
   userName = '';
   isAdmin = false;
@@ -56,21 +53,9 @@ export class MenuComponent implements OnInit {
     }
     */
     if (this.tokenService.getToken()) {
-      this.isLogged = true;
-      this.roles = [];
-      this.roles = this.tokenService.getAuthorities();
+      this.isLogged = this.tokenService.isLogged();
+      this.isAdmin = this.tokenService.isAdmin();
       this.userName=this.tokenService.getUserName();
-      this.isAdmin=true;
-      this.roles.every(rol => {
-        if (rol === 'ROLE_ADMIN') {
-          this.authority = 'admin';
-          this.isAdmin=true;
-          return false;
-        }
-        this.authority = 'user';
-        this.isAdmin=false;
-        return true;
-      });
     }else{
       //this.isLogged = false;
       this.userName='';
@@ -81,8 +66,6 @@ export class MenuComponent implements OnInit {
   onLogout(): void {
    this.tokenService.logOut();
     this.isLogged = false;
-    this.authority = '';
-    this.router.navigate(['home']);
+    this.router.navigate(['/']);
   }
-
 }

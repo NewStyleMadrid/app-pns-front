@@ -11,6 +11,7 @@ import { EditarProductoComponent } from './components/producto/editar-producto/e
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { GuardService as guard } from './guards/guard.service';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
 
@@ -18,8 +19,8 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
 
   // Usuario
-  { path: 'login', component: LoginComponent },
-  { path: 'registrar-usuario', component: RegistrarComponent },
+  { path: 'login', component: LoginComponent,canActivate: [LoginGuard] },
+  { path: 'registrar-usuario', component: RegistrarComponent,canActivate: [LoginGuard]  },
 
   // Producto
   { path: 'lista-producto', component: ListaProductoComponent },
