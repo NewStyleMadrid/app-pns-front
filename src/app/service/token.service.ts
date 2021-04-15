@@ -57,6 +57,7 @@ export class TokenService {
 
   public logOut(): void {
     window.localStorage.clear();
-    this.router.navigate(['/login']);
+    //window.location.reload();
+    this.router.navigate(['home']);
   }
 }

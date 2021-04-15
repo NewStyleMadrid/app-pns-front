@@ -24,4 +24,8 @@ export class AuthService {
   public registrar(usuario: NuevoUsuario): Observable<any> {
     return this.httpClient.post<any>(this.authURL + 'registrar', usuario, cabecera);
   }
+
+  public refresh(jwt: JwtModel): Observable<JwtModel> {
+    return this.httpClient.post<JwtModel>(this.authURL + 'refresh', jwt, cabecera);
+  }
 }
