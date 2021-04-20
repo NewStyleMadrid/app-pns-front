@@ -19,7 +19,7 @@
                 <input matInput type="key" name="password" id="password" [(ngModel)]="form.password" placeholder="Contraseña" autocomplete="off" required>
                 <mat-icon matSuffix>https</mat-icon>
             </mat-form-field>
-            <div *ngIf="f.submitted && isLoginFail;" class="alert alert-danger text-center">{{ errorMsg }}</div>
+            <div *ngIf="f.submitted && isLoginFail;" class="alert alert-danger text-center">{{ errorMsg }}Campos obligatorios!</div>
             <div class="input-group form-group">
                 <button type="submit" class="btn btn-outline-danger form-control"><i class="fab fa-google"></i> Iniciar con Google</button>
             </div>

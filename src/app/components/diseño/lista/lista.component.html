@@ -1,26 +1,33 @@
 <app-menu></app-menu>
-<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
+<ngx-spinner *ngIf="isAdmin" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
     <p style="color: white"> Eliminado imagen... </p>
 </ngx-spinner>
+<ngx-spinner *ngIf="logOut" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
+    <p style="color: white"> Cargando imagen... </p>
+</ngx-spinner>
 <div class="row">
-    <div class="col-md-4" *ngFor="let imagen of imagenes; index as i">
+    <div class="col-md-4" *ngFor="let imagen of imagenes |paginate: { itemsPerPage: 6, currentPage: paginaActual }; index as i">
         <div class="card mb-3 animated zoomIn">
-            <h3 class="card-header">{{imagen.name}}</h3>
+            <h3 class="card-header" *ngIf="isAdmin">{{imagen.name}}</h3>
             <div class="card-body">
-                <h5 class="card-title"><b>ID: </b>{{imagen.imagenId}}</h5>
+                <h5 class="card-title" *ngIf="isAdmin"><b>ID: </b>{{imagen.imagenId}}</h5>
             </div>
             <div class="card-body text-center">
-                <img style="height: 300px; width: 80%; display: block;" src="{{imagen.imagenUrl}}" alt="Card image">
+                <img style="height: 300px; width: 80%; display: block;;" src="{{imagen.imagenUrl}}" alt="Card image">
             </div>
-
             <div class="card-body d-flex justify-content-between">
                 <button class="btn btn-outline-primary" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="far fa-eye"></i> Ver</button>
                 <button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i> Borrar</button>
             </div>
             <div class="card-footer text-center">
-                &copy; New Style
+                &copy; Peluquería New Style
             </div>
         </div>
 
+    </div>
+</div>
+<div class="row">
+    <div class="mx-auto">
+        <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
     </div>
 </div>

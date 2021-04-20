@@ -24,7 +24,7 @@ export class MenuComponent implements OnInit {
   dialogLogin(): void {
     const dialogRef = this.uDialog.open(LoginComponent, {
       width: '530px',
-      height: '597px'
+      height: '610px'
     });
     console.log("Dialogo login abierto.");
     dialogRef.afterClosed().subscribe(result => {
@@ -36,7 +36,7 @@ export class MenuComponent implements OnInit {
   dialogRegistrar(): void {
     const dialogRef = this.uDialog.open(RegistrarComponent, {
       width: '750px',
-      height: '450px'
+      height: '460px'
     });
     console.log("Dialogo registro abierto.");
     dialogRef.afterClosed().subscribe(result => {

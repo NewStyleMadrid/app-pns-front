@@ -1,10 +1,28 @@
+.row {
+    padding-top: 2em;
+    padding-left: 2em;
+}
+
 .card {
     width: 450px;
     height: 550px;
 }
 
 img {
-    height: 380px;
-    width: 50%;
-    display: block;
+    padding-left: 5em;
+}
+
+.card-body {
+    margin-top: -20px;
+}
+
+
+/* Paginación Diseño*/
+
+.my-pagination /deep/ .ngx-pagination {
+    padding-top: 3em;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #292b2c;
 }

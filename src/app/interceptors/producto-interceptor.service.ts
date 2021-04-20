@@ -26,10 +26,11 @@ export class ProductoInterceptorService implements HttpInterceptor {
 
     autReq = this.addToken(req, token);
   
+    /*
     if (token != null) {
       autReq = this.addToken(req, token);
     }
-    
+    */
     return next.handle(autReq).pipe(catchError((err:HttpErrorResponse)=>{
        if(err.status===401){
         this.tokenService.logOut();

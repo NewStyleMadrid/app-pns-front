@@ -26,7 +26,7 @@ export class EditarProductoComponent implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
     this.productoService.detalle(id).subscribe( data => {
-      this.form.nombreProducto = data.nombreProducto;
+      this.form.nombre = data.nombre;
       this.form.precio = data.precio;
     },
       (err: any) => {

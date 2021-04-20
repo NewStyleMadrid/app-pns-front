@@ -15,6 +15,8 @@ export class ListaComponent implements OnInit {
 
   imagenes: Imagen[] = [];
   isAdmin = false;
+  logOut=false;
+  paginaActual:number= 0;
 
   constructor(
     private imgService: ImagenService,
@@ -40,7 +42,10 @@ export class ListaComponent implements OnInit {
   }
 
   cargarImagen(): void {
+    this.spinner.show();
+    this.logOut=true;
     this.imgService.lista().subscribe(data => {
+      this.spinner.hide();
       this.imagenes=data;
     },
       (err: any) => {

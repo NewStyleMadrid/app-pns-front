@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
+
 // Home
 import { HomeComponent } from './components/home/home.component';
 
@@ -39,6 +40,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ProgressBarModule } from "angular-progress-bar";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -100,7 +102,8 @@ import { FooterComponent } from './components/footer/footer.component';
     NgbModalModule,
     NgxSpinnerModule,
     ProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    NgxPaginationModule
   ],
   providers: [
     {
