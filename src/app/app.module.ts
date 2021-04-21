@@ -25,7 +25,7 @@ import { ListaProductoComponent } from './components/producto/lista-producto/lis
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
-import { interceptorProvider } from './interceptors/producto-interceptor.service'; // Interceptor 
+import { interceptorProvider } from './interceptors/producto-interceptor.service'; // Interceptor
 
 // Diseño
 import { NuevoComponent } from './components/diseño/nuevo/nuevo.component';

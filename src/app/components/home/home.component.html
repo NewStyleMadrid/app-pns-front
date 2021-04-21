@@ -2,7 +2,19 @@
 <div class="jumbotron">
     <div class="container text-center">
         <h1>Galería de imágen HOME</h1>
-        <p>Aquí irán las imágenes de la peluquria</p>
+        <p><!--https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
+          <ngb-carousel>
+            <ng-template *ngFor="let imgHome of imgsHome" ngbSlide>
+              <div class="picsum-img-wrapper">
+                <img src="{{imgHome.img}}" alt="Random first slide">
+              </div>
+              <div class="carousel-caption">
+                <h3>{{imgHome.name}}</h3>
+                <p>{{imgHome.desc}}</p>
+              </div>
+            </ng-template>
+          </ngb-carousel>
+        </p>
     </div>
 </div>
 
