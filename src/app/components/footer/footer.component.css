@@ -1,9 +1,9 @@
 /****************** FOOTER ******************/
 
 footer {
-    background: #292b2c;
-    background: -webkit-linear-gradient(59deg, rgb(129, 129, 129), #292b2c);
-    background: linear-gradient(59deg, rgb(129, 129, 129), #292b2c);
+    background: black;
+    background: -webkit-linear-gradient(59deg, rgb(49, 49, 49), black);
+    background: linear-gradient(59deg, rgb(49, 49, 49), black);
     margin-top: 20px;
 }
 
