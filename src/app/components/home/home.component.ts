@@ -12,9 +12,9 @@ export class HomeComponent implements OnInit {
   info: any = {};
 
   imgsHome:any[]=[
-    {name:'Frozen 2',
-    img:'assets/pelu02.jpg',
-    desc:'Elsa, Anna, Kristoff and Olaf head far into the forest to learn the truth about an ancient mystery of their kingdom.'},
+    {name:'',
+    img:'assets/pelu03.jpg',
+    desc:''},
     {
       name:'The Irishman',
       img:'assets/pelu01.jpg',
