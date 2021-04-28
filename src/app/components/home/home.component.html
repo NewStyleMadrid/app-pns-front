@@ -1,21 +1,20 @@
 <app-menu></app-menu>
-<div class="jumbotron">
-    <div class="container text-center">
-        <h1>Galería de imágen HOME</h1>
-        <p><!--https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
-          <ngb-carousel>
+
+<div class="galeria text-center">
+    <p>
+        <!--https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
+        <ngb-carousel>
             <ng-template *ngFor="let imgHome of imgsHome" ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img src="{{imgHome.img}}" alt="Random first slide">
-              </div>
-              <div class="carousel-caption">
-                <h3>{{imgHome.name}}</h3>
-                <p>{{imgHome.desc}}</p>
-              </div>
+                <div class="picsum-img-wrapper">
+                    <img src="{{imgHome.img}}" alt="Random first slide">
+                </div>
+                <div class="carousel-caption">
+                    <h3>{{imgHome.name}}</h3>
+                    <p>{{imgHome.desc}}</p>
+                </div>
             </ng-template>
-          </ngb-carousel>
-        </p>
-    </div>
+        </ngb-carousel>
+    </p>
 </div>
 
 <div class="container-fluid bg-3 text-center">
