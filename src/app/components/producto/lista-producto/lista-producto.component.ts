@@ -43,58 +43,13 @@ export class ListaProductoComponent implements OnInit {
   cargarProductos(): void {
     this.productoService.lista().subscribe(data => {
       this.productos = data;
-      console.log(data);
     },
       (err: any) => {
         console.log(err);
       }
     );
   }
-  /*
-  cargarProductos() {
-    this.productoService.productos(this.page, this.size, this.order, this.asc).subscribe(
-      data => {
-        this.productos = data.content;
-        this.isFirst = data.first;
-        this.isLast = data.last;
-        this.totalPages = new Array(data.totalPages);
-        //console.log(data);
-      },
-      err => {
-        console.log(err.error);
-      }
-    );
-  }
-
-  sort(): void {
-    this.asc = !this.asc;
-    this.cargarProductos();
-  }
-
-  rewind(): void {
-    if (!this.isFirst) {
-      this.page--;
-      this.cargarProductos();
-    }
-  }
-
-  forward(): void {
-    if (!this.isLast) {
-      this.page++;
-      this.cargarProductos();
-    }
-  }
-
-  setPage(page: number): void {
-    this.page = page;
-    this.cargarProductos();
-  }
-
-  setOrder(order: string): void {
-    this.order = order;
-    this.cargarProductos();
-  }
-  */
+  
   borrar(id: number) {
     this.productoService.borrar(id).subscribe(
       data => {
@@ -104,7 +59,7 @@ export class ListaProductoComponent implements OnInit {
         this.cargarProductos();
       },
       err => {
-        this.toastr.error(err.error.mensaje, ' ', {
+        this.toastr.error(err.error.mensaje, 'Erro al eliminar', {
           timeOut: 2000, positionClass: 'toast-top-center',
         });
       }

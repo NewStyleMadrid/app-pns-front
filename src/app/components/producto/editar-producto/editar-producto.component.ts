@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/service/producto.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { ProductoService } from 'src/app/service/producto.service';
 })
 export class EditarProductoComponent implements OnInit {
 
+  producto: Producto = null;
   form: any = {};
   actualizado = false;
   failActualizado = false;
@@ -38,7 +40,7 @@ export class EditarProductoComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params.id;
-    this.productoService.editar(this.form, id).subscribe(
+    this.productoService.actualizar(id, this.form).subscribe(
       data => {
         this.toastr.success('Producto actualizado!', '', {
           timeOut: 3000, positionClass: 'toast-top-center'
@@ -46,10 +48,10 @@ export class EditarProductoComponent implements OnInit {
         this.router.navigate(['/lista-producto']);
       },
       err => {
-        this.toastr.error(err.error.mensaje, ' ', {
+        this.toastr.error(err.error.mensaje, 'Error al actualizar!', {
           timeOut: 3000,  positionClass: 'toast-top-center',
         });
-        // this.router.navigate(['/']);
+        this.router.navigate(['/']);
       }
     );
   }

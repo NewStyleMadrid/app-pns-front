@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     {
       name: '',
       img: 'assets/pelu01.jpg',
-      desc: ''
+      desc: 'sajnñfjnsfñsnkfFL'
     },
     {
       name: '',

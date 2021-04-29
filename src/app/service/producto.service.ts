@@ -29,12 +29,12 @@ export class ProductoService {
     return this.httpClient.post<any>(this.prodURL + 'nuevo', producto, cabecera);
   }
 
-  public editar(producto: Producto, id: number): Observable<any> {
-    return this.httpClient.put<any>(this.prodURL + `actualizar/${id}`, producto, cabecera);
+  public actualizar(id: number, producto: Producto): Observable<any> {
+    return this.httpClient.put<any>(this.prodURL + `actualizar/${id}`, producto);
   }
 
   public borrar(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.prodURL + `borrar/${id}`, cabecera);
+    return this.httpClient.delete<any>(this.prodURL + `borrar/${id}`);
   }
  /*
   public productos(page: number, size: number, order: string, asc: boolean): Observable<any> {

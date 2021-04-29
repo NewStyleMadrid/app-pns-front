@@ -10,6 +10,9 @@
     color: black
 }
 
+
+/* Estilo Navbar */
+
 .formato {
     display: flex;
     list-style: none;
@@ -41,6 +44,7 @@
     width: 0%;
     background-color: white;
     position: absolute;
+    -webkit-transition: all ease-in-out 250ms;
     transition: all ease-in-out 250ms;
     margin: 0 0 0 10%;
 }
@@ -48,3 +52,6 @@
 .formato li a:hover::before {
     width: 80%;
 }
+
+
+/* Fin de estilo Navbar */

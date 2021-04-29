@@ -10,7 +10,7 @@ import { DetalleProductoComponent } from './components/producto/detalle-producto
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
-import { GuardService as guard } from './guards/guard.service';
+import { GuardService  } from './guards/guard.service';
 import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
@@ -24,12 +24,12 @@ const routes: Routes = [
 
   // Producto
   { path: 'lista-producto', component: ListaProductoComponent },
-  { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [guard], data: { expectedRol: ['admin', 'user'] } },
-  { path: 'nuevo-producto', component: NuevoProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
-  { path: 'editar/:id', component: EditarProductoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+  { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'nuevo-producto', component: NuevoProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'editar/:id', component: EditarProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
 
   // Diseño
-  { path: 'nuevo-diseño', component: NuevoComponent, canActivate: [guard], data: { expectedRol: ['admin'] } },
+  { path: 'nuevo-diseño', component: NuevoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
   { path: 'lista-diseño', component: ListaComponent },
   { path: 'detalle/:id', component: DetalleComponent },
 
