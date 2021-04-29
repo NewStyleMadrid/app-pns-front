@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
@@ -35,7 +36,8 @@ export class RegistrarComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService,
-    private dRef: MatDialogRef<HomeComponent>
+    private dRef: MatDialogRef<HomeComponent>,
+    private spinner: NgxSpinnerService
   ) { this.myForm = this.createForm(); }
 
   ngOnInit() {
@@ -55,9 +57,11 @@ export class RegistrarComponent implements OnInit {
 
   onRegister(): void {
     if (this.myForm.valid) {
+      this.spinner.show();
       this.usuario = new NuevoUsuario(this.nombre.value, this.apellidos.value, this.userName.value, this.email.value, this.password.value);
       this.authService.registrar(this.usuario).subscribe(
         data => {
+          this.spinner.hide();
           this.isRegister = true;
           this.isRegisterFail = false;
           this.closeRegistro();
@@ -67,6 +71,7 @@ export class RegistrarComponent implements OnInit {
           this.router.navigate(['/']); // Me lleva al home principal
         },
         err => {
+          this.spinner.hide();
           this.errMsj = err.error.mensaje;
           this.toastr.error(this.errMsj, ' ', {
             timeOut: 3000, positionClass: 'toast-top-center',
@@ -79,7 +84,7 @@ export class RegistrarComponent implements OnInit {
   closeRegistro(): void {
     this.dRef.close();
   }
-  
+
   /*
     form: any = {};
     private usuario: any = {};
