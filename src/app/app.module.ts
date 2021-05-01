@@ -9,16 +9,17 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-
 // Home
 import { HomeComponent } from './components/home/home.component';
 
 // Menu
 import { MenuComponent } from './components/menu/menu.component';
 
-// Login
+// Login - Usuario
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrarComponent } from './auth/registrar/registrar.component';
+import { ListaUsuarioComponent } from './auth/lista-usuario/lista-usuario.component';
+import { EditarUsuarioComponent } from './auth/editar-usuario/editar-usuario.component';
 
 // Producto
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
@@ -28,9 +29,9 @@ import { DetalleProductoComponent } from './components/producto/detalle-producto
 import { interceptorProvider } from './interceptors/producto-interceptor.service'; // Interceptor
 
 // Diseño
-import { NuevoComponent } from './components/diseño/nuevo/nuevo.component';
-import { ListaComponent } from './components/diseño/lista/lista.component';
-import { DetalleComponent } from './components/diseño/detalle/detalle.component';
+import { DetalleCorteComponent } from './components/corte/detalle-corte/detalle-corte.component';
+import { NuevoCorteComponent } from './components/corte/nuevo-corte/nuevo-corte.component';
+import { ListaCorteComponent } from './components/corte/lista-corte/lista-corte.component';
 
 // Externos
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -51,6 +52,8 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
 
 // Footer
 import { FooterComponent } from './components/footer/footer.component';
+
+
 @NgModule({
   declarations: [
 
@@ -66,6 +69,8 @@ import { FooterComponent } from './components/footer/footer.component';
     // User
     LoginComponent,
     RegistrarComponent,
+    ListaUsuarioComponent,
+    EditarUsuarioComponent,
 
     // Producto
     ListaProductoComponent,
@@ -74,15 +79,18 @@ import { FooterComponent } from './components/footer/footer.component';
     DetalleProductoComponent,
 
     // Diseño
-    NuevoComponent,
-    ListaComponent,
-    DetalleComponent,
+    DetalleCorteComponent,
+    NuevoCorteComponent,
+    ListaCorteComponent,
+
 
     // Quienes somos
     QuienessomosComponent,
 
     // Footer
     FooterComponent,
+
+
 
   ],
   imports: [
@@ -126,7 +134,7 @@ import { FooterComponent } from './components/footer/footer.component';
     },
     interceptorProvider // Interceptor de producto
   ],
-  entryComponents: [DetalleComponent],
+  entryComponents: [DetalleCorteComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

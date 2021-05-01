@@ -2,9 +2,6 @@
 <ngx-spinner *ngIf="isAdmin" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
     <p style="color: white"> Eliminado imagen... </p>
 </ngx-spinner>
-<ngx-spinner *ngIf="logOut" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
-    <p style="color: white"> Cargando imagen... </p>
-</ngx-spinner>
 <div class="row">
     <div class="col-md-4" *ngFor="let imagen of imagenes |paginate: { itemsPerPage: 6, currentPage: paginaActual }; index as i">
         <div class="card mb-3 animated zoomIn">
@@ -26,8 +23,6 @@
 
     </div>
 </div>
-<div class="row">
-    <div class="mx-auto">
-        <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
-    </div>
+<div class="paginacion">
+    <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
 </div>

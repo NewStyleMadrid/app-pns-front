@@ -20,14 +20,6 @@ export class ListaProductoComponent implements OnInit {
 
   totalPages: Array<number>;
 
-  page = 0;
-  size = 8;
-  order = 'id';
-  asc = true;
-
-  isFirst = false;
-  isLast = false;
-
   constructor(
     private productoService: ProductoService, 
     private toastr: ToastrService, 

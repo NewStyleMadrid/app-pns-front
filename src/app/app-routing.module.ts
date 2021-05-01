@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditarUsuarioComponent } from './auth/editar-usuario/editar-usuario.component';
+import { ListaUsuarioComponent } from './auth/lista-usuario/lista-usuario.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegistrarComponent } from './auth/registrar/registrar.component';
-import { DetalleComponent } from './components/diseño/detalle/detalle.component';
-import { ListaComponent } from './components/diseño/lista/lista.component';
-import { NuevoComponent } from './components/diseño/nuevo/nuevo.component';
+import { DetalleCorteComponent } from './components/corte/detalle-corte/detalle-corte.component';
+import { ListaCorteComponent } from './components/corte/lista-corte/lista-corte.component';
+import { NuevoCorteComponent } from './components/corte/nuevo-corte/nuevo-corte.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
@@ -21,17 +23,19 @@ const routes: Routes = [
   // Usuario
   { path: 'login', component: LoginComponent,canActivate: [LoginGuard] },
   { path: 'registrar-usuario', component: RegistrarComponent,canActivate: [LoginGuard]  },
+  { path: 'lista-usuarios', component: ListaUsuarioComponent,canActivate: [GuardService], data: { expectedRol: ['admin'] }},
+  { path: 'editar-usuario/:id', component: EditarUsuarioComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
 
   // Producto
-  { path: 'lista-producto', component: ListaProductoComponent },
+  { path: 'lista-productos', component: ListaProductoComponent },
   { path: 'detalle/:id', component: DetalleProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
   { path: 'nuevo-producto', component: NuevoProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
-  { path: 'editar/:id', component: EditarProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'editar-producto/:id', component: EditarProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
 
   // Diseño
-  { path: 'nuevo-diseño', component: NuevoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
-  { path: 'lista-diseño', component: ListaComponent },
-  { path: 'detalle/:id', component: DetalleComponent },
+  { path: 'nuevo-diseño', component: NuevoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'lista-diseños', component: ListaCorteComponent },
+  { path: 'detalle-diseño/:id', component: DetalleCorteComponent },
 
   // Siempre debe ir al final
   { path: '**', redirectTo: '', pathMatch: 'full' }

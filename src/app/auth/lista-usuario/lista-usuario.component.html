@@ -1,0 +1,32 @@
+<app-menu></app-menu>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Id <i class="fas fa-sort"></i></th>
+            <th scope="col">Nombre <i class="fas fa-sort"></i></th>
+            <th scope="col">Apellidos <i class="fas fa-sort"></i></th>
+            <th scope="col">Correo <i class="fas fa-sort"></i></th>
+            <th scope="col">Usuario <i class="fas fa-sort"></i></th>
+            <th scope="col">Contraseña <i class="fas fa-sort"></i></th>
+            <th *ngIf="isAdmin" scope="col">Ver</th>
+            <th scope="col" *ngIf="isAdmin">Editar</th>
+            <th scope="col" *ngIf="isAdmin">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let usuario of usuarios |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
+            <td>{{usuario.id}}</td>
+            <td>{{usuario.nombre}}</td>
+            <td>{{usuario.apellidos}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.userName}}</td>
+            <td>{{usuario.password}}</td>
+            <td *ngIf="isAdmin"><button class="btn btn-outline-primary" routerLink="/detalle-usuario/{{usuario.id}}"><i class="far fa-eye"></i></button></td>
+            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-usuario/{{usuario.id}}"><i class="far fa-edit"></i></button></td>
+            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(usuario.id)"><i class="far fa-trash-alt"></i></button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="paginacion">
+    <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+</div>

@@ -20,10 +20,10 @@
                 <a routerLink="/">Home</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/lista-diseño">Diseños</a>
+                <a routerLink="/lista-diseños">Diseños</a>
             </li>
             <li class="nav-item">
-                <a routerLink="/lista-producto">Productos</a>
+                <a routerLink="/lista-productos">Productos</a>
             </li>
             <li class="nav-item">
                 <a href="#">Reservar cita</a>
@@ -38,12 +38,12 @@
                 Diseños
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/lista-diseño">Hombres</a>
+                    <a class="dropdown-item" routerLink="/lista-diseños">Hombres</a>
                     <a class="dropdown-item" href="#">Mujeres</a>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/lista-producto">Productos</a>
+                <a class="nav-link" routerLink="/lista-productos">Productos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Reservar cita</a>
@@ -60,7 +60,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" routerLink="/nuevo-producto"><i class="fas fa-plus-circle"></i> Nuevo producto</a>
-                        <a class="dropdown-item" routerLink="/lista-producto"><i class="fas fa-list"></i> Listar productos</a>
+                        <a class="dropdown-item" routerLink="/lista-productos"><i class="fas fa-list"></i> Listar productos</a>
                     </div>
                 </li>
                 <li class="nav-item dropdown" *ngIf="isLogged && isAdmin">
@@ -69,11 +69,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" routerLink="/nuevo-diseño"><i class="fas fa-plus-circle"></i> Nuevo diseño</a>
-                        <a class="dropdown-item" routerLink="/lista-diseño"><i class="fas fa-list"></i> Listar diseños</a>
+                        <a class="dropdown-item" routerLink="/lista-diseños"><i class="fas fa-list"></i> Listar diseños</a>
                     </div>
                 </li>
-                <li class="nav-item" *ngIf="isLogged && isAdmin"><a routerLink="/list/user" class="nav-link"><i class="fas fa-list"></i> Lista
-                 de usuarios</a>
+                <li class="nav-item" *ngIf="isLogged && isAdmin"><a routerLink="/lista-usuarios" class="nav-link"><i class="fas fa-users-cog"></i> Administrar usuarios</a>
                 </li>
                 <li class="nav-item dropdown" *ngIf="!isLogged">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

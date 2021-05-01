@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+<div class="container" *ngIf="form.nombre && !failInit">
+    <div class="row mt-5">
+        <div class="col-md-4 mx-auto">
+            <form (ngSubmit)="onUpdate()" name="form" #f="ngForm" novalidate>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="form.nombre" required>
+                </div>
+                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
+            </form>
+            <br>
+            <button class="btn btn-outline-primary btn-block" (click)="volver()">Volver</button>
+            <div *ngIf="failUsuario" class="form-group">
+                <p class="p-3 bg-danger text-white rounded">Error: {{mensajeFail}}</p>
+            </div>
+            <div *ngIf="creado" class="form-group text-center">
+                <p class="p-3 bg-success text-white rounded">OK: {{mensajeOK}}</p>
+            </div>
+        </div>
+    </div>
+</div>

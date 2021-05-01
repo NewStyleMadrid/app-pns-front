@@ -4,11 +4,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ImagenService } from 'src/app/service/imagen.service';
 
 @Component({
-  selector: 'app-nuevo',
-  templateUrl: './nuevo.component.html',
-  styleUrls: ['./nuevo.component.css']
+  selector: 'app-nuevo-corte',
+  templateUrl: './nuevo-corte.component.html',
+  styleUrls: ['./nuevo-corte.component.css']
 })
-export class NuevoComponent implements OnInit {
+export class NuevoCorteComponent implements OnInit {
 
   @ViewChild('imagenInputFile', {static: false}) imagenFile: ElementRef;
 
@@ -37,7 +37,7 @@ export class NuevoComponent implements OnInit {
     this.imgService.upload(this.imagen).subscribe(
       data => {
         this.spinner.hide();
-        this.router.navigate(['/lista-diseño']);
+        this.router.navigate(['/lista-diseños']);
       },
       err => {
         alert(err.error.mensaje);

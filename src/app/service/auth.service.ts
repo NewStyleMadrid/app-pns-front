@@ -25,6 +25,21 @@ export class AuthService {
     return this.httpClient.post<any>(this.authURL + 'registrar', usuario, cabecera);
   }
 
+  public lista(): Observable<NuevoUsuario[]> {
+    return this.httpClient.get<NuevoUsuario[]>(this.authURL + 'lista', cabecera);
+  }
+
+  public detalle(id: number): Observable<NuevoUsuario> {
+    return this.httpClient.get<NuevoUsuario>(this.authURL + `detalle/${id}`, cabecera);
+  }
+  public actualizar(id: number, usuario: NuevoUsuario): Observable<any> {
+    return this.httpClient.put<any>(this.authURL + `actualizar/${id}`, usuario);
+  }
+
+  public borrar(id: number): Observable<any> {
+    return this.httpClient.delete<any>(this.authURL + `borrar/${id}`);
+  }
+
   public refresh(jwt: JwtModel): Observable<JwtModel> {
     return this.httpClient.post<JwtModel>(this.authURL + 'refresh', jwt, cabecera);
   }
