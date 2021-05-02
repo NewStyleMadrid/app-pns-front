@@ -17,13 +17,14 @@ export class EditarProductoComponent implements OnInit {
   failActualizado = false;
   msjErr = '';
   msjOK = '';
-
   failInit = false;
 
-  constructor(private productoService: ProductoService,
+  constructor(
+    private productoService: ProductoService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;

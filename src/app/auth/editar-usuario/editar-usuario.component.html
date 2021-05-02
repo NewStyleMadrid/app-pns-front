@@ -1,22 +1,54 @@
 <app-menu></app-menu>
 <div class="container" *ngIf="form.nombre && !failInit">
-    <div class="row mt-5">
-        <div class="col-md-4 mx-auto">
-            <form (ngSubmit)="onUpdate()" name="form" #f="ngForm" novalidate>
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="form.nombre" required>
-                </div>
-                <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">Actualizar</button>
-            </form>
-            <br>
-            <button class="btn btn-outline-primary btn-block" (click)="volver()">Volver</button>
-            <div *ngIf="failUsuario" class="form-group">
-                <p class="p-3 bg-danger text-white rounded">Error: {{mensajeFail}}</p>
-            </div>
-            <div *ngIf="creado" class="form-group text-center">
-                <p class="p-3 bg-success text-white rounded">OK: {{mensajeOK}}</p>
-            </div>
+    <div class="card text-center">
+        <div class="card-header ">
+            <i class="fas fa-user-edit"></i> ACTUALIZAR USUARIO <i class="fas fa-user-edit"></i>
         </div>
+        <div class="card-body d-flex justify-content-center text-center mt-4">
+            <form (ngSubmit)="onUpdate()" style="max-width: 580px;" name="form" #f="ngForm" novalidate>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <mat-form-field>
+                            <mat-label>Nombre </mat-label>
+                            <input matInput id="nombre" name="nombre" [(ngModel)]="form.nombre">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <mat-form-field>
+                            <mat-label>Apellidos </mat-label>
+                            <input matInput id="apellidos" name="apellidos" [(ngModel)]="form.apellidos">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <mat-form-field>
+                            <mat-label>Usuario </mat-label>
+                            <input matInput id="userName" name="userName" [(ngModel)]="form.userName">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-1">
+                        <mat-form-field>
+                            <mat-label>Contraseña </mat-label>
+                            <input matInput id="password" name="password" [(ngModel)]="form.password">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <mat-form-field>
+                            <mat-label>Correo electrónico </mat-label>
+                            <input matInput id="email" name="email" [(ngModel)]="form.email">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-outline-success mt-2">Actualizar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer"><i class="fas fa-exclamation-triangle"></i> Datos privados. Haga buen uso de ellos. <i class="fas fa-exclamation-triangle"></i></div>
     </div>
 </div>

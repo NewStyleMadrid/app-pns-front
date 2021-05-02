@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { HomeComponent } from 'src/app/components/home/home.component';
 import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
 import { AuthService } from 'src/app/service/auth.service';
-import { TokenService } from 'src/app/service/token.service';
+
 
 
 @Component({
@@ -114,5 +114,5 @@ export class RegistrarComponent implements OnInit {
       );
     }
   */
-  
+
 }

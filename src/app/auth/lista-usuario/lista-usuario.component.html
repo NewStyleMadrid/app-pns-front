@@ -1,6 +1,6 @@
 <app-menu></app-menu>
-<table class="table table-hover table-dark">
-    <thead>
+<table class="table table-hover table-light">
+    <thead class=" table table-success">
         <tr>
             <th scope="col">Id <i class="fas fa-sort"></i></th>
             <th scope="col">Nombre <i class="fas fa-sort"></i></th>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let usuario of usuarios |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
-            <td>{{usuario.id}}</td>
+            <th>{{usuario.id}}</th>
             <td>{{usuario.nombre}}</td>
             <td>{{usuario.apellidos}}</td>
             <td>{{usuario.email}}</td>
