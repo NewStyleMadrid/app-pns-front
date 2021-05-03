@@ -42,6 +42,7 @@ import { ProgressBarModule } from "angular-progress-bar";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AgmCoreModule } from '@agm/core';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -53,6 +54,9 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
 // Footer
 import { FooterComponent } from './components/footer/footer.component';
 import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-to-top.component';
+import { CookiesComponent } from './components/shared/cookies/cookies.component';
+import { NgcCookieConsentModule } from 'ngx-cookieconsent';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -84,14 +88,15 @@ import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-t
     NuevoCorteComponent,
     ListaCorteComponent,
 
-
     // Quienes somos
     QuienessomosComponent,
 
     // Footer
     FooterComponent,
 
+    //ScrollTop y Cookies
     ScrollToTopComponent,
+    CookiesComponent,
 
 
 
@@ -106,6 +111,10 @@ import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-t
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    TranslateModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDEMLHU-oUH5hBjpoWfmmgQGjtw-KN_mjc'
+    }),
     MatInputModule,
     MatButtonModule,
     MatIconModule,
@@ -114,7 +123,8 @@ import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-t
     NgxSpinnerModule,
     ProgressBarModule,
     MatProgressSpinnerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NgcCookieConsentModule
   ],
   providers: [
     {

@@ -21,7 +21,7 @@
     <h3>Aquí se irá improvisando</h3><br>
     <div class="row">
         <div class="col-sm-3">
-            <p>Some text..</p>
+
         </div>
         <div class="col-sm-3">
             <p>Some text..</p>
@@ -33,19 +33,31 @@
             <p>Some text..</p>
         </div>
     </div>
-</div><br>
+    <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
+    <!--
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+        <agm-marker *ngFor=" let m of markers; let i=i ndex " (markerClick)="clickedMarker(m.label, i) " [latitude]="m.lat " [longitude]="m.lng " [label]="m.label " [markerDraggable]="m.draggable " (dragEnd)="markerDragEnd(m, $event) ">
+            <agm-info-window>
+                <strong>InfoWindow content</strong>
+            </agm-info-window>
+        </agm-marker>
+    </agm-map>
+    -->
 
-<div class="container-fluid bg-3 text-center">
-    <div class="row">
-        <div class="col-sm-3">
+</div><br>
+<div class="container-fluid bg-3 text-center ">
+    <div class="row ">
+        <div class="col-sm-3 ">
             <p>Some text..</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 ">
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 ">
             <p>Some text..</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-3 ">
             <p>Some text..</p>
         </div>
     </div>

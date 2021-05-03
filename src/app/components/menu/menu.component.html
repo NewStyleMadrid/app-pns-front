@@ -32,6 +32,35 @@
                 <a href="#">¿Quienes somos?</a>
             </li>
         </ul>
+        <ul *ngIf="isLogged ; else loggedOut" class="navbar-nav mr-auto formato">
+            <!--
+            <li class="nav-item dropdown diseño">
+                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Diseños
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" routerLink="/lista-diseño">Hombres</a>
+                    <a class="dropdown-item" href="#">Mujeres</a>
+                </div>
+            </li>
+            -->
+            <li class="nav-item">
+                <a routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/lista-diseños">Diseños</a>
+            </li>
+            <li class="nav-item">
+                <a routerLink="/lista-productos">Productos</a>
+            </li>
+            <li class="nav-item">
+                <a href="#">Reservar cita</a>
+            </li>
+            <li class="nav-item">
+                <a href="#">¿Quienes somos?</a>
+            </li>
+        </ul>
+        <!--
         <ul *ngIf="isLogged ; else loggedOut" class="navbar-nav mr-auto">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -52,6 +81,7 @@
                 <a class="nav-link" href="#">¿Quienes somos?</a>
             </li>
         </ul>
+        -->
         <ul class="navbar-nav ml-auto">
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
                 <li class="nav-item dropdown" *ngIf="isLogged && isAdmin">
