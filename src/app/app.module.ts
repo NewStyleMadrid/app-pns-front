@@ -52,6 +52,7 @@ import { QuienessomosComponent } from './components/quienessomos/quienessomos.co
 
 // Footer
 import { FooterComponent } from './components/footer/footer.component';
+import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-to-top.component';
 
 
 @NgModule({
@@ -89,6 +90,8 @@ import { FooterComponent } from './components/footer/footer.component';
 
     // Footer
     FooterComponent,
+
+    ScrollToTopComponent,
 
 
 

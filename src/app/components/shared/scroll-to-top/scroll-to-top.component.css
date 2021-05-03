@@ -1,0 +1,19 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 15px;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+    border: 2px solid white;
+}
+
+.show-scrollTop {
+    opacity: 1;
+    transition: all .2s ease-in-out;
+    background-color: black;
+}
+
+i {
+    color: white;
+    font-weight: bold;
+}
