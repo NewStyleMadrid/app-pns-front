@@ -8,3 +8,12 @@
     /* Posicionamiento */
     background-color: black;
 }
+
+#tituloImg {
+    font-weight: bold;
+}
+
+#descripcion {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+}

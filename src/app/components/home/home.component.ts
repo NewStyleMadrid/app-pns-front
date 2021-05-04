@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
       nombreUsuario: this.tokenService.getUserName(),
     };
   }
-  
+
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
@@ -70,7 +70,7 @@ export class HomeComponent implements OnInit {
   ]
 }
 
-// just an interface for type safety.
+// Interfaz para la seguridad.
 interface marker {
   lat: number;
   lng: number;
