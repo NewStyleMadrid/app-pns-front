@@ -113,7 +113,7 @@ import { TranslateModule } from '@ngx-translate/core';
     ToastrModule.forRoot(),
     TranslateModule.forRoot(),
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDEMLHU-oUH5hBjpoWfmmgQGjtw-KN_mjc'
+      apiKey: 'AIzaSyDEryWkr8fI73pFVJQJoIfl9bvqglWmgfQ'
     }),
     MatInputModule,
     MatButtonModule,

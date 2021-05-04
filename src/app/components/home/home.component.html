@@ -1,5 +1,4 @@
 <app-menu></app-menu>
-
 <div class="galeria text-center">
     <p>
         <!--https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
@@ -9,14 +8,13 @@
                     <img src="{{imgHome.img}}" alt="Random first slide">
                 </div>
                 <div class="carousel-caption">
-                    <h3>{{imgHome.name}}</h3>
+                    <h2>{{imgHome.name}}</h2>
                     <p>{{imgHome.desc}}</p>
                 </div>
             </ng-template>
         </ngb-carousel>
     </p>
 </div>
-
 <div class="container-fluid bg-3 text-center">
     <h3>Aquí se irá improvisando</h3><br>
     <div class="row">
@@ -33,18 +31,18 @@
             <p>Some text..</p>
         </div>
     </div>
-    <agm-map [latitude]="lat" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map>
-    <!--
-        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
-        <agm-marker *ngFor=" let m of markers; let i=i ndex " (markerClick)="clickedMarker(m.label, i) " [latitude]="m.lat " [longitude]="m.lng " [label]="m.label " [markerDraggable]="m.draggable " (dragEnd)="markerDragEnd(m, $event) ">
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+
+        <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
             <agm-info-window>
                 <strong>InfoWindow content</strong>
             </agm-info-window>
         </agm-marker>
+        <!--
+        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+        </agm-circle>
+        -->
     </agm-map>
-    -->
 
 </div><br>
 <div class="container-fluid bg-3 text-center ">
