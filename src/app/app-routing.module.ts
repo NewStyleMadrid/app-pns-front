@@ -37,6 +37,10 @@ const routes: Routes = [
   { path: 'lista-diseños', component: ListaCorteComponent },
   { path: 'detalle-diseño/:id', component: DetalleCorteComponent },
 
+   // Galería home
+   { path: 'nuevo-home', component: NuevoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+   { path: 'lista-home', component: ListaCorteComponent },
+
   // Siempre debe ir al final
   { path: '**', redirectTo: '', pathMatch: 'full' }
 

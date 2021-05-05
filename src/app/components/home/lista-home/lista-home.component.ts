@@ -4,12 +4,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
 import { TokenService } from 'src/app/service/token.service';
-import { DetalleCorteComponent } from '../detalle-corte/detalle-corte.component';
 
 @Component({
-  selector: 'app-lista-corte',
-  templateUrl: './lista-corte.component.html',
-  styleUrls: ['./lista-corte.component.css']
+  selector: 'app-lista-home',
+  templateUrl: './lista-home.component.html',
+  styleUrls: ['./lista-home.component.css']
 })
 
 export class ListaCorteComponent implements OnInit {
@@ -25,17 +24,6 @@ export class ListaCorteComponent implements OnInit {
     private modalService: NgbModal,
     private tokenService: TokenService
     ) { }
-/*
-  ngOnInit() {
-   this.cargarImagenes();
-  }
-  cargarImagenes(): void {
-    this.imgService.lista().subscribe(
-      data => {
-        this.imagenes = data;
-      }
-    );
-  }*/
 
   ngOnInit() {
     this.cargarImagen();
@@ -67,11 +55,6 @@ export class ListaCorteComponent implements OnInit {
         console.log(err);
       }
     );
-  }
-
-  abrirModal(modal: number): void {
-    const modalRef = this.modalService.open(DetalleCorteComponent);
-    modalRef.componentInstance.index = modal;
   }
 
 }

@@ -5,8 +5,8 @@ import { ImagenService } from 'src/app/service/imagen.service';
 
 @Component({
   selector: 'app-nuevo-corte',
-  templateUrl: './nuevo-corte.component.html',
-  styleUrls: ['./nuevo-corte.component.css']
+  templateUrl: './nuevo-home.component.html',
+  styleUrls: ['./nuevo-home.component.css']
 })
 export class NuevoCorteComponent implements OnInit {
 
@@ -16,8 +16,8 @@ export class NuevoCorteComponent implements OnInit {
   imagenMin: File;
 
   constructor(
-    private imgService: ImagenService, 
-    private router: Router, 
+    private imgService: ImagenService,
+    private router: Router,
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
