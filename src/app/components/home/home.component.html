@@ -16,17 +16,13 @@
               <div class="picsum-img-wrapper">
                 <img src="{{imgHome.imagenUrl}}" alt="Random first slide">
               </div>
-              <div class="carousel-caption">
+              <!--<div class="carousel-caption">  //Si les ponemos título y descripción a las imágenes saldría encima del carrusel
                   <h3>{{imgHome.name}}</h3>
                   <p>{{imgHome.desc}}</p>
-              </div>
+              </div>-->
           </ng-template>
         </ngb-carousel>
     </p>
-    <div class="card-body justify-content-between">
-      <button class="btn btn-outline-primary" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="far fa-eye"></i> Ver</button>
-      <button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i> Borrar</button>
-    </div>
 </div>
 <div class="container-fluid bg-3 text-center">
     <h3>Tipos de cortes</h3><br>

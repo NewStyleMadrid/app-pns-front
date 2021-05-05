@@ -4,8 +4,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
 import { TokenService } from 'src/app/service/token.service';
-//import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-//import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -78,26 +76,6 @@ export class HomeComponent implements OnInit {
       }
     );
   }
-
-  borrar(id: number): void {
-    this.spinner.show();
-    this.imgService.delete(id).subscribe(
-      data => {
-        this.spinner.hide();
-        this.cargarImagen();
-      },
-      err => {
-        this.spinner.hide();
-        console.log(err);
-      }
-    );
-  }
-
-  abrirModal(modal: number): void {
-    const modalRef = this.modalService.open(HomeComponent);
-    modalRef.componentInstance.index = modal;
-  }
-
 }
 
 // Interfaz para la seguridad.
