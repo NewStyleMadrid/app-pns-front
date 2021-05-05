@@ -1,17 +1,8 @@
 <app-menu></app-menu>
 <div class="galeria text-center">
     <p>
-        <!--https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
+        <!--Tutorial carrusel https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
         <ngb-carousel>
-            <!--<ng-template *ngFor="let imgHome of imagenes" ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img src="{{imgHome.img}}" alt="Random first slide">
-                </div>
-                <div class="carousel-caption">
-                    <h1 id="tituloImg">{{imgHome.name}}</h1>
-                    <p id="descripcion" class="text-white">{{imgHome.desc}}</p>
-                </div>
-            </ng-template>-->
             <ng-template *ngFor="let imgHome of imagenes" ngbSlide>
               <div class="picsum-img-wrapper">
                 <img src="{{imgHome.imagenUrl}}" alt="Random first slide">
