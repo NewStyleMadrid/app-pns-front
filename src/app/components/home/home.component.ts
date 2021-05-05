@@ -1,9 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
 import { TokenService } from 'src/app/service/token.service';
+=======
+import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { TokenService } from 'src/app/service/token.service';
+
+//import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
 
 @Component({
   selector: 'app-home',
@@ -13,25 +20,32 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class HomeComponent implements OnInit {
 
+
+  //Titulo
+  title = 'Peluquería New Style';
+
+  // Nivel de zoom de maps
+  zoom: number = 8;
+
+  // Latitud y Longitud de Madrid
+  lat: number = 40.4167;
+  lng: number = -3.70325;
+
   info: any = {};
   /*imagenes: any[] = [
     {
-      name: '',
-      img: 'assets/pelu01.jpg',
-      desc: 'sajnñfjnsfñsnkfFL'
+      name: 'Peluquería New Style',
+      img: 'assets/pelu00.jpeg',
+      desc: 'Bienvenidos a nuestra peluquería donde ofrecemos el mejor catalogo de cortes y promociones a nuestros clientes.'
     },
     {
-      name: '',
-      img: 'assets/pelu02.jpg',
-      desc: ''
-    },
-    {
-      name: '',
+      name: 'Peluquería New Style',
       img: 'assets/pelu03.jpg',
-      desc: ''
+      desc: '(+34) 910-045-401'
     }
   ];*/
 
+<<<<<<< HEAD
   //Title
   title = 'My first AGM project';
 
@@ -43,6 +57,23 @@ export class HomeComponent implements OnInit {
    lng: number = 7.815982;
 
   /*
+=======
+  constructor(
+    private tokenService: TokenService,
+    private config: NgbCarouselConfig
+  ) {
+    config.interval = 3000;
+    config.pauseOnHover = true;
+  };
+
+  ngOnInit() {
+    this.info = {
+      token: this.tokenService.getToken(),
+      nombreUsuario: this.tokenService.getUserName(),
+    };
+  }
+
+>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
@@ -52,13 +83,15 @@ export class HomeComponent implements OnInit {
   }
 
   markers: marker[] = [
-	  {
-		  lat: 51.673858,
-		  lng: 7.815982,
-		  label: 'A',
-		  draggable: true
-	  }
+    {
+      lat: 40.4167,
+      lng: -3.70325,
+      label: 'A',
+      draggable: true
+    }
+    //Aqui podemos añadir más por si se extiende la franquicia
   ]
+<<<<<<< HEAD
   */
 
    imagenes: Imagen[] = [];
@@ -113,16 +146,15 @@ export class HomeComponent implements OnInit {
     const modalRef = this.modalService.open(HomeComponent);
     modalRef.componentInstance.index = modal;
   }
+=======
+>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
 }
 
-
-// just an interface for type safety.
-/*
+// Interfaz para la seguridad.
 interface marker {
-	lat: number;
-	lng: number;
-	label?: string;
-	draggable: boolean;
+  lat: number;
+  lng: number;
+  label?: string;
+  draggable: boolean;
 }
-*/
 

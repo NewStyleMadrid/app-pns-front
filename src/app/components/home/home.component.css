@@ -4,6 +4,16 @@
     min-width: 800px;
     /* Escalamiento proporcional */
     width: 100%;
-    height: 450px;
+    height: 550px;
     /* Posicionamiento */
+    background-color: black;
+}
+
+#tituloImg {
+    font-weight: bold;
+}
+
+#descripcion {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
 }
