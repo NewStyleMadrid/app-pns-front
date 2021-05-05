@@ -1,15 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-//<<<<<<< HEAD
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
 import { TokenService } from 'src/app/service/token.service';
-//=======
 //import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-
 //import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-//>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
 
 @Component({
   selector: 'app-home',
@@ -18,7 +14,6 @@ import { TokenService } from 'src/app/service/token.service';
 })
 
 export class HomeComponent implements OnInit {
-
 
   //Titulo
   title = 'Peluquería New Style';
@@ -31,37 +26,6 @@ export class HomeComponent implements OnInit {
   lng: number = -3.70325;
 
   info: any = {};
-
-  /*imagenes: any[] = [
-    {
-      name: 'Peluquería New Style',
-      img: 'assets/pelu00.jpeg',
-      desc: 'Bienvenidos a nuestra peluquería donde ofrecemos el mejor catalogo de cortes y promociones a nuestros clientes.'
-    },
-    {
-      name: 'Peluquería New Style',
-      img: 'assets/pelu03.jpg',
-      desc: '(+34) 910-045-401'
-    }
-  ];*/
-
-  /*
-  constructor(
-    private tokenService: TokenService,
-    private config: NgbCarouselConfig
-  ) {
-    config.interval = 3000;
-    config.pauseOnHover = true;
-  };
-
-  ngOnInit() {
-    this.info = {
-      token: this.tokenService.getToken(),
-      nombreUsuario: this.tokenService.getUserName(),
-    };
-  }
-
->>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd*/
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -80,7 +44,6 @@ export class HomeComponent implements OnInit {
     }
     //Aqui podemos añadir más por si se extiende la franquicia
   ]
-//<<<<<<< HEAD
 
    imagenes: Imagen[] = [];
    isAdmin = false;
@@ -134,8 +97,7 @@ export class HomeComponent implements OnInit {
     const modalRef = this.modalService.open(HomeComponent);
     modalRef.componentInstance.index = modal;
   }
-//=======
-//>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
+
 }
 
 // Interfaz para la seguridad.
