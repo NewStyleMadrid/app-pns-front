@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
 import { TokenService } from 'src/app/service/token.service';
-=======
-import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { TokenService } from 'src/app/service/token.service';
+//=======
+//import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 //import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
->>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
+//>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
 
 @Component({
   selector: 'app-home',
@@ -32,6 +31,7 @@ export class HomeComponent implements OnInit {
   lng: number = -3.70325;
 
   info: any = {};
+
   /*imagenes: any[] = [
     {
       name: 'Peluquería New Style',
@@ -45,19 +45,7 @@ export class HomeComponent implements OnInit {
     }
   ];*/
 
-<<<<<<< HEAD
-  //Title
-  title = 'My first AGM project';
-
-   // google maps zoom level
-   zoom: number = 8;
-
-   // initial center position for the map
-   lat: number = 51.673858;
-   lng: number = 7.815982;
-
   /*
-=======
   constructor(
     private tokenService: TokenService,
     private config: NgbCarouselConfig
@@ -73,7 +61,8 @@ export class HomeComponent implements OnInit {
     };
   }
 
->>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
+>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd*/
+
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
@@ -91,8 +80,7 @@ export class HomeComponent implements OnInit {
     }
     //Aqui podemos añadir más por si se extiende la franquicia
   ]
-<<<<<<< HEAD
-  */
+//<<<<<<< HEAD
 
    imagenes: Imagen[] = [];
    isAdmin = false;
@@ -146,8 +134,8 @@ export class HomeComponent implements OnInit {
     const modalRef = this.modalService.open(HomeComponent);
     modalRef.componentInstance.index = modal;
   }
-=======
->>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
+//=======
+//>>>>>>> 83b5c9de5ea65ba1a2866abe1db7326f327c3cfd
 }
 
 // Interfaz para la seguridad.
