@@ -57,6 +57,8 @@ import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-t
 import { CookiesComponent } from './components/shared/cookies/cookies.component';
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { TranslateModule } from '@ngx-translate/core';
+import { EditarCorteComponent } from './components/corte/editar-corte/editar-corte.component';
+import { ListadoCorteComponent } from './components/corte/listado-corte/listado-corte.component';
 
 
 @NgModule({
@@ -97,6 +99,8 @@ import { TranslateModule } from '@ngx-translate/core';
     //ScrollTop y Cookies
     ScrollToTopComponent,
     CookiesComponent,
+    EditarCorteComponent,
+    ListadoCorteComponent,
 
 
 

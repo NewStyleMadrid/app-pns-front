@@ -6,19 +6,18 @@
 <div class="row">
     <div class="col-md-4" *ngFor="let imagen of imagenes |paginate: { itemsPerPage: 6, currentPage: paginaActual }; index as i">
         <div class="card mb-3 animated zoomIn">
-            <h3 class="card-header" *ngIf="isAdmin">{{imagen.name}}</h3>
+            <h3 class="card-header" *ngIf="isAdmin">{{imagen.name}}
+                <a class="float-right text-black ml-3" id="acciones" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="fas fa-search-plus"></i></a>
+                <a class="float-right text-danger" id="acciones" *ngIf="isAdmin" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i></a>
+            </h3>
             <div class="card-body">
-                <h5 class="card-title" *ngIf="isAdmin"><b>ID: </b>{{imagen.imagenId}}</h5>
+                <!--<h5 class="card-title" *ngIf="isAdmin"><b>ID: </b>{{imagen.imagenId}}</h5>-->
             </div>
             <div class="card-body text-center">
-                <img style="height: 300px; width: 80%; display: block;;" src="{{imagen.imagenUrl}}" alt="Card image">
-            </div>
-            <div class="card-body d-flex justify-content-between">
-                <button class="btn btn-outline-primary" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="far fa-eye"></i> Ver</button>
-                <button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i> Borrar</button>
+                <img style="height: 425px; width: 100%; display: block;;" src="{{imagen.imagenUrl}}" alt="Card image">
             </div>
             <div class="card-footer text-center">
-                &copy; Peluquería New Style
+                &copy; Peluquería New Style Madrid
             </div>
         </div>
     </div>

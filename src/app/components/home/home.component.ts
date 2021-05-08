@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Imagen } from 'src/app/models/imagen';
 import { ImagenService } from 'src/app/service/imagen.service';
@@ -13,6 +13,31 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class HomeComponent implements OnInit {
 
+  info: any = {};
+  imgsHome: any[] = [
+    {
+      name: 'Peluquería New Style',
+      img: 'assets/pelu00.jpeg',
+      desc: 'Bienvenidos a nuestra peluquería donde ofrecemos el mejor catalogo de cortes y promociones a nuestros clientes.'
+    },
+    {
+      name: 'Peluquería New Style',
+      img: 'assets/pelu03.jpg',
+      desc: '(+34) 910-045-401'
+    }
+  ];
+
+  constructor(
+    private imgService: ImagenService,
+    private spinner: NgxSpinnerService,
+    private modalService: NgbModal,
+    private tokenService: TokenService,
+    private config: NgbCarouselConfig
+  ) {
+    config.interval = 3000;
+    config.pauseOnHover = true;
+  };
+
   //Titulo
   title = 'Peluquería New Style';
 
@@ -23,7 +48,6 @@ export class HomeComponent implements OnInit {
   lat: number = 40.4167;
   lng: number = -3.70325;
 
-  info: any = {};
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
@@ -48,12 +72,7 @@ export class HomeComponent implements OnInit {
    logOut=false;
    paginaActual:number= 0;
 
-  constructor(
-    private imgService: ImagenService,
-    private spinner: NgxSpinnerService,
-    private modalService: NgbModal,
-    private tokenService: TokenService
-    ) { }
+
 
   ngOnInit() {
     this.cargarImagen();

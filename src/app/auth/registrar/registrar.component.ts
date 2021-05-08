@@ -23,6 +23,9 @@ export class RegistrarComponent implements OnInit {
   myForm: FormGroup;
   private usuario: any = {};
 
+  private exNom: any = /^([a-zA-Z]{3,15})$/
+  private exApe: any = /^([a-zA-Z]{3,25})$/
+
   // Expresión regular para el email
   private exEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
@@ -47,8 +50,8 @@ export class RegistrarComponent implements OnInit {
   // Validaciones para los campos de registro.
   createForm() {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required]),
-      apellidos: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required, Validators.pattern(this.exNom)]),
+      apellidos: new FormControl('', [Validators.required,  Validators.pattern(this.exApe)]),
       userName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
       password: new FormControl('', [Validators.required])

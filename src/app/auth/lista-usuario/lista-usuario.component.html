@@ -8,7 +8,7 @@
             <th scope="col">Correo <i class="fas fa-sort"></i></th>
             <th scope="col">Usuario <i class="fas fa-sort"></i></th>
             <th scope="col">Contraseña <i class="fas fa-sort"></i></th>
-            <th *ngIf="isAdmin" scope="col">Ver</th>
+            <!--<th *ngIf="isAdmin" scope="col">Ver</th>-->
             <th scope="col" *ngIf="isAdmin">Editar</th>
             <th scope="col" *ngIf="isAdmin">Borrar</th>
         </tr>
@@ -21,7 +21,7 @@
             <td>{{usuario.email}}</td>
             <td>{{usuario.userName}}</td>
             <td>{{usuario.password}}</td>
-            <td *ngIf="isAdmin"><button class="btn btn-outline-primary" routerLink="/detalle-usuario/{{usuario.id}}"><i class="far fa-eye"></i></button></td>
+            <!--<td *ngIf="isAdmin"><button class="btn btn-outline-primary" routerLink="/detalle-usuario/{{usuario.id}}"><i class="far fa-eye"></i></button></td>-->
             <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-usuario/{{usuario.id}}"><i class="far fa-edit"></i></button></td>
             <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(usuario.id)"><i class="far fa-trash-alt"></i></button></td>
         </tr>

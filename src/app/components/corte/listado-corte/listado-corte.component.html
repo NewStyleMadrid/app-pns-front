@@ -1,0 +1,29 @@
+<app-menu></app-menu>
+<table class="table table-hover table-light">
+    <thead class=" table table-success">
+        <tr>
+            <th scope="col">ID <i class="fas fa-sort"></i></th>
+            <th scope="col">ID Cloudinary <i class="fas fa-sort"></i></th>
+            <th scope="col">Nombre deñ diseño <i class="fas fa-sort"></i></th>
+            <th scope="col">Imagen URL<i class="fas fa-sort"></i></th>
+            <!--<th scope="col"><i class="fas fa-sort" (click)="sort()"></i></th> Mayo a menor-->
+            <th *ngIf="isAdmin" scope="col">Ver</th>
+            <th scope="col" *ngIf="isAdmin">Editar</th>
+            <th scope="col" *ngIf="isAdmin">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let estilo of estilos |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
+            <td>{{estilo.id}}</td>
+            <td>{{estilo.imagenId}}</td>
+            <td>{{estilo.name}}</td>
+            <td>{{estilo.imagenUrl}}</td>
+            <td *ngIf="isAdmin"><button class="btn btn-outline-primary"><i class="far fa-eye"></i> Ver</button></td>
+            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-diseño/{{estilo.id}}"><i class="far fa-edit"></i> Editar</button></td>
+            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(estilo.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="paginacion">
+    <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+</div>

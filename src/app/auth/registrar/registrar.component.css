@@ -87,7 +87,7 @@ input[type=key] {
 .card-header {
     font-family: helvetica;
     border: none;
-    background-color: #343a40;
+    background: -webkit-linear-gradient(59deg, rgb(49, 49, 49), black);
     color: white;
     height: 50px;
 }

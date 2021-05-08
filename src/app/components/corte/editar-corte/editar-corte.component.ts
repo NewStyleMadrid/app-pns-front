@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Producto } from 'src/app/models/producto';
-import { ProductoService } from 'src/app/service/producto.service';
+import { Imagen } from 'src/app/models/imagen';
+import { ImagenService } from 'src/app/service/imagen.service';
 
 @Component({
-  selector: 'app-editar-producto',
-  templateUrl: './editar-producto.component.html',
-  styleUrls: ['./editar-producto.component.css']
+  selector: 'app-editar-corte',
+  templateUrl: './editar-corte.component.html',
+  styleUrls: ['./editar-corte.component.css']
 })
-export class EditarProductoComponent implements OnInit {
+export class EditarCorteComponent implements OnInit {
 
-  producto: Producto = null;
+  estilo: Imagen = null;
   form: any = {};
   actualizado = false;
   failActualizado = false;
@@ -20,7 +20,7 @@ export class EditarProductoComponent implements OnInit {
   failInit = false;
 
   constructor(
-    private productoService: ProductoService,
+    private imagenService: ImagenService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService
@@ -28,9 +28,9 @@ export class EditarProductoComponent implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.params.id;
-    this.productoService.detalle(id).subscribe( data => {
-      this.form.nombre = data.nombre;
-      this.form.precio = data.precio;
+    this.imagenService.detalle(id).subscribe( data => {
+      this.form.id=data.id;
+      this.form.name = data.name;
     },
       (err: any) => {
         this.failInit = true;
@@ -41,12 +41,12 @@ export class EditarProductoComponent implements OnInit {
 
   onUpdate(): void {
     const id = this.activatedRoute.snapshot.params.id;
-    this.productoService.actualizar(id, this.form).subscribe(
+    this.imagenService.actualizar(id, this.form).subscribe(
       data => {
-        this.toastr.success('Producto actualizado!', '', {
+        this.toastr.success('Imagen actualizada!', '', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
-        this.router.navigate(['/lista-productos']);
+        this.router.navigate(['/lista-diseños']);
       },
       err => {
         this.toastr.error(err.error.mensaje, 'Error al actualizar!', {

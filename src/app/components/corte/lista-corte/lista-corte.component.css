@@ -1,15 +1,11 @@
 .row {
-    padding-top: 2em;
-    padding-left: 2em;
+    padding-top: 1em;
+    padding-left: 01em;
 }
 
 .card {
     width: 460px;
     height: 550px;
-}
-
-img {
-    padding-left: 5em;
 }
 
 .card-body {
@@ -35,4 +31,17 @@ img {
     margin-top: 0em;
     margin-left: 550px;
     margin-bottom: 3em;
+}
+
+.card-footer {
+    background: -webkit-linear-gradient(59deg, rgb(49, 49, 49), black);
+    color: white;
+}
+
+#acciones {
+    text-decoration: none;
+}
+
+.fas {
+    color: black;
 }

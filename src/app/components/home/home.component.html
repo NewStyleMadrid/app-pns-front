@@ -2,16 +2,33 @@
 <div class="galeria text-center">
     <p>
         <!--Tutorial carrusel https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
+        <!-- COMENTADO SE MODIFICARA CUANDO TENGAMOS RUTAS SOLO PARA LA GALERIA DE HOME EN CLOUDINARY-->
+        <!--
         <ngb-carousel>
             <ng-template *ngFor="let imgHome of imagenes" ngbSlide>
-              <div class="picsum-img-wrapper">
-                <img src="{{imgHome.imagenUrl}}" alt="Random first slide">
-              </div>
-              <!--<div class="carousel-caption">  //Si les ponemos título y descripción a las imágenes saldría encima del carrusel
-                  <h3>{{imgHome.name}}</h3>
-                  <p>{{imgHome.desc}}</p>
-              </div>-->
-          </ng-template>
+                
+                <div class="picsum-img-wrapper">
+                    <img src="{{imgHome.imagenUrl}}" alt="Random first slide">
+                </div>
+               
+                <div class="carousel-caption"> //Si les ponemos título y descripción a las imágenes saldría encima del carrusel
+                    <h3>{{imgHome.name}}</h3>
+                    <p>{{imgHome.desc}}</p>
+                </div>
+                
+            </ng-template>
+        </ngb-carousel>
+        -->
+        <ngb-carousel>
+            <ng-template *ngFor="let imgHome of imgsHome" ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="{{imgHome.img}}" alt="Random first slide">
+                </div>
+                <div class="carousel-caption">
+                    <h1 id="tituloImg">{{imgHome.name}}</h1>
+                    <p id="descripcion" class="text-white">{{imgHome.desc}}</p>
+                </div>
+            </ng-template>
         </ngb-carousel>
     </p>
 </div>
