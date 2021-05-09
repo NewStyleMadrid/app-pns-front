@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   title = 'Peluquería New Style';
 
   // Nivel de zoom de maps
-  zoom: number = 8;
+  zoom: number = 15;
 
   // Latitud y Longitud de Madrid
   lat: number = 40.4167;

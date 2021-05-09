@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { EditarUsuarioComponent } from './auth/editar-usuario/editar-usuario.component';
 import { ListaUsuarioComponent } from './auth/lista-usuario/lista-usuario.component';
 import { LoginComponent } from './auth/login/login.component';
+import { PerfilComponent } from './auth/perfil/perfil.component';
 import { RegistrarComponent } from './auth/registrar/registrar.component';
 import { DetalleCorteComponent } from './components/corte/detalle-corte/detalle-corte.component';
 import { EditarCorteComponent } from './components/corte/editar-corte/editar-corte.component';
@@ -14,6 +15,7 @@ import { DetalleProductoComponent } from './components/producto/detalle-producto
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
+import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { GuardService  } from './guards/guard.service';
 import { LoginGuard } from './guards/login.guard';
 
@@ -27,6 +29,7 @@ const routes: Routes = [
   { path: 'registrar-usuario', component: RegistrarComponent,canActivate: [LoginGuard]  },
   { path: 'lista-usuarios', component: ListaUsuarioComponent,canActivate: [GuardService], data: { expectedRol: ['admin'] }},
   { path: 'editar-usuario/:id', component: EditarUsuarioComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'mi-perfil', component: PerfilComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
 
   // Producto
   { path: 'lista-productos', component: ListaProductoComponent },
@@ -44,6 +47,9 @@ const routes: Routes = [
    // Galería home
    { path: 'nuevo-home', component: NuevoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
    { path: 'lista-home', component: ListaCorteComponent },
+
+   // About me
+   { path: 'about-me', component: QuienessomosComponent },
 
   // Siempre debe ir al final
   { path: '**', redirectTo: '', pathMatch: 'full' }

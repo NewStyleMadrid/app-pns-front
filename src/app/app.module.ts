@@ -59,6 +59,7 @@ import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { TranslateModule } from '@ngx-translate/core';
 import { EditarCorteComponent } from './components/corte/editar-corte/editar-corte.component';
 import { ListadoCorteComponent } from './components/corte/listado-corte/listado-corte.component';
+import { PerfilComponent } from './auth/perfil/perfil.component';
 
 
 @NgModule({
@@ -101,6 +102,7 @@ import { ListadoCorteComponent } from './components/corte/listado-corte/listado-
     CookiesComponent,
     EditarCorteComponent,
     ListadoCorteComponent,
+    PerfilComponent,
 
 
 

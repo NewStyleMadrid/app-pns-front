@@ -17,3 +17,17 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
 }
+
+.card-header {
+    background: -webkit-linear-gradient(59deg, rgb(49, 49, 49), black);
+    color: white;
+}
+
+.titleUbicacion i {
+    color: #d9534f;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+}

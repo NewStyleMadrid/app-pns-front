@@ -32,6 +32,11 @@ export class AuthService {
   public detalle(id: number): Observable<NuevoUsuario> {
     return this.httpClient.get<NuevoUsuario>(this.authURL + `detalle/${id}`, cabecera);
   }
+
+  public perfil(id: number): Observable<any> {
+    return this.httpClient.put<any>(this.authURL + `perfil/${id}`, cabecera);
+  }
+
   public actualizar(id: number, usuario: NuevoUsuario): Observable<any> {
     return this.httpClient.put<any>(this.authURL + `actualizar/${id}`, usuario);
   }

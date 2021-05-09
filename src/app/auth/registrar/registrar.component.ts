@@ -23,10 +23,9 @@ export class RegistrarComponent implements OnInit {
   myForm: FormGroup;
   private usuario: any = {};
 
+  // Expresones regulares para el formulario de registro.
   private exNom: any = /^([a-zA-Z]{3,15})$/
   private exApe: any = /^([a-zA-Z]{3,25})$/
-
-  // Expresión regular para el email
   private exEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   get nombre() { return this.myForm.get('nombre'); }
@@ -51,7 +50,7 @@ export class RegistrarComponent implements OnInit {
   createForm() {
     return new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.pattern(this.exNom)]),
-      apellidos: new FormControl('', [Validators.required,  Validators.pattern(this.exApe)]),
+      apellidos: new FormControl('', [Validators.required, Validators.pattern(this.exApe)]),
       userName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
       password: new FormControl('', [Validators.required])
@@ -87,35 +86,5 @@ export class RegistrarComponent implements OnInit {
   closeRegistro(): void {
     this.dRef.close();
   }
-
-  /*
-    form: any = {};
-    private usuario: any = {};
-    isRegister = false;
-    isRegisterFail = false;
-    errorMsg = '';
-  
-    constructor(private authService: AuthService,private dRef: MatDialogRef<HomeComponent>) { }
-  
-    ngOnInit() {
-  
-    }
-  
-    onRegister() {
-      this.usuario = new NuevoUsuario(this.form.nombre, this.form.apellidos, this.form.userName, this.form.email, this.form.password);
-      this.authService.registrar(this.usuario).subscribe(data => {
-        this.isRegister = true;
-        this.isRegisterFail = false;
-        this.closeRegistro();
-      },
-        (error: any) => {
-          console.log(error.error.mensaje);
-          this.errorMsg = error.error.mensaje;
-          this.isRegister = false;
-          this.isRegisterFail = true;
-        }
-      );
-    }
-  */
 
 }
