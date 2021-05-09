@@ -4,7 +4,7 @@
     <p style="color: white"> Eliminado imagen... </p>
 </ngx-spinner>
 <div class="row">
-    <div class="col-md-4" *ngFor="let imagen of imagenes |paginate: { itemsPerPage: 6, currentPage: paginaActual }; index as i">
+    <div class="col-md-4" *ngFor="let imagen of imagenes |paginate: { itemsPerPage: 9, currentPage: paginaActual }; index as i">
         <div class="card mb-3 animated zoomIn">
             <h3 class="card-header" *ngIf="isAdmin">{{imagen.name}}
                 <a class="float-right text-black ml-3" id="acciones" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="fas fa-search-plus"></i></a>
