@@ -43,6 +43,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
+import {MatSelectModule} from '@angular/material/select';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -60,6 +62,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { EditarCorteComponent } from './components/corte/editar-corte/editar-corte.component';
 import { ListadoCorteComponent } from './components/corte/listado-corte/listado-corte.component';
 import { PerfilComponent } from './auth/perfil/perfil.component';
+import { NuevaCitaComponent } from './components/cita/nueva-cita/nueva-cita.component';
+import { ListaCitaComponent } from './components/cita/lista-cita/lista-cita.component';
+import { EditarCitaComponent } from './components/cita/editar-cita/editar-cita.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -103,6 +109,9 @@ import { PerfilComponent } from './auth/perfil/perfil.component';
     EditarCorteComponent,
     ListadoCorteComponent,
     PerfilComponent,
+    NuevaCitaComponent,
+    ListaCitaComponent,
+    EditarCitaComponent,
 
 
 
@@ -130,7 +139,10 @@ import { PerfilComponent } from './auth/perfil/perfil.component';
     ProgressBarModule,
     MatProgressSpinnerModule,
     NgxPaginationModule,
-    NgcCookieConsentModule
+    NgcCookieConsentModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

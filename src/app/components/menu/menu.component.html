@@ -5,17 +5,7 @@
   </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul *ngIf="!isLogged ; else loggedOut" class="navbar-nav mr-auto formato">
-            <!--
-            <li class="nav-item dropdown diseño">
-                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diseños
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/lista-diseño">Hombres</a>
-                    <a class="dropdown-item" href="#">Mujeres</a>
-                </div>
-            </li>
-            -->
+            <!--MENU PARA TODOS-->
             <li class="nav-item">
                 <a routerLink="/">Home</a>
             </li>
@@ -26,24 +16,14 @@
                 <a routerLink="/lista-productos">Productos</a>
             </li>
             <li class="nav-item">
-                <a href="#">Reservar cita</a>
+                <a routerLink="/nueva-cita">Reservar cita</a>
             </li>
             <li class="nav-item">
                 <a routerLink="/about-me">¿Quienes somos?</a>
             </li>
         </ul>
         <ul *ngIf="isLogged ; else loggedOut" class="navbar-nav mr-auto formato">
-            <!--
-            <li class="nav-item dropdown diseño">
-                <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diseños
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/lista-diseño">Hombres</a>
-                    <a class="dropdown-item" href="#">Mujeres</a>
-                </div>
-            </li>
-            -->
+            <!-- MENU PARA EL ROL USER -->
             <li class="nav-item">
                 <a routerLink="/">Home</a>
             </li>
@@ -54,47 +34,24 @@
                 <a routerLink="/lista-productos">Productos</a>
             </li>
             <li class="nav-item">
-                <a href="#">Reservar cita</a>
+                <a routerLink="/nueva-cita">Reservar cita</a>
             </li>
             <li class="nav-item">
                 <a routerLink="/about-me">¿Quienes somos?</a>
             </li>
         </ul>
-        <!--
-        <ul *ngIf="isLogged ; else loggedOut" class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Diseños
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" routerLink="/lista-diseños">Hombres</a>
-                    <a class="dropdown-item" href="#">Mujeres</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/lista-productos">Productos</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Reservar cita</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">¿Quienes somos?</a>
-            </li>
-        </ul>
-        -->
+        <!-- ESTE MENU SOLO LO PODRA VER EL ADMINISTRADOR -->
         <ul class="navbar-nav ml-auto">
             <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
-                <!--
-                <li class="nav-item dropdown" *ngIf="isLogged && isAdmin">
+                <li class="nav-item dropdown" *ngIf="isLogged && !isAdmin">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Galería
-                </a>
+                        <i class="far fa-calendar-plus"></i> Mi Cita
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" routerLink="/nuevo-home"><i class="fas fa-plus-circle"></i> Nueva imagen</a>
-                        <a class="dropdown-item" routerLink="/lista-home"><i class="fas fa-list"></i> Imágenes galería</a>
+                        <a class="dropdown-item" routerLink="/nueva-cita"><i class="fas fa-plus-circle"></i> Nueva cita</a>
+                        <a class="dropdown-item" routerLink="/lista-cita"><i class="fas fa-list"></i> Listado citas</a>
                     </div>
                 </li>
-                -->
                 <li class="nav-item dropdown" *ngIf="isLogged && isAdmin">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Productos
@@ -142,45 +99,14 @@
         </ul>
     </div>
 </nav>
-
 <!--
-<nav>
-    <div class="logo">
-        <img src="logo.svg" alt="Logo Image">
-    </div>
-    <div class="hamburger">
-        <div class="line1"></div>
-        <div class="line2"></div>
-        <div class="line3"></div>
-    </div>
-    <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a routerLink="/lista-diseño">Diseños</a></li>
-        <li><a href="#">reservas</a></li>
-        <li><a href="#">¿Quiénes somos?</a></li>
-        <div class="dropdown">
-            <button class="dropbtn"><div class="profile-solid icon"></div>Mi cuenta</button>
-            <div class="dropdown-content">
-                <a (click)="dialogLogin()">Login</a>
-                <a (click)="dialogRegistrar()">Registrarse</a>
-            </div>
+    <li class="nav-item dropdown diseño">
+        <a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Diseños
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+               <a class="dropdown-item" routerLink="/lista-diseño">Hombres</a>
+             <a class="dropdown-item" href="#">Mujeres</a>
         </div>
-    </ul>
-</nav>
-<script>
-    const hamburger = document.querySelector(".hamburger");
-    const navLinks = document.querySelector(".nav-links");
-    const links = document.querySelectorAll(".nav-links li");
-
-    hamburger.addEventListener('click', () => {
-        //Animate Links
-        navLinks.classList.toggle("open");
-        links.forEach(link => {
-            link.classList.toggle("fade");
-        });
-
-        //Hamburger Animation
-        hamburger.classList.toggle("toggle");
-    });
-</script>
-    -->
+    </li>
+-->
