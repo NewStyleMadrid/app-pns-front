@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Imagen } from 'src/app/models/imagen';
+import { Imagen } from 'src/app/models/diseño';
 import { ImagenService } from 'src/app/service/imagen.service';
 import { TokenService } from 'src/app/service/token.service';
 import { DetalleCorteComponent } from '../detalle-corte/detalle-corte.component';
