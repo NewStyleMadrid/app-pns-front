@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Imagen } from 'src/app/models/diseño';
-import { ImagenService } from 'src/app/service/imagen.service';
+import { Corte } from 'src/app/models/corte';
+import { CorteService } from 'src/app/service/corte.service';
 import { TokenService } from 'src/app/service/token.service';
 import { DetalleCorteComponent } from '../detalle-corte/detalle-corte.component';
 
@@ -14,13 +14,13 @@ import { DetalleCorteComponent } from '../detalle-corte/detalle-corte.component'
 
 export class ListaCorteComponent implements OnInit {
 
-  imagenes: Imagen[] = [];
+  imagenes: Corte[] = [];
   isAdmin = false;
   logOut=false;
   paginaActual:number= 0;
 
   constructor(
-    private imgService: ImagenService,
+    private imgService: CorteService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal,
     private tokenService: TokenService

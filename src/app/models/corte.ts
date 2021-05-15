@@ -1,4 +1,4 @@
-export class Imagen {
+export class Corte {
     id?:number;
     name:string;
     imagenUrl:string;

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Imagen } from 'src/app/models/diseño';
-import { ImagenService } from 'src/app/service/imagen.service';
+import { Corte } from 'src/app/models/corte';
+import { CorteService } from 'src/app/service/corte.service';
 
 @Component({
   selector: 'app-editar-corte',
@@ -11,7 +11,7 @@ import { ImagenService } from 'src/app/service/imagen.service';
 })
 export class EditarCorteComponent implements OnInit {
 
-  estilo: Imagen = null;
+  estilo: Corte = null;
   form: any = {};
   actualizado = false;
   failActualizado = false;
@@ -20,7 +20,7 @@ export class EditarCorteComponent implements OnInit {
   failInit = false;
 
   constructor(
-    private imagenService: ImagenService,
+    private imagenService: CorteService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService

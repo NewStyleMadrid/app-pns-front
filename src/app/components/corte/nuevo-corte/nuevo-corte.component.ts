@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { ImagenService } from 'src/app/service/imagen.service';
+import { CorteService } from 'src/app/service/corte.service';
 
 @Component({
   selector: 'app-nuevo-corte',
@@ -16,7 +16,7 @@ export class NuevoCorteComponent implements OnInit {
   imagenMin: File;
 
   constructor(
-    private imgService: ImagenService, 
+    private imgService: CorteService, 
     private router: Router, 
     private spinner: NgxSpinnerService) { }
 

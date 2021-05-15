@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Imagen } from 'src/app/models/diseño';
-import { ImagenService } from 'src/app/service/imagen.service';
+import { Corte } from 'src/app/models/corte';
+import { CorteService } from 'src/app/service/corte.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(
-    private imgService: ImagenService,
+    private imgService: CorteService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal,
     private tokenService: TokenService,
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     //Aqui podemos añadir más por si se extiende la franquicia
   ]
 
-   imagenes: Imagen[] = [];
+   imagenes: Corte[] = [];
    isAdmin = false;
    logOut=false;
    paginaActual:number= 0;

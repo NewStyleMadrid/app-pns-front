@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Imagen } from 'src/app/models/diseño';
-import { ImagenService } from 'src/app/service/imagen.service';
+import { Corte } from 'src/app/models/corte';
+import { CorteService } from 'src/app/service/corte.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class ListadoCorteComponent implements OnInit {
 
-  estilos: Imagen[] = [];
+  estilos: Corte[] = [];
   isAdmin = false;
 
   paginaActual:number= 0;
@@ -20,7 +20,7 @@ export class ListadoCorteComponent implements OnInit {
   totalPages: Array<number>;
 
   constructor(
-    private imagenService: ImagenService, 
+    private imagenService: CorteService, 
     private toastr: ToastrService, 
     private tokenService: TokenService,
     private modalService: NgbModal,
