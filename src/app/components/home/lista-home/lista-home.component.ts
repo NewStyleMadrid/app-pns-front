@@ -11,7 +11,7 @@ import { TokenService } from 'src/app/service/token.service';
   styleUrls: ['./lista-home.component.css']
 })
 
-export class ListaCorteComponent implements OnInit {
+export class ListaHomeComponent implements OnInit {
 
   imagenes: Imagen[] = [];
   isAdmin = false;

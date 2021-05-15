@@ -14,6 +14,9 @@ import { ListaCorteComponent } from './components/corte/lista-corte/lista-corte.
 import { ListadoCorteComponent } from './components/corte/listado-corte/listado-corte.component';
 import { NuevoCorteComponent } from './components/corte/nuevo-corte/nuevo-corte.component';
 import { HomeComponent } from './components/home/home.component';
+import { NuevoHomeComponent } from './components/home/nuevo-home/nuevo-home.component';
+import { ListaHomeComponent } from './components/home/lista-home/lista-home.component';
+import { ListadoHomeComponent } from './components/home/listado-home/listado-home.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
@@ -53,8 +56,9 @@ const routes: Routes = [
   { path: 'lista-cita', component: ListaCitaComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
 
   // Galería home
-  { path: 'nuevo-home', component: NuevoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
-  { path: 'lista-home', component: ListaCorteComponent },
+  { path: 'nuevo-home', component: NuevoHomeComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'listado-home', component: ListadoHomeComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'lista-home', component: ListaHomeComponent },
 
   // About Me
   { path: 'about-me', component: QuienessomosComponent },

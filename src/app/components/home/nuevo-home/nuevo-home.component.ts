@@ -4,11 +4,11 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ImagenService } from 'src/app/service/imagen.service';
 
 @Component({
-  selector: 'app-nuevo-corte',
+  selector: 'app-nuevo-home',
   templateUrl: './nuevo-home.component.html',
   styleUrls: ['./nuevo-home.component.css']
 })
-export class NuevoCorteComponent implements OnInit {
+export class NuevoHomeComponent implements OnInit {
 
   @ViewChild('imagenInputFile', {static: false}) imagenFile: ElementRef;
 

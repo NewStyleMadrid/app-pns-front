@@ -11,6 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 
 // Home
 import { HomeComponent } from './components/home/home.component';
+import { NuevoHomeComponent } from './components/home/nuevo-home/nuevo-home.component';
+import { ListaHomeComponent } from './components/home/lista-home/lista-home.component';
+import { ListadoHomeComponent } from './components/home/listado-home/listado-home.component';
 
 // Menu
 import { MenuComponent } from './components/menu/menu.component';
@@ -76,6 +79,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 
     // Home
     HomeComponent,
+    NuevoHomeComponent,
+    ListaHomeComponent,
+    ListadoHomeComponent,
 
     // Menu
     MenuComponent,
