@@ -4,7 +4,7 @@
     <p style="color: white"> Eliminado imagen... </p>
 </ngx-spinner>
 <div class="container-fluid">
-    <div class="row ml-2 mt-4">
+    <div class="row mt-4">
         <div class="col-md-4" *ngFor="let imagen of imagenes | paginate: { itemsPerPage: 9, currentPage: paginaActual }; index as i">
             <div class="card mb-3 animated zoomIn">
                 <h3 class="card-header">{{imagen.name}}
