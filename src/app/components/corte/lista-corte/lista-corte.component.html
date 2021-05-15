@@ -3,26 +3,32 @@
 <ngx-spinner *ngIf="isAdmin" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
     <p style="color: white"> Eliminado imagen... </p>
 </ngx-spinner>
-<div class="row">
-    <div class="col-md-4" *ngFor="let imagen of imagenes |paginate: { itemsPerPage: 9, currentPage: paginaActual }; index as i">
-        <div class="card mb-3 animated zoomIn">
-            <h3 class="card-header" *ngIf="isAdmin">{{imagen.name}}
-                <a class="float-right text-black ml-3" id="acciones" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="fas fa-search-plus"></i></a>
-                <a class="float-right text-danger" id="acciones" *ngIf="isAdmin" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i></a>
-            </h3>
-            <div class="card-body">
-                <!--<h5 class="card-title" *ngIf="isAdmin"><b>ID: </b>{{imagen.imagenId}}</h5>-->
-            </div>
-            <div class="card-body text-center">
-                <img style="height: 425px; width: 100%; display: block;;" src="{{imagen.imagenUrl}}" alt="Card image">
-            </div>
-            <div class="card-footer text-center">
-                &copy; Peluquería New Style Madrid
+<div class="container-fluid">
+    <div class="row ml-2 mt-4">
+        <div class="col-md-4" *ngFor="let imagen of imagenes | paginate: { itemsPerPage: 9, currentPage: paginaActual }; index as i">
+            <div class="card mb-3 animated zoomIn">
+                <h3 class="card-header">{{imagen.name}}
+                    <a class="float-right text-black ml-3" id="acciones" *ngIf="isAdmin" (click)="abrirModal(i)"><i class="fas fa-search-plus"></i></a>
+                    <a class="float-right text-danger" id="acciones" *ngIf="isAdmin" (click)="borrar(imagen.id)"><i class="far fa-trash-alt"></i></a>
+                </h3>
+                <div class="card-body">
+                    <!--<h4 class="card-title"><b>ID: </b>{{imagen.imagenId}}</h4>-->
+                </div>
+                <div class="card-body text-center">
+                    <img style="height: 425px; width: 100%; display: block;" src="{{imagen.imagenUrl}}" alt="Card image">
+                </div>
+                <div class="card-footer text-center">
+                    &copy; Peluquería New Style Madrid
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="paginacion">
-    <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+    <div class="row justify-content-center justify-content-md-start">
+        <div class="col">
+            <div class="paginacion p-2 text-center">
+                <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+            </div>
+        </div>
+    </div>
 </div>
 <app-scroll-to-top></app-scroll-to-top>
