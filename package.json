@@ -33,6 +33,7 @@
     "bootswatch": "^4.6.0",
     "jquery": "^3.6.0",
     "mouse-event": "^1.0.5",
+    "ng2-search-filter": "^0.5.1",
     "ngx-cookieconsent": "^2.2.3",
     "ngx-pagination": "^5.0.0",
     "ngx-spinner": "^11.0.1",

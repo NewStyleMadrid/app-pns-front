@@ -2,9 +2,10 @@
 <table class="table table-dark">
     <thead>
         <tr>
-            <th scope="col">Id <i class="fas fa-sort"></i></th>
+            <th *ngIf="isAdmin" scope="col">Id <i class="fas fa-sort"></i></th>
             <th scope="col">Nombre <i class="fas fa-sort"></i></th>
             <th scope="col">Precio <i class="fas fa-sort"></i></th>
+            <th scope="col">Disponibilidad <i class="fas fa-sort"></i></th>
             <!--<th scope="col"><i class="fas fa-sort" (click)="sort()"></i></th> Mayo a menor-->
             <th *ngIf="isAdmin" scope="col">Ver</th>
             <th scope="col" *ngIf="isAdmin">Editar</th>
@@ -13,9 +14,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let producto of productos |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
-            <td>{{producto.id}}</td>
+            <td *ngIf="isAdmin">{{producto.id}}</td>
             <td>{{producto.nombre}}</td>
             <td>{{producto.precio}}€</td>
+            <td>{{producto.disponible}}</td>
             <td *ngIf="isAdmin"><button class="btn btn-outline-primary" routerLink="/detalle-producto/{{producto.id}}"><i class="far fa-eye"></i> Ver</button></td>
             <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-producto/{{producto.id}}"><i class="far fa-edit"></i> Editar</button></td>
             <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(producto.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>

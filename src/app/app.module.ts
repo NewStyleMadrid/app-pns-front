@@ -48,6 +48,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -148,6 +149,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     NgcCookieConsentModule,
     MatSelectModule,
     MatDatepickerModule,
+    Ng2SearchPipeModule,
     MatNativeDateModule
   ],
   providers: [

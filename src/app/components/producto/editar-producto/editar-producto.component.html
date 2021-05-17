@@ -10,7 +10,7 @@
                     <div class="form-group col-md-6">
                         <mat-form-field>
                             <mat-label>Nombre </mat-label>
-                            <input matInput id="nombre" name="nombre" [(ngModel)]="form.nombre" readonly>
+                            <input matInput id="nombre" name="nombre" [(ngModel)]="form.nombre">
                         </mat-form-field>
                     </div>
                 </div>
@@ -19,6 +19,14 @@
                         <mat-form-field>
                             <mat-label>Precio </mat-label>
                             <input matInput id="precio" name="precio" [(ngModel)]="form.precio">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <mat-form-field>
+                            <mat-label>Disponible</mat-label>
+                            <input matInput id="disponible" name="disponible" [(ngModel)]="form.disponible">
                         </mat-form-field>
                     </div>
                 </div>

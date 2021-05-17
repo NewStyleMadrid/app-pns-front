@@ -31,6 +31,7 @@ export class EditarProductoComponent implements OnInit {
     this.productoService.detalle(id).subscribe( data => {
       this.form.nombre = data.nombre;
       this.form.precio = data.precio;
+      this.form.disponible = data.disponible;
     },
       (err: any) => {
         this.failInit = true;

@@ -18,6 +18,7 @@ export class ListaCorteComponent implements OnInit {
   isAdmin = false;
   logOut=false;
   paginaActual:number= 0;
+  searchText;
 
   constructor(
     private imgService: CorteService,
@@ -25,17 +26,6 @@ export class ListaCorteComponent implements OnInit {
     private modalService: NgbModal,
     private tokenService: TokenService
     ) { }
-/*
-  ngOnInit() {
-   this.cargarImagenes();
-  }
-  cargarImagenes(): void {
-    this.imgService.lista().subscribe(
-      data => {
-        this.imagenes = data;
-      }
-    );
-  }*/
 
   ngOnInit() {
     this.cargarImagen();

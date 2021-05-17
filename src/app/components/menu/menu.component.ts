@@ -17,6 +17,7 @@ export class MenuComponent implements OnInit {
   loggedOut=false;
   userName = '';
   isAdmin = false;
+  searchText;
 
   constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router) { }
 

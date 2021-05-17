@@ -38,7 +38,7 @@ const routes: Routes = [
   { path: 'mi-perfil', component: PerfilComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
 
   // Producto
-  { path: 'lista-productos', component: ListaProductoComponent },
+  { path: 'lista-productos', component: ListaProductoComponent},
   { path: 'detalle-producto/:id', component: DetalleProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
   { path: 'nuevo-producto', component: NuevoProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
   { path: 'editar-producto/:id', component: EditarProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },

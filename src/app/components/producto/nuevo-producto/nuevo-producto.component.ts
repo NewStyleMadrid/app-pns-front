@@ -27,6 +27,7 @@ export class NuevoProductoComponent implements OnInit {
 
   get nombre() { return this.myForm.get('nombre'); }
   get precio() { return this.myForm.get('precio'); }
+  get disponible() { return this.myForm.get('disponible'); }
 
 
   constructor(
@@ -42,14 +43,16 @@ export class NuevoProductoComponent implements OnInit {
     return new FormGroup({
       nombre: new FormControl('', [Validators.required]),
       precio: new FormControl('', [Validators.required,Validators.pattern(this.exPrecio)]),
+      disponible: new FormControl('', [Validators.required])
     });
   }
 
   onCreate(): void {
     if (this.myForm.valid) {
-    this.producto=new Producto(this.nombre.value,this.precio.value);
+    this.producto=new Producto(this.nombre.value,this.precio.value, this.disponible.value);
     this.productoService.crear(this.producto).subscribe(
       data => {
+        console.log(data);
         this.isCreate = true;
         this.noCreate = false;
         this.toastr.success('Producto creado!', '', {
