@@ -6,7 +6,7 @@
             <h5>Photo of me:</h5>
             <div class="fakeimg">Fake Image</div>
             <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-            <h3>Some Links</h3>
+            <h3>Nuestras redes:</h3>
             <p>Lorem ipsum dolor sit ame.</p>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
@@ -25,8 +25,8 @@
             <hr class="d-sm-none">
         </div>
         <div class="col-sm-8">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2017</h5>
+            <h2>Nuestra historia:</h2>
+            <h5>Descripción, Mar 19, 2021</h5>
             <div class="fakeimg">Fake Image</div>
             <p>Some text..</p>
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
@@ -38,9 +38,18 @@
             <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
         </div>
     </div>
-    <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1>My First Bootstrap 4 Page</h1>
-        <p>Resize this responsive page to see the effect!</p>
+    <div class="row">
+        <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+            <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+                <agm-info-window>
+                    <strong>InfoWindow content</strong>
+                </agm-info-window>
+            </agm-marker>
+            <!--
+        <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
+        </agm-circle>
+        -->
+        </agm-map>
     </div>
 </div>
 <app-scroll-to-top></app-scroll-to-top>
