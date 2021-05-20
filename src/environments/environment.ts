@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   authURL : 'http://localhost:8080/auth/',
   imagenURL : 'http://localhost:8080/diseño/',
+  homeURL : 'http://localhost:8080/home/',
   productoURL : 'http://localhost:8080/producto/',
   productosURL : 'http://localhost:8080/productos?'
 
