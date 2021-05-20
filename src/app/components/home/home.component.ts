@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Corte } from 'src/app/models/corte';
-import { CorteService } from 'src/app/service/corte.service';
+import { Home } from 'src/app/models/home';
+import { HomeService } from 'src/app/service/home.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   ];
 
   constructor(
-    private imgService: CorteService,
+    private homeService: HomeService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal,
     private tokenService: TokenService,
@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     //Aqui podemos añadir más por si se extiende la franquicia
   ]
 
-   imagenes: Corte[] = [];
+   imagenes: Home[] = [];
    isAdmin = false;
    logOut=false;
    paginaActual:number= 0;
@@ -86,7 +86,7 @@ export class HomeComponent implements OnInit {
   cargarImagen(): void {
     this.spinner.show();
     this.logOut=true;
-    this.imgService.lista().subscribe(data => {
+    this.homeService.lista().subscribe(data => {
       this.spinner.hide();
       this.imagenes=data;
     },
