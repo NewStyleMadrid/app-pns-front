@@ -5,15 +5,15 @@
         <!-- COMENTADO SE MODIFICARA CUANDO TENGAMOS RUTAS SOLO PARA LA GALERIA DE HOME EN CLOUDINARY-->
 
         <ngb-carousel>
-            <ng-template *ngFor="let imgHome of imagenes" ngbSlide>
+            <ng-template *ngFor="let home of homes" ngbSlide>
 
                 <div class="picsum-img-wrapper">
-                    <img src="{{imgHome.imagenUrl}}" alt="Random first slide">
+                    <img src="{{home.imagenUrl}}" alt="Random first slide">
                 </div>
 
                 <div class="carousel-caption"> /////Si les ponemos título y descripción a las imágenes saldría encima del carrusel/////
-                    <h3>{{imgHome.name}}</h3>
-                    <p>{{imgHome.desc}}</p>
+                    <h3>{{home.name}}</h3>
+                    <p>{{home.desc}}</p>
                 </div>
 
             </ng-template>

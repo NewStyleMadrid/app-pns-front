@@ -13,6 +13,7 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class HomeComponent implements OnInit {
 
+  /*
   info: any = {};
   imgsHome: any[] = [
     {
@@ -26,6 +27,9 @@ export class HomeComponent implements OnInit {
       desc: '(+34) 910-045-401'
     }
   ];
+  */
+
+  info: any = {};
 
   constructor(
     private homeService: HomeService,
@@ -67,7 +71,7 @@ export class HomeComponent implements OnInit {
     //Aqui podemos añadir más por si se extiende la franquicia
   ]
 
-   imagenes: Home[] = [];
+   homes: Home[] = [];
    isAdmin = false;
    logOut=false;
    paginaActual:number= 0;
@@ -88,7 +92,7 @@ export class HomeComponent implements OnInit {
     this.logOut=true;
     this.homeService.lista().subscribe(data => {
       this.spinner.hide();
-      this.imagenes=data;
+      this.homes=data;
     },
       (err: any) => {
         console.log(err);
