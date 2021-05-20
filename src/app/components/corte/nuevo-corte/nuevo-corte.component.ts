@@ -16,8 +16,8 @@ export class NuevoCorteComponent implements OnInit {
   imagenMin: File;
 
   constructor(
-    private imgService: CorteService, 
-    private router: Router, 
+    private imgService: CorteService,
+    private router: Router,
     private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {

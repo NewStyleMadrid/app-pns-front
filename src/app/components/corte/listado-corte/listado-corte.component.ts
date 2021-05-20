@@ -20,8 +20,8 @@ export class ListadoCorteComponent implements OnInit {
   totalPages: Array<number>;
 
   constructor(
-    private imagenService: CorteService, 
-    private toastr: ToastrService, 
+    private imagenService: CorteService,
+    private toastr: ToastrService,
     private tokenService: TokenService,
     private modalService: NgbModal,
     ) { }
@@ -30,7 +30,7 @@ export class ListadoCorteComponent implements OnInit {
     this.cargarCortes();
     this.isAdmin = this.tokenService.isAdmin();
   }
-  
+
   cargarCortes(): void {
     this.imagenService.listado().subscribe(data => {
       this.estilos = data;
@@ -41,7 +41,7 @@ export class ListadoCorteComponent implements OnInit {
       }
     );
   }
-  
+
   borrar(id: number) {
     this.imagenService.delete(id).subscribe(
       data => {

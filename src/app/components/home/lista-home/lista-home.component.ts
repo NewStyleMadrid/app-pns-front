@@ -1,9 +1,9 @@
+import { Home } from './../../../models/home';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { Corte } from 'src/app/models/corte';
-import { CorteService } from 'src/app/service/corte.service';
 import { TokenService } from 'src/app/service/token.service';
+import { HomeService } from 'src/app/service/home.service';
 
 @Component({
   selector: 'app-lista-home',
@@ -13,13 +13,13 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class ListaHomeComponent implements OnInit {
 
-  imagenes: Corte[] = [];
+  imagenes: Home[] = [];
   isAdmin = false;
   logOut=false;
   paginaActual:number= 0;
 
   constructor(
-    private imgService: CorteService,
+    private homeService: HomeService,
     private spinner: NgxSpinnerService,
     private modalService: NgbModal,
     private tokenService: TokenService
@@ -33,7 +33,7 @@ export class ListaHomeComponent implements OnInit {
   cargarImagen(): void {
     this.spinner.show();
     this.logOut=true;
-    this.imgService.lista().subscribe(data => {
+    this.homeService.lista().subscribe(data => {
       this.spinner.hide();
       this.imagenes=data;
     },
@@ -45,7 +45,7 @@ export class ListaHomeComponent implements OnInit {
 
   borrar(id: number): void {
     this.spinner.show();
-    this.imgService.delete(id).subscribe(
+    this.homeService.delete(id).subscribe(
       data => {
         this.spinner.hide();
         this.cargarImagen();

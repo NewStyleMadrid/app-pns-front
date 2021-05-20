@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { Corte } from 'src/app/models/corte';
-import { CorteService } from 'src/app/service/corte.service';
+import { Home } from 'src/app/models/home';
+import { HomeService } from 'src/app/service/home.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -13,8 +13,8 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class ListadoHomeComponent implements OnInit {
 
-  imagenes: Corte[] = [];
-  estilos: Corte
+  homes: Home[] = [];
+  estilos: Home
   isAdmin = false;
 
   paginaActual:number= 0;
@@ -22,7 +22,7 @@ export class ListadoHomeComponent implements OnInit {
   totalPages: Array<number>;
 
   constructor(
-    private imagenService: CorteService,
+    private homeService: HomeService,
     private toastr: ToastrService,
     private tokenService: TokenService,
     private modalService: NgbModal,
@@ -34,8 +34,8 @@ export class ListadoHomeComponent implements OnInit {
   }
 
   cargarImagenes(): void {
-    this.imagenService.listado().subscribe(data => {
-      this.imagenes = data;
+    this.homeService.listado().subscribe(data => {
+      this.homes = data;
       console.log(data);
     },
       (err: any) => {
@@ -45,7 +45,7 @@ export class ListadoHomeComponent implements OnInit {
   }
 
   borrar(id: number) {
-    this.imagenService.delete(id).subscribe(
+    this.homeService.delete(id).subscribe(
       data => {
         this.toastr.success('Diseño Eliminado', ' ', {
           timeOut: 2000, positionClass: 'toast-top-center'

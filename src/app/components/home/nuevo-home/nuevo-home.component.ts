@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { CorteService } from 'src/app/service/corte.service';
+import { HomeService } from 'src/app/service/home.service';
 
 @Component({
   selector: 'app-nuevo-home',
@@ -16,7 +16,7 @@ export class NuevoHomeComponent implements OnInit {
   imagenMin: File;
 
   constructor(
-    private imgService: CorteService,
+    private homeService: HomeService,
     private router: Router,
     private spinner: NgxSpinnerService) { }
 
@@ -34,10 +34,10 @@ export class NuevoHomeComponent implements OnInit {
 
   onUpload(): void {
     this.spinner.show();
-    this.imgService.upload(this.imagen).subscribe(
+    this.homeService.upload(this.imagen).subscribe(
       data => {
         this.spinner.hide();
-        this.router.navigate(['/lista-diseños']);
+        this.router.navigate(['/lista-home']);
       },
       err => {
         alert(err.error.mensaje);
