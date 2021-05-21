@@ -19,7 +19,7 @@
             </ng-template>
         </ngb-carousel>
 
-                <!--
+        <!--
         <ngb-carousel>
             <ng-template *ngFor="let imgHome of imgsHome" ngbSlide>
                 <div class="picsum-img-wrapper">
@@ -34,73 +34,73 @@
     </p>
 </div>
 -->
-<div class="container-fluid bg-3 text-center">
-    <h3>Tipos de cortes</h3><br>
-    <div class="row">
-        <table class="table  table-bordered table-hover">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col" class="text-uppercase">Servicios</th>
-                    <th scope="col" class="text-uppercase">Mujeres</th>
-                    <th scope="col" class="text-uppercase">Hombres</th>
-                    <th scope="col" class="text-uppercase">Niños</th>
-                    <th scope="col" class="text-uppercase">Adultos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td>@mdo</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td>@mdo</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
-<div class="container-fluid bg-3 text-center ">
-    <div class="row">
-        <div class="col-sm-4 mt-3 text-center">
-            <div class="card">
-                <div class="card-header">
-                    <h2 class="titleUbicacion">Nuestra ubicación <i class="fas fa-map-marker-alt"></i></h2>
-                </div>
-                <div class="card-body">
-                    <ul class="list-group list-group-flush mt-4">
-                        <h5><i class="fas fa-city"></i> Madrid</h5>
-                        <p><i class="fas fa-road"></i> Calle Alcalá Nº 6</p>
-                        <div class="fakeimg">C.P 28850</div>
-                    </ul>
-                </div>
+        <div class="container-fluid bg-3 text-center">
+            <h3>Tipos de cortes</h3><br>
+            <div class="row">
+                <table class="table  table-bordered table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col" class="text-uppercase">Servicios</th>
+                            <th scope="col" class="text-uppercase">Mujeres</th>
+                            <th scope="col" class="text-uppercase">Hombres</th>
+                            <th scope="col" class="text-uppercase">Niños</th>
+                            <th scope="col" class="text-uppercase">Adultos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            <td>@mdo</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="col mt-3">
-            <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
-                <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
-                    <agm-info-window>
-                        <strong>InfoWindow content</strong>
-                    </agm-info-window>
-                </agm-marker>
-                <!--
+        <div class="container-fluid bg-3 text-center ">
+            <div class="row">
+                <div class="col-sm-4 mt-3 text-center">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="titleUbicacion">Nuestra ubicación <i class="fas fa-map-marker-alt"></i></h2>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush mt-4">
+                                <h5><i class="fas fa-city"></i> Madrid</h5>
+                                <p><i class="fas fa-road"></i> Calle Alcalá Nº 6</p>
+                                <div class="fakeimg">C.P 28850</div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-3">
+                    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+                        <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label, i)" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [markerDraggable]="m.draggable" (dragEnd)="markerDragEnd(m, $event)">
+                            <agm-info-window>
+                                <strong>InfoWindow content</strong>
+                            </agm-info-window>
+                        </agm-marker>
+                        <!--
             <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
             </agm-circle>
             -->
-            </agm-map>
-        </div>
-    </div><br><br>
-    <app-scroll-to-top></app-scroll-to-top>
+                    </agm-map>
+                </div>
+            </div><br><br>
+            <app-scroll-to-top></app-scroll-to-top>

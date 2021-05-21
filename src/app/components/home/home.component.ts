@@ -13,6 +13,7 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class HomeComponent implements OnInit {
 
+
   /*
   info: any = {};
   imgsHome: any[] = [
@@ -71,16 +72,17 @@ export class HomeComponent implements OnInit {
     //Aqui podemos añadir más por si se extiende la franquicia
   ]
 
-   homes: Home[] = [];
-   isAdmin = false;
-   logOut=false;
-   paginaActual:number= 0;
+  homes: Home[] = [];
+  isAdmin = false;
+  paginaActual: number = 0;
+  isLogged = false;
+
 
 
 
   ngOnInit() {
     this.cargarImagen();
-    this.isAdmin = this.tokenService.isAdmin();
+    this.isLogged = this.tokenService.isLogged();
     this.info = {
       token: this.tokenService.getToken(),
       nombreUsuario: this.tokenService.getUserName(),
@@ -89,10 +91,10 @@ export class HomeComponent implements OnInit {
 
   cargarImagen(): void {
     this.spinner.show();
-    this.logOut=true;
     this.homeService.lista().subscribe(data => {
       this.spinner.hide();
-      this.homes=data;
+      this.isLogged = this.tokenService.isLogged();
+      this.homes = data;
     },
       (err: any) => {
         console.log(err);
