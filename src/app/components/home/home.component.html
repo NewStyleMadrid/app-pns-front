@@ -1,39 +1,17 @@
 <app-menu></app-menu>
 <div class="galeria text-center">
-    <p>
-        <!--Tutorial carrusel https://www.youtube.com/watch?v=0De2V7haH7E&t=191s-->
-        <!-- COMENTADO SE MODIFICARA CUANDO TENGAMOS RUTAS SOLO PARA LA GALERIA DE HOME EN CLOUDINARY-->
-
+    <div>
         <ngb-carousel>
             <ng-template *ngFor="let home of homes" ngbSlide>
-
                 <div class="picsum-img-wrapper">
                     <img src="{{home.imagenUrl}}" alt="Random first slide">
                 </div>
-
-                <div class="carousel-caption"> /////Si les ponemos título y descripción a las imágenes saldría encima del carrusel/////
-                    <h3>{{home.name}}</h3>
-                    <p>{{home.desc}}</p>
-                </div>
-
-            </ng-template>
-        </ngb-carousel>
-
-        <!--
-        <ngb-carousel>
-            <ng-template *ngFor="let imgHome of imgsHome" ngbSlide>
-                <div class="picsum-img-wrapper">
-                    <img src="{{imgHome.img}}" alt="Random first slide">
-                </div>
                 <div class="carousel-caption">
-                    <h1 id="tituloImg">{{imgHome.name}}</h1>
-                    <p id="descripcion" class="text-white">{{imgHome.desc}}</p>
+                    <h3>{{home.name}}</h3>
+                    <!--<p>{{imgsHome.desc}}</p>-->
                 </div>
             </ng-template>
         </ngb-carousel>
-    </p>
-</div>
--->
         <div class="container-fluid bg-3 text-center">
             <h3>Tipos de cortes</h3><br>
             <div class="row">
@@ -96,11 +74,10 @@
                                 <strong>InfoWindow content</strong>
                             </agm-info-window>
                         </agm-marker>
-                        <!--
-            <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true" [editable]="true">
-            </agm-circle>
-            -->
                     </agm-map>
                 </div>
             </div><br><br>
-            <app-scroll-to-top></app-scroll-to-top>
+        </div>
+    </div>
+    <!--Boton de scroll-->
+    <app-scroll-to-top></app-scroll-to-top>

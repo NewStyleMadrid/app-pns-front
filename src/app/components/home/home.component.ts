@@ -13,35 +13,17 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class HomeComponent implements OnInit {
 
-
-  /*
-  info: any = {};
-  imgsHome: any[] = [
-    {
-      name: 'Peluquería New Style',
-      img: 'assets/pelu00.jpeg',
-      desc: 'Bienvenidos a nuestra peluquería donde ofrecemos el mejor catalogo de cortes y promociones a nuestros clientes.'
-    },
-    {
-      name: 'Peluquería New Style',
-      img: 'assets/pelu03.jpg',
-      desc: '(+34) 910-045-401'
-    }
-  ];
-  */
-
   info: any = {};
 
   constructor(
     private homeService: HomeService,
     private spinner: NgxSpinnerService,
-    private modalService: NgbModal,
     private tokenService: TokenService,
     private config: NgbCarouselConfig
   ) {
     config.interval = 3000;
     config.pauseOnHover = true;
-  };
+  }
 
   //Titulo
   title = 'Peluquería New Style';
@@ -76,9 +58,6 @@ export class HomeComponent implements OnInit {
   isAdmin = false;
   paginaActual: number = 0;
   isLogged = false;
-
-
-
 
   ngOnInit() {
     this.cargarImagen();
