@@ -17,7 +17,7 @@ export class ListadoHomeComponent implements OnInit {
   estilos: Home
   isAdmin = false;
 
-  paginaActual:number= 0;
+  paginaActual: number = 0;
 
   totalPages: Array<number>;
 
@@ -26,7 +26,7 @@ export class ListadoHomeComponent implements OnInit {
     private toastr: ToastrService,
     private tokenService: TokenService,
     private modalService: NgbModal,
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.cargarImagenes();
@@ -36,7 +36,7 @@ export class ListadoHomeComponent implements OnInit {
   cargarImagenes(): void {
     this.homeService.listado().subscribe(data => {
       this.homes = data;
-      console.log(data);
+      //console.log(data);
     },
       (err: any) => {
         console.log(err);
@@ -47,13 +47,13 @@ export class ListadoHomeComponent implements OnInit {
   borrar(id: number) {
     this.homeService.delete(id).subscribe(
       data => {
-        this.toastr.success('Diseño Eliminado', ' ', {
+        this.toastr.success('Imagen del home eliminada!', ' ', {
           timeOut: 2000, positionClass: 'toast-top-center'
         });
         this.cargarImagenes();
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Error al eliminar', {
+        this.toastr.error(err.error.mensaje, 'Error al eliminar imagen!', {
           timeOut: 2000, positionClass: 'toast-top-center',
         });
       }

@@ -81,6 +81,7 @@ import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nue
 import { EditarServicioComponent } from './components/servicio/editar-servicio/editar-servicio.component';
 import { ListaServicioComponent } from './components/servicio/lista-servicio/lista-servicio.component';
 import { ListadoServicioComponent } from './components/servicio/listado-servicio/listado-servicio.component';
+import { EditarHomeComponent } from './components/home/editar-home/editar-home.component';
 
 
 
@@ -136,6 +137,7 @@ import { ListadoServicioComponent } from './components/servicio/listado-servicio
     EditarServicioComponent,
     ListaServicioComponent,
     ListadoServicioComponent,
+    EditarHomeComponent,
 
 
 

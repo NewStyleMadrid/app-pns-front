@@ -29,6 +29,7 @@ import { DetalleServicioComponent } from './components/servicio/detalle-servicio
 import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
 import { EditarServicioComponent } from './components/servicio/editar-servicio/editar-servicio.component';
 import { ListadoServicioComponent } from './components/servicio/listado-servicio/listado-servicio.component';
+import { EditarHomeComponent } from './components/home/editar-home/editar-home.component';
 
 const routes: Routes = [
 
@@ -70,6 +71,7 @@ const routes: Routes = [
   // Galería home
   { path: 'nuevo-home', component: NuevoHomeComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
   { path: 'listado-home', component: ListadoHomeComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'editar-home/:id', component: EditarHomeComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
   { path: 'lista-home', component: ListaHomeComponent },
 
   // About Me

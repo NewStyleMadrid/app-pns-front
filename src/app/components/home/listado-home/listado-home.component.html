@@ -17,13 +17,17 @@
             <td>{{home.id}}</td>
             <td>{{home.imagenId}}</td>
             <td>{{home.name}}</td>
-            <td>{{home.homeUrl}}</td>
-            <td *ngIf="isAdmin"><button class="btn btn-outline-primary"><i class="far fa-eye"></i> Ver</button></td>
-            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-home/{{home.id}}"><i class="far fa-edit"></i> Editar</button></td>
-            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(home.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
+            <td>{{home.imagenUrl}}</td>
+            <td *ngIf="isAdmin"><button class="btn btn-outline-primary"><i class="far fa-eye"></i> </button></td>
+            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-home/{{home.id}}"><i class="far fa-edit"></i> </button></td>
+            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(home.id)"><i class="far fa-trash-alt"></i> </button></td>
         </tr>
     </tbody>
 </table>
-<div class="paginacion">
-    <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+<div class="justify-content-center justify-content-md-start">
+    <div class="col">
+        <div class="paginacion p-2 text-center">
+            <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+        </div>
+    </div>
 </div>
