@@ -1,0 +1,28 @@
+<app-menu></app-menu>
+<div class="container bg-3 text-center">
+    <h3>Tipos de cortes</h3><br>
+    <div class="row">
+        <table class="table  table-bordered table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="text-uppercase">ID</th>
+                    <th scope="col" class="text-uppercase">Servicios</th>
+                    <th scope="col" class="text-uppercase">Mujeres</th>
+                    <th scope="col" class="text-uppercase">Hombres</th>
+                    <th scope="col" class="text-uppercase">Niños</th>
+                    <th scope="col" class="text-uppercase">Adultos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let servicio of servicios">
+                    <th scope="row">{{servicio.id}}</th>
+                    <td>{{servicio.tipoServicio}}</td>
+                    <td>{{servicio.precioMujer}} €</td>
+                    <td>{{servicio.precioHombre}} €</td>
+                    <td>{{servicio.precioNinio}} €</td>
+                    <td>{{servicio.precioAdulto}} €</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

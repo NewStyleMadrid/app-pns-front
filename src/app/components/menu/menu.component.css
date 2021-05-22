@@ -58,3 +58,14 @@
 .mat-label {
     color: white;
 }
+
+
+/*Logo*/
+
+text {
+    fill: #35322a;
+    filter: url('#money');
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-size: 40px;
+    font-weight: 10;
+}

@@ -29,7 +29,6 @@ export class NuevoProductoComponent implements OnInit {
   get precio() { return this.myForm.get('precio'); }
   get disponible() { return this.myForm.get('disponible'); }
 
-
   constructor(
     private productoService: ProductoService, 
     private toastr: ToastrService, 

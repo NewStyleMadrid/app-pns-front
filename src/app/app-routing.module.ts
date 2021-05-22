@@ -24,6 +24,10 @@ import { NuevoProductoComponent } from './components/producto/nuevo-producto/nue
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
 import { GuardService } from './guards/guard.service';
 import { LoginGuard } from './guards/login.guard';
+import { ListaServicioComponent } from './components/servicio/lista-servicio/lista-servicio.component';
+import { DetalleServicioComponent } from './components/servicio/detalle-servicio/detalle-servicio.component';
+import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
+import { EditarServicioComponent } from './components/servicio/editar-servicio/editar-servicio.component';
 
 const routes: Routes = [
 
@@ -43,12 +47,18 @@ const routes: Routes = [
   { path: 'nuevo-producto', component: NuevoProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
   { path: 'editar-producto/:id', component: EditarProductoComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
 
+  // Servicio
+  { path: 'lista-servicio', component: ListaServicioComponent},
+  { path: 'detalle-servicio/:id', component: DetalleServicioComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },
+  { path: 'nuevo-servicio', component: NuevoServicioComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'editar-servicio/:id', component: EditarServicioComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+
   // Diseño
-  { path: 'nuevo-diseño', component: NuevoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
-  { path: 'editar-diseño/:id', component: EditarCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
-  { path: 'listado-diseños', component: ListadoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
-  { path: 'lista-diseños', component: ListaCorteComponent },
-  { path: 'detalle-diseño/:id', component: DetalleCorteComponent },
+  { path: 'nuevo-corte', component: NuevoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'editar-corte/:id', component: EditarCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'listado-cortes', component: ListadoCorteComponent, canActivate: [GuardService], data: { expectedRol: ['admin'] } },
+  { path: 'lista-cortes', component: ListaCorteComponent },
+  { path: 'detalle-corte/:id', component: DetalleCorteComponent },
 
   // Citas
   { path: 'nueva-cita', component: NuevaCitaComponent, canActivate: [GuardService], data: { expectedRol: ['admin', 'user'] } },

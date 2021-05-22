@@ -19,7 +19,9 @@ export class MenuComponent implements OnInit {
   isAdmin = false;
   searchText;
 
-  constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router) { }
+  
+
+  constructor( private tokenService:TokenService,public uDialog: MatDialog, private router:Router ) { }
 
  
   dialogLogin(): void {
@@ -57,11 +59,13 @@ export class MenuComponent implements OnInit {
       this.isLogged = this.tokenService.isLogged();
       this.isAdmin = this.tokenService.isAdmin();
       this.userName=this.tokenService.getUserName();
+      
     }else{
       //this.isLogged = false;
       this.userName='';
     }
   }
+
 
   // Cierra sesion
   onLogout(): void {

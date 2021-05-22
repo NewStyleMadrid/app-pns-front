@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Home } from 'src/app/models/home';
+import { Servicio } from 'src/app/models/servicio';
 import { HomeService } from 'src/app/service/home.service';
+import { ServicioService } from 'src/app/service/servicio.service';
 import { TokenService } from 'src/app/service/token.service';
 
 @Component({
@@ -13,13 +15,14 @@ import { TokenService } from 'src/app/service/token.service';
 
 export class HomeComponent implements OnInit {
 
-  info: any = {};
+  
 
   constructor(
     private homeService: HomeService,
     private spinner: NgxSpinnerService,
     private tokenService: TokenService,
-    private config: NgbCarouselConfig
+    private config: NgbCarouselConfig,
+    private servicioService: ServicioService
   ) {
     config.interval = 3000;
     config.pauseOnHover = true;
@@ -58,13 +61,17 @@ export class HomeComponent implements OnInit {
   isAdmin = false;
   paginaActual: number = 0;
   isLogged = false;
+  info: any = {};
+  servicios: Servicio[] = [];
 
   ngOnInit() {
     this.cargarImagen();
+    this.cargarServicios();
     this.isLogged = this.tokenService.isLogged();
     this.info = {
       token: this.tokenService.getToken(),
       nombreUsuario: this.tokenService.getUserName(),
+      
     };
   }
 
@@ -74,6 +81,15 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
       this.isLogged = this.tokenService.isLogged();
       this.homes = data;
+    },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+  }
+  cargarServicios(): void {
+    this.servicioService.lista().subscribe(data => {
+      this.servicios = data;
     },
       (err: any) => {
         console.log(err);

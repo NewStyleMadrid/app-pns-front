@@ -19,33 +19,19 @@
                     <thead class="thead-dark">
                         <tr>
                             <th scope="col" class="text-uppercase">Servicios</th>
-                            <th scope="col" class="text-uppercase">Mujeres</th>
+                            <th scope="col" class="text-uppercase">Mujeres </th>
                             <th scope="col" class="text-uppercase">Hombres</th>
-                            <th scope="col" class="text-uppercase">Niños</th>
+                            <th scope="col" class="text-uppercase">Niños </th>
                             <th scope="col" class="text-uppercase">Adultos</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>@mdo</td>
+                        <tr *ngFor="let servicio of servicios">
+                            <th>{{servicio.tipoServicio}}</th>
+                            <td>{{servicio.precioMujer}} €</td>
+                            <td>{{servicio.precioHombre}} €</td>
+                            <td>{{servicio.precioNinio}} €</td>
+                            <td>{{servicio.precioAdulto}} €</td>
                         </tr>
                     </tbody>
                 </table>

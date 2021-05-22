@@ -23,13 +23,16 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegistrarComponent } from './auth/registrar/registrar.component';
 import { ListaUsuarioComponent } from './auth/lista-usuario/lista-usuario.component';
 import { EditarUsuarioComponent } from './auth/editar-usuario/editar-usuario.component';
+import { PerfilComponent } from './auth/perfil/perfil.component';
 
 // Producto
 import { ListaProductoComponent } from './components/producto/lista-producto/lista-producto.component';
 import { NuevoProductoComponent } from './components/producto/nuevo-producto/nuevo-producto.component';
 import { EditarProductoComponent } from './components/producto/editar-producto/editar-producto.component';
 import { DetalleProductoComponent } from './components/producto/detalle-producto/detalle-producto.component';
-import { interceptorProvider } from './interceptors/producto-interceptor.service'; // Interceptor
+
+// Servicio
+import { interceptorProvider } from './interceptors/servicio-interceptor.service'; // Interceptor
 
 // Diseño
 import { DetalleCorteComponent } from './components/corte/detalle-corte/detalle-corte.component';
@@ -44,15 +47,25 @@ import { NgxSpinnerModule } from "ngx-spinner";
 import { ProgressBarModule } from "angular-progress-bar";
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { AgmCoreModule } from '@agm/core';
-import {MatSelectModule} from '@angular/material/select';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+
+// Corte
+import { EditarCorteComponent } from './components/corte/editar-corte/editar-corte.component';
+import { ListadoCorteComponent } from './components/corte/listado-corte/listado-corte.component';
+
+// Cita
+import { NuevaCitaComponent } from './components/cita/nueva-cita/nueva-cita.component';
+import { ListaCitaComponent } from './components/cita/lista-cita/lista-cita.component';
+import { EditarCitaComponent } from './components/cita/editar-cita/editar-cita.component';
 
 // Quienes somos
 import { QuienessomosComponent } from './components/quienessomos/quienessomos.component';
@@ -63,13 +76,11 @@ import { ScrollToTopComponent } from './components/shared/scroll-to-top/scroll-t
 import { CookiesComponent } from './components/shared/cookies/cookies.component';
 import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 import { TranslateModule } from '@ngx-translate/core';
-import { EditarCorteComponent } from './components/corte/editar-corte/editar-corte.component';
-import { ListadoCorteComponent } from './components/corte/listado-corte/listado-corte.component';
-import { PerfilComponent } from './auth/perfil/perfil.component';
-import { NuevaCitaComponent } from './components/cita/nueva-cita/nueva-cita.component';
-import { ListaCitaComponent } from './components/cita/lista-cita/lista-cita.component';
-import { EditarCitaComponent } from './components/cita/editar-cita/editar-cita.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { DetalleServicioComponent } from './components/servicio/detalle-servicio/detalle-servicio.component';
+import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
+import { EditarServicioComponent } from './components/servicio/editar-servicio/editar-servicio.component';
+import { ListaServicioComponent } from './components/servicio/lista-servicio/lista-servicio.component';
+
 
 
 @NgModule({
@@ -119,6 +130,10 @@ import { MatNativeDateModule } from '@angular/material/core';
     NuevaCitaComponent,
     ListaCitaComponent,
     EditarCitaComponent,
+    DetalleServicioComponent,
+    NuevoServicioComponent,
+    EditarServicioComponent,
+    ListaServicioComponent,
 
 
 
@@ -171,7 +186,7 @@ import { MatNativeDateModule } from '@angular/material/core';
         ]
       } as SocialAuthServiceConfig,
     },
-    interceptorProvider // Interceptor de producto
+    interceptorProvider // Interceptor del servicio
   ],
   entryComponents: [DetalleCorteComponent],
   bootstrap: [AppComponent]
