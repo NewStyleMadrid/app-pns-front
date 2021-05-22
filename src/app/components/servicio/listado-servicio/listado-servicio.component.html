@@ -1,0 +1,35 @@
+<app-menu></app-menu>
+<table class="table table-hover table-light">
+    <thead class=" table table-success">
+        <tr>
+            <th *ngIf="isAdmin" scope="col">Id <i class="fas fa-sort"></i></th>
+            <th scope="col">Tipo de servicio <i class="fas fa-sort"></i></th>
+            <th scope="col">Precio Mujer <i class="fas fa-sort"></i></th>
+            <th scope="col">Precio Hombre <i class="fas fa-sort"></i></th>
+            <th scope="col">Precio Niño <i class="fas fa-sort"></i></th>
+            <th scope="col">Precio Adulto <i class="fas fa-sort"></i></th>
+            <th scope="col" *ngIf="isAdmin">Editar</th>
+            <th scope="col" *ngIf="isAdmin">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let servicio of servicios |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
+            <td *ngIf="isAdmin">{{servicio.id}}</td>
+            <td>{{servicio.tipoServicio}} €</td>
+            <td>{{servicio.precioMujer}} €</td>
+            <td>{{servicio.precioHombre}} €</td>
+            <td>{{servicio.precioNinio}} €</td>
+            <td>{{servicio.precioAdulto}} €</td>
+            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-servicio/{{servicio.id}}"><i class="far fa-edit"></i> Editar</button></td>
+            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(servicio.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="justify-content-center justify-content-md-start">
+    <div class="col">
+        <div class="paginacion p-2 text-center">
+            <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+        </div>
+    </div>
+</div>
+<app-scroll-to-top></app-scroll-to-top>

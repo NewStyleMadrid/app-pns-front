@@ -1,0 +1,13 @@
+/* Paginación Diseño*/
+
+.my-pagination /deep/ .ngx-pagination {
+    padding-top: 3em;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #292b2c;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #292b2c;
+}

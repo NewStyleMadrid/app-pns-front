@@ -80,6 +80,7 @@ import { DetalleServicioComponent } from './components/servicio/detalle-servicio
 import { NuevoServicioComponent } from './components/servicio/nuevo-servicio/nuevo-servicio.component';
 import { EditarServicioComponent } from './components/servicio/editar-servicio/editar-servicio.component';
 import { ListaServicioComponent } from './components/servicio/lista-servicio/lista-servicio.component';
+import { ListadoServicioComponent } from './components/servicio/listado-servicio/listado-servicio.component';
 
 
 
@@ -134,6 +135,7 @@ import { ListaServicioComponent } from './components/servicio/lista-servicio/lis
     NuevoServicioComponent,
     EditarServicioComponent,
     ListaServicioComponent,
+    ListadoServicioComponent,
 
 
 

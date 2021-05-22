@@ -14,13 +14,8 @@
               <feOffset in='expand' dx='7' dy='7' result='shadow_7'/>
               <feMerge result='shadow'>
                 <feMergeNode in='expand'/>
-                <feMergeNode in='shadow_1'/>
-                <feMergeNode in='shadow_2'/>
+                /<!--Sombra para el logo-->
                 <feMergeNode in='shadow_3'/>
-                <feMergeNode in='shadow_4'/>
-                <feMergeNode in='shadow_5'/>
-                <feMergeNode in='shadow_6'/>
-                <feMergeNode in='shadow_7'/>
               </feMerge>
               <feFlood flood-color='#ebe7e0'/>
               <feComposite in2='shadow' operator='in' result='shadow'/>
@@ -52,7 +47,7 @@
                 <feMergeNode in='secondShadow_10'/>
                 <feMergeNode in='secondShadow_11'/>
               </feMerge>
-              <feImage x='0' y='0' width='600' height='200' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg'/>
+              <feImage x='0' y='0' width='0' height='0' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg'/>
               <feComposite in2='secondShadow' operator='in' result='secondShadow'/>
               <feMerge>
                 <feMergeNode in='secondShadow'/>
@@ -95,9 +90,6 @@
         <ul *ngIf="isLogged ; else loggedOut" class="navbar-nav mr-auto formato">
             <!-- MENU PARA EL ROL USER -->
             <li class="nav-item">
-                <a routerLink="/">Home</a>
-            </li>
-            <li class="nav-item">
                 <a routerLink="/lista-cortes">Cortes</a>
             </li>
             <li class="nav-item">
@@ -128,6 +120,7 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" routerLink="/nuevo-servicio"><i class="fas fa-plus-circle"></i> Nuevo servicio</a>
+                        <a class="dropdown-item" routerLink="/listado-servicio"><i class="fas fa-pencil-alt"></i> Editar servicio</a>
                         <a class="dropdown-item" routerLink="/lista-servicio"><i class="fas fa-list"></i> Listar servicios</a>
                     </div>
                 </li>
