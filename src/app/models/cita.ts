@@ -1,7 +1,8 @@
 export class Cita {
-    hora?: string;
 
-    constructor(hora:string){
-        this.hora=hora;
+    fecha: Date;
+
+    constructor(fecha: Date){
+        this.fecha=fecha;
     }
 }

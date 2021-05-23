@@ -9,6 +9,7 @@ export const environment = {
   homeURL: 'http://localhost:8080/home/',
   productoURL: 'http://localhost:8080/producto/',
   servicioURL: 'http://localhost:8080/servicio/',
+  citaURL: 'http://localhost:8080/cita/',
   productosURL: 'http://localhost:8080/productos?'
 
 };
