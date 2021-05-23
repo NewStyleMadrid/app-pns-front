@@ -3,16 +3,21 @@
 <ngx-spinner *ngIf="isAdmin" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
     <p style="color: white"> Eliminado imagen... </p>
 </ngx-spinner>
-<nav class="navbar  navbar-light bg-light">
-    <div class="row">
-        <div class="col">
-            <mat-form-field class="example-full-width">
-                <mat-label><i class="fas fa-search"></i> Buscar corte..</mat-label>
-                <input matInput [(ngModel)]="searchText" placeholder="Nombre del corte" value="Sushi">
-            </mat-form-field>
-        </div>
-    </div>
-</nav>
+<table class="table table-hover">
+    <thead class=" table table-light">
+        <tr>
+            <th>
+                <label class="ml-2 mt-2" style="font-size: 15px;">Filtro de busqueda</label>
+            </th>
+            <th>
+                <mat-form-field class="float-right mr-5">
+                    <mat-label><i class="fas fa-search"></i> Buscar corte..</mat-label>
+                    <input matInput [(ngModel)]="searchText" placeholder="Nombre del corte" value="Sushi">
+                </mat-form-field>
+            </th>
+        </tr>
+    </thead>
+</table>
 <div class="container-fluid">
     <div class="row mt-4">
         <div class="col-md-4" *ngFor="let imagen of imagenes| filter: searchText | paginate: { itemsPerPage: 8, currentPage: paginaActual }; index as i">

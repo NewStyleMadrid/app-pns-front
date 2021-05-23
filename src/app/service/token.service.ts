@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtModel } from '../models/jwt-model';
-import { NuevoUsuario } from '../models/nuevo-usuario';
-
 
 const TOKEN_KEY = 'AuthToken';
 
@@ -10,8 +7,6 @@ const TOKEN_KEY = 'AuthToken';
   providedIn: 'root'
 })
 export class TokenService {
-
-  roles: Array<string> = [];
 
   constructor(private router: Router) { }
 

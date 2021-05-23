@@ -19,6 +19,8 @@ export class ListaUsuarioComponent implements OnInit {
 
   totalPages: Array<number>;
 
+  roles: string[] = [];
+
 
   constructor(
     private usuarioService: AuthService,

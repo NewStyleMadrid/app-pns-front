@@ -15,37 +15,37 @@ export class AuthService {
 
   authURL = environment.authURL;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   public login(usuario: LoginUsuario): Observable<JwtModel> {
-    return this.httpClient.post<JwtModel>(this.authURL + 'login', usuario, cabecera);
+    return this.http.post<JwtModel>(this.authURL + 'login', usuario, cabecera);
   }
 
   public registrar(usuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.post<any>(this.authURL + 'registrar', usuario, cabecera);
+    return this.http.post<any>(this.authURL + 'registrar', usuario, cabecera);
   }
 
   public lista(): Observable<NuevoUsuario[]> {
-    return this.httpClient.get<NuevoUsuario[]>(this.authURL + 'lista', cabecera);
+    return this.http.get<NuevoUsuario[]>(this.authURL + 'lista', cabecera);
   }
 
   public detalle(id: number): Observable<NuevoUsuario> {
-    return this.httpClient.get<NuevoUsuario>(this.authURL + `detalle/${id}`, cabecera);
+    return this.http.get<NuevoUsuario>(this.authURL + `detalle/${id}`, cabecera);
   }
 
-  public perfil(id: number): Observable<any> {
-    return this.httpClient.put<any>(this.authURL + `perfil/${id}`, cabecera);
+  public perfil(id: number, usuario: NuevoUsuario): Observable<any> {
+    return this.http.put<any>(this.authURL + `perfil/${id}`, usuario);
   }
 
   public actualizar(id: number, usuario: NuevoUsuario): Observable<any> {
-    return this.httpClient.put<any>(this.authURL + `actualizar/${id}`, usuario);
+    return this.http.put<any>(this.authURL + `actualizar/${id}`, usuario);
   }
 
   public borrar(id: number): Observable<any> {
-    return this.httpClient.delete<any>(this.authURL + `borrar/${id}`);
+    return this.http.delete<any>(this.authURL + `borrar/${id}`);
   }
 
   public refresh(jwt: JwtModel): Observable<JwtModel> {
-    return this.httpClient.post<JwtModel>(this.authURL + 'refresh', jwt, cabecera);
+    return this.http.post<JwtModel>(this.authURL + 'refresh', jwt, cabecera);
   }
 }

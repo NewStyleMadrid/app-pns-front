@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
     this.usuario = new LoginUsuario(this.form.userName, this.form.password);
     this.authService.login(this.usuario).subscribe(data => {
       this.tokenService.setToken(data.token);
-      this.closeLogin();
       this.isLoginFail = false;
+      this.closeLogin();
       window.location.reload();
     },
       (err: any) => {
