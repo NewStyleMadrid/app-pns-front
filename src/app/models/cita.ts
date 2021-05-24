@@ -1,8 +1,10 @@
 export class Cita {
 
+    servicio: string;
     fecha: Date;
 
-    constructor(fecha: Date){
-        this.fecha=fecha;
+    constructor(servicio: string, fecha: Date) {
+        this.servicio = servicio;
+        this.fecha = fecha;
     }
 }

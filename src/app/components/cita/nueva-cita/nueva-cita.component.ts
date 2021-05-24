@@ -1,34 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cita } from 'src/app/models/cita';
 import { CitaService } from 'src/app/service/cita.service';
-import { MAT_DATE_FORMATS } from '@angular/material/core';
-import { Moment } from 'moment'; 
-
-export const MY_DATE_FORMATS = {
-  parse: {
-    dateInput: 'DD/MM/YYYY',
-  },
-
-  display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'LL',
-    monthYearA11yLabel: 'MMMM YYYY'
-  },
-};
-
 
 @Component({
   selector: 'app-nueva-cita',
   templateUrl: './nueva-cita.component.html',
   styleUrls: ['./nueva-cita.component.css'],
-  providers: [
-    { provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS }
-  ]
+
 })
 export class NuevaCitaComponent implements OnInit {
 
@@ -48,8 +29,9 @@ export class NuevaCitaComponent implements OnInit {
   horaControl = new FormControl(this.horas[2].value);
 */
 
-  isCreate = false;
-  noCreate = false;
+  //producto: Producto;
+  isCreate=false;
+  noCreate=false;
   creado = false;
   failCita = false;
   mensajeFail = '';
@@ -57,15 +39,14 @@ export class NuevaCitaComponent implements OnInit {
   myForm: FormGroup;
   private cita: any = {};
 
+  get servicio() { return this.myForm.get('servicio'); }
+  get fecha() { return this.myForm.get('fecha'); }
+
 
   constructor(
-    private citaService: CitaService,
-    private toastr: ToastrService,
-    private dateAdapter: DateAdapter<Date>,
-    private router: Router) { this.myForm = this.createForm(); this.dateAdapter.setLocale('en-GB'); }
-
-  get fecha() { return this.myForm.get('fecha') }
-
+    private citaService: CitaService, 
+    private toastr: ToastrService, 
+    private router: Router) { this.myForm = this.createForm(); }
 
   ngOnInit() {
 
@@ -74,15 +55,17 @@ export class NuevaCitaComponent implements OnInit {
   createForm() {
     return new FormGroup({
       fecha: new FormControl('', [Validators.required]),
+      servicio: new FormControl('', [Validators.required])
     });
   }
 
   onCreate(): void {
+
+    console.log(this.servicio.value);
     console.log(this.fecha.value);
-    
-    /*
+   
     if (this.myForm.valid) {
-    this.cita=new Cita(this.fecha.value);
+    this.cita=new Cita(this.servicio.value, this.fecha.value);
     this.citaService.crear(this.cita).subscribe(
       data => {
         console.log(data);
@@ -100,7 +83,7 @@ export class NuevaCitaComponent implements OnInit {
         // this.router.navigate(['/']);
       }
     );
-    }*/
+    }
   }
 
   volver(): void {

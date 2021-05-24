@@ -1,2 +1,31 @@
 <app-menu></app-menu>
-<p>lista-cita works!</p>
+<table class="table table-hover table-light">
+    <thead class=" table table-success">
+        <tr>
+            <th *ngIf="isAdmin" scope="col">Id <i class="fas fa-sort"></i></th>
+            <th scope="col">Fecha Cita <i class="fas fa-sort"></i></th>
+            <th scope="col">Tipo de Servicio <i class="fas fa-sort"></i></th>
+            <th scope="col">Editar</th>
+            <th scope="col"></th>
+            <th scope="col" *ngIf="isAdmin">Borrar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cita of citas |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
+            <td *ngIf="isAdmin">{{cita.id}}</td>
+            <td>{{cita.fecha}} </td>
+            <td>{{cita.servicio}} </td>
+
+            <td><button class="btn btn-outline-warning" routerLink="/editar-cita/{{cita.id}}"><i class="far fa-edit"></i> </button></td>
+            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(cita.id)"><i class="far fa-trash-alt"></i> </button></td>
+        </tr>
+    </tbody>
+</table>
+<div class="justify-content-center justify-content-md-start">
+    <div class="col">
+        <div class="paginacion p-2 text-center">
+            <pagination-controls class="my-pagination" (pageChange)="paginaActual = $event" previousLabel="Atrás" nextLabel="Siguiente"></pagination-controls>
+        </div>
+    </div>
+</div>
+<app-scroll-to-top></app-scroll-to-top>

@@ -9,15 +9,22 @@
             <form [formGroup]="myForm" (ngSubmit)="onCreate()" novalidate>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Servicio</mat-label>
+                            <input matInput [formControl]="servicio" placeholder="Servicio" required>
+                            <mat-error *ngIf="servicio.hasError('required')">
+                                Campo <strong>sercicio</strong> es obligatorio
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <mat-form-field appearance="fill">
                             <mat-label>Fecha cita</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="fecha" name="fecha" id="fecha">
-                            <mat-datepicker-toggle matSuffix [for]="picker">
-                                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-                            </mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                            <mat-error *ngIf="myForm.controls['fecha'].errors">
-                                Fecha de Nacimiento requerida en formato DD/MM/AAAA
+                            <input matInput [formControl]="fecha" type="date" required>
+                            <mat-error *ngIf="fecha.hasError('required')">
+                                Campo <strong>fecha</strong> obligatorio
                             </mat-error>
                         </mat-form-field>
                     </div>
