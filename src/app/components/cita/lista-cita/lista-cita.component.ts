@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Cita } from 'src/app/models/cita';
@@ -14,10 +15,9 @@ export class ListaCitaComponent implements OnInit {
 
   citas: Cita[] = [];
   isAdmin = false;
-
   paginaActual: number = 0;
-
   totalPages: Array<number>;
+  disableThirdHeader = false;
 
   constructor(
     private citaService: CitaService,
@@ -39,6 +39,23 @@ export class ListaCitaComponent implements OnInit {
       }
     );
   }
+  /**** Metodo para filtrar en la tabla ****/
+  sortData(sort: Sort) {
+    this.citaService.lista().subscribe(data => {
+      const datos = data.slice();
+      if (!sort.active || sort.direction === '') {
+        this.citas = data;
+      } else {
+        this.citas = datos.sort((a, b) => {
+          const aValue = (a as any)[sort.active];
+          const bValue = (b as any)[sort.active];
+          return (aValue < bValue ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
+        });
+      }
+    });
+  }
+
+  /* Fin del metodo de filtrado */
 
   borrar(id: number) {
     this.citaService.borrar(id).subscribe(
@@ -55,5 +72,4 @@ export class ListaCitaComponent implements OnInit {
       }
     );
   }
-
 }

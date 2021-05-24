@@ -11,3 +11,10 @@
 .my-pagination /deep/ .ngx-pagination .current {
     background: #292b2c;
 }
+
+
+/* Color flecha de ordenación */
+
+::ng-deep .mat-sort-header-arrow {
+    color: black;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Sort } from '@angular/material/sort';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
@@ -14,13 +15,9 @@ export class ListaUsuarioComponent implements OnInit {
 
   usuarios: NuevoUsuario[] = [];
   isAdmin = false;
-
   paginaActual: number = 0;
-
   totalPages: Array<number>;
-
   roles: string[] = [];
-
 
   constructor(
     private usuarioService: AuthService,
@@ -43,6 +40,24 @@ export class ListaUsuarioComponent implements OnInit {
       }
     );
   }
+
+  /**** Metodo para filtrar en la tabla ****/
+  sortData(sort: Sort) {
+    this.usuarioService.lista().subscribe(data => {
+      const datos = data.slice();
+      if (!sort.active || sort.direction === '') {
+        this.usuarios = data;
+      } else {
+        this.usuarios = datos.sort((a, b) => {
+          const aValue = (a as any)[sort.active];
+          const bValue = (b as any)[sort.active];
+          return (aValue < bValue ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
+        });
+      }
+    });
+  }
+
+  /* Fin del metodo de filtrado */
 
   borrar(id: number) {
     this.usuarioService.borrar(id).subscribe(

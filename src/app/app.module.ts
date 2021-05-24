@@ -53,6 +53,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatSortModule } from '@angular/material/sort';
 
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -138,7 +139,7 @@ import { EditarHomeComponent } from './components/home/editar-home/editar-home.c
     ListaServicioComponent,
     ListadoServicioComponent,
     EditarHomeComponent,
-  
+
 
 
 
@@ -170,7 +171,8 @@ import { EditarHomeComponent } from './components/home/editar-home/editar-home.c
     MatSelectModule,
     MatDatepickerModule,
     Ng2SearchPipeModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSortModule
   ],
   providers: [
     {
@@ -178,7 +180,7 @@ import { EditarHomeComponent } from './components/home/editar-home/editar-home.c
       useValue: {
         autoLogin: false,
         providers: [
-          {provide: MAT_DATE_LOCALE, useValue: 'en-GB'},
+          { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
