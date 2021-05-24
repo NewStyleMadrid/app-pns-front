@@ -15,7 +15,6 @@
             <td *ngIf="isAdmin">{{cita.id}}</td>
             <td>{{cita.fecha}} </td>
             <td>{{cita.servicio}} </td>
-
             <td><button class="btn btn-outline-warning" routerLink="/editar-cita/{{cita.id}}"><i class="far fa-edit"></i> </button></td>
             <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(cita.id)"><i class="far fa-trash-alt"></i> </button></td>
         </tr>
