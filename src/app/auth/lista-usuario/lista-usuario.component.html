@@ -1,4 +1,19 @@
 <app-menu></app-menu>
+<table class="table table-hover">
+    <thead class=" table table-light">
+        <tr>
+            <th>
+                <label class="ml-2 mt-2" style="font-size: 15px;">Filtro de busqueda</label>
+            </th>
+            <th>
+                <mat-form-field class="float-right mr-5">
+                    <mat-label><i class="fas fa-search"></i> Buscar usuario</mat-label>
+                    <input matInput [(ngModel)]="searchText" placeholder="Nombre del usuario" value="Sushi">
+                </mat-form-field>
+            </th>
+        </tr>
+    </thead>
+</table>
 <table class="table table-hover table-light" matSort (matSortChange)="sortData($event)">
     <thead class=" table table-success">
         <tr>
@@ -14,7 +29,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let usuario of usuarios |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
+        <tr *ngFor="let usuario of usuarios |  filter: searchText  | paginate: { itemsPerPage: 10, currentPage: paginaActual }">
             <th>{{usuario.id}}</th>
             <td>{{usuario.nombre}}</td>
             <td>{{usuario.apellidos}}</td>

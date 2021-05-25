@@ -15,7 +15,7 @@
     <tbody>
         <tr *ngFor="let servicio of servicios |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
             <td *ngIf="isAdmin">{{servicio.id}}</td>
-            <td>{{servicio.tipoServicio}} €</td>
+            <td>{{servicio.tipoServicio}}</td>
             <td>{{servicio.precioMujer}} €</td>
             <td>{{servicio.precioHombre}} €</td>
             <td>{{servicio.precioNinio}} €</td>

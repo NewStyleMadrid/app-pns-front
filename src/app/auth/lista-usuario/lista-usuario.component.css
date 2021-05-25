@@ -8,3 +8,11 @@
 ::ng-deep .mat-sort-header-arrow {
     color: black;
 }
+
+
+/*Estilo de filtro */
+
+mat-form-field {
+    margin-top: -0.5em;
+    margin-bottom: -1.0em;
+}
