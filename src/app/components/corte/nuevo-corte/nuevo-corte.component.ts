@@ -40,7 +40,6 @@ export class NuevoCorteComponent implements OnInit {
         this.router.navigate(['/lista-diseños']);
       },
       err => {
-        alert(err.error.mensaje);
         this.spinner.hide();
         this.reset();
       }
