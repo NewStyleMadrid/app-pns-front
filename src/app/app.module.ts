@@ -55,6 +55,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSortModule } from '@angular/material/sort';
 
+
 // Redes sociales
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
@@ -83,9 +84,19 @@ import { EditarServicioComponent } from './components/servicio/editar-servicio/e
 import { ListaServicioComponent } from './components/servicio/lista-servicio/lista-servicio.component';
 import { ListadoServicioComponent } from './components/servicio/listado-servicio/listado-servicio.component';
 import { EditarHomeComponent } from './components/home/editar-home/editar-home.component';
+import {
+  SwiperModule, SwiperConfigInterface,
+  SWIPER_CONFIG
+} from 'ngx-swiper-wrapper';
 
-
-
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  observer: true,
+  direction: 'horizontal',
+  threshold: 50,
+  spaceBetween: 5,
+  slidesPerView: 1,
+  centeredSlides: true
+};
 @NgModule({
   declarations: [
 
@@ -138,11 +149,7 @@ import { EditarHomeComponent } from './components/home/editar-home/editar-home.c
     EditarServicioComponent,
     ListaServicioComponent,
     ListadoServicioComponent,
-    EditarHomeComponent,
-
-
-
-
+    EditarHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -172,7 +179,8 @@ import { EditarHomeComponent } from './components/home/editar-home/editar-home.c
     MatDatepickerModule,
     Ng2SearchPipeModule,
     MatNativeDateModule,
-    MatSortModule
+    MatSortModule,
+    SwiperModule
   ],
   providers: [
     {
@@ -190,6 +198,10 @@ import { EditarHomeComponent } from './components/home/editar-home/editar-home.c
           {
             id: FacebookLoginProvider.PROVIDER_ID,
             provider: new FacebookLoginProvider('331028708227771')
+          },
+          {
+            provide: SWIPER_CONFIG,
+            useValue: DEFAULT_SWIPER_CONFIG
           }
         ]
       } as SocialAuthServiceConfig,

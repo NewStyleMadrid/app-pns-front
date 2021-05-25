@@ -11,7 +11,7 @@
             <div class="card-body mt-5">
                 <h5 class="card-title"></h5>
                 <div class="row mt-1 my-3">
-                    <form (ngSubmit)="onUpload()" novalidate enctype="multipart/form-data">
+                    <form (ngSubmit)="onUpload()" enctype="multipart/form-data" novalidate>
                         <div class="custom-file">
                             <label for="imagen">Añadir imagen <i class="fas fa-paperclip"></i></label>
                             <input type="file" class="custom-file-input" id="imagen" #imagenInputFile (change)="onFileChange($event)" accept="image/png, image/jpeg, image/gif">

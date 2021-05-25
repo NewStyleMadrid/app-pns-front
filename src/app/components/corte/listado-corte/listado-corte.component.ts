@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Corte } from 'src/app/models/corte';
 import { CorteService } from 'src/app/service/corte.service';
 import { TokenService } from 'src/app/service/token.service';
+import { DetalleCorteComponent } from '../detalle-corte/detalle-corte.component';
 
 @Component({
   selector: 'app-listado-corte',
@@ -12,11 +13,9 @@ import { TokenService } from 'src/app/service/token.service';
 })
 export class ListadoCorteComponent implements OnInit {
 
-  estilos: Corte[] = [];
+  cortes: Corte[] = [];
   isAdmin = false;
-
   paginaActual:number= 0;
-
   totalPages: Array<number>;
 
   constructor(
@@ -33,7 +32,7 @@ export class ListadoCorteComponent implements OnInit {
 
   cargarCortes(): void {
     this.imagenService.listado().subscribe(data => {
-      this.estilos = data;
+      this.cortes = data;
       console.log(data);
     },
       (err: any) => {
@@ -56,5 +55,10 @@ export class ListadoCorteComponent implements OnInit {
         });
       }
     );
+  }
+
+  abrirModal(i: number) {
+    const modalRef = this.modalService.open(DetalleCorteComponent);
+    modalRef.componentInstance.index = i;
   }
 }

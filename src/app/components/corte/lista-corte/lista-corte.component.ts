@@ -14,7 +14,7 @@ import { DetalleCorteComponent } from '../detalle-corte/detalle-corte.component'
 
 export class ListaCorteComponent implements OnInit {
 
-  imagenes: Corte[] = [];
+  cortes: Corte[] = [];
   isAdmin = false;
   logOut=false;
   paginaActual:number= 0;
@@ -37,7 +37,7 @@ export class ListaCorteComponent implements OnInit {
     this.logOut=true;
     this.imgService.lista().subscribe(data => {
       this.spinner.hide();
-      this.imagenes=data;
+      this.cortes=data;
     },
       (err: any) => {
         console.log(err);
@@ -59,9 +59,9 @@ export class ListaCorteComponent implements OnInit {
     );
   }
 
-  abrirModal(modal: number): void {
+  abrirModal(i: number): void {
     const modalRef = this.modalService.open(DetalleCorteComponent);
-    modalRef.componentInstance.index = modal;
+    modalRef.componentInstance.index = i;
   }
 
 }

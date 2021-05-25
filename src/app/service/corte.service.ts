@@ -29,9 +29,9 @@ export class CorteService {
     return this.http.put<any>(this.corteURL + `actualizar/${id}`, Corte);
   }
 
-  public upload(Corte: File): Observable<any> { // File, ya que pasamos un archivo.
+  public upload(corte: File): Observable<any> { // File, ya que pasamos un archivo.
     const formData = new FormData();
-    formData.append('multipartFile', Corte);
+    formData.append('multipartFile', corte);
     return this.http.post<any>(this.corteURL + 'upload', formData);
   }
 

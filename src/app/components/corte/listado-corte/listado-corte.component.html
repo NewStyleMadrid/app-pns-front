@@ -13,14 +13,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let estilo of estilos |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
-            <td>{{estilo.id}}</td>
-            <td>{{estilo.imagenId}}</td>
-            <td>{{estilo.name}}</td>
-            <td>{{estilo.imagenUrl}}</td>
-            <td *ngIf="isAdmin"><button class="btn btn-outline-primary"><i class="far fa-eye"></i> </button></td>
-            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-corte/{{estilo.id}}"><i class="far fa-edit"></i> </button></td>
-            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(estilo.id)"><i class="far fa-trash-alt"></i> </button></td>
+        <tr *ngFor="let corte of cortes |  paginate: { itemsPerPage: 10, currentPage: paginaActual }; index as i ">
+            <td>{{corte.id}}</td>
+            <td>{{corte.imagenId}}</td>
+            <td>{{corte.name}}</td>
+            <td>{{corte.imagenUrl}}</td>
+            <td *ngIf="isAdmin"><button class="btn btn-outline-primary" (click)="abrirModal(i)"><i class="far fa-eye"></i> </button></td>
+            <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-corte/{{corte.id}}"><i class="far fa-edit"></i> </button></td>
+            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(corte.id)"><i class="far fa-trash-alt"></i> </button></td>
         </tr>
     </tbody>
 </table>

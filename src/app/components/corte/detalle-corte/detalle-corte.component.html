@@ -1,1 +1,14 @@
-<p>detalle-corte works!</p>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&#88;</span>
+    </button>
+</div>
+<div class="modal-body modal-lg">
+    <swiper class="swiper-container" [config]="config" fxFlex="auto">
+        <div *ngFor="let corte of cortes" class="swiper-slide">
+            <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+                <img class="img-thumbnail img-rounded" src="{{corte.imagenUrl}}" alt="">
+            </div>
+        </div>
+    </swiper>
+</div>
