@@ -4,6 +4,7 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { Corte } from 'src/app/models/corte';
 import { CorteService } from 'src/app/service/corte.service';
 
+
 @Component({
   selector: 'app-detalle-corte',
   templateUrl: './detalle-corte.component.html',

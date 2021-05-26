@@ -88,14 +88,15 @@ import {
   SwiperModule, SwiperConfigInterface,
   SWIPER_CONFIG
 } from 'ngx-swiper-wrapper';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
   direction: 'horizontal',
   threshold: 50,
   spaceBetween: 5,
-  slidesPerView: 1,
-  centeredSlides: true
+  slidesPerView: 'auto',
+  centeredSlides: true,
 };
 @NgModule({
   declarations: [
@@ -180,7 +181,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     Ng2SearchPipeModule,
     MatNativeDateModule,
     MatSortModule,
-    SwiperModule
+    SwiperModule,
+    BrowserModule,
+    FlexLayoutModule
   ],
   providers: [
     {

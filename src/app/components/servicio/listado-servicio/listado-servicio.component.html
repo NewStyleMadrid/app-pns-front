@@ -15,10 +15,10 @@
     <tbody>
         <tr *ngFor="let servicio of servicios |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
             <td *ngIf="isAdmin">{{servicio.id}}</td>
-            <td>{{servicio.tipoServicio}}</td>
-            <td>{{servicio.precioMujer}} €</td>
+            <td class="text-uppercase">{{servicio.tipoServicio}}</td>
+            <td>{{servicio.precioMujer}} </td>
             <td>{{servicio.precioHombre}} €</td>
-            <td>{{servicio.precioNinio}} €</td>
+            <td>{{servicio.precioNinio}} </td>
             <td>{{servicio.precioAdulto}} €</td>
             <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-servicio/{{servicio.id}}"><i class="far fa-edit"></i> </button></td>
             <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(servicio.id)"><i class="far fa-trash-alt"></i> </button></td>

@@ -4,9 +4,9 @@
     </button>
 </div>
 <div class="modal-body modal-lg">
-    <swiper class="swiper-container" [config]="config" fxFlex="auto">
+    <swiper [config]="config" [(index)]="index">
         <div *ngFor="let corte of cortes" class="swiper-slide">
-            <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+            <div class="thumbnail text-center">
                 <img class="img-thumbnail img-rounded" src="{{corte.imagenUrl}}" alt="">
             </div>
         </div>

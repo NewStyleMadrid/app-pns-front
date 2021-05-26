@@ -19,7 +19,16 @@
                         <mat-label>Nombre</mat-label>
                         <input matInput [formControl]="nombre" placeholder="Nombre" required>
                         <mat-error *ngIf="nombre.hasError('required')">
-                            Campo <strong>nombre</strong> es obligatorio
+                            <b>¡Campo nombre es obligatorio!</b>
+                        </mat-error>
+                        <mat-error *ngIf="nombre.hasError('minlength')">
+                            <b>La contraseña debe tener al menos 3 caracteres!</b>
+                        </mat-error>
+                        <mat-error *ngIf="nombre.hasError('maxlength')">
+                            <b>La contraseña debe tener al menos 10 caracteres!</b>
+                        </mat-error>
+                        <mat-error *ngIf="nombre.hasError('pattern')">
+                            <b>¡No se permiten números!</b>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -27,8 +36,17 @@
                     <mat-form-field>
                         <mat-label>Apellidos</mat-label>
                         <input matInput [formControl]="apellidos" placeholder="apellidos" required>
-                        <mat-error *ngIf="nombre.hasError('required')">
-                            Campo <strong>apellidos</strong> obligatorio
+                        <mat-error *ngIf="apellidos.hasError('required')">
+                            <b>Campo apellidos es obligatorio!</b>
+                        </mat-error>
+                        <mat-error *ngIf="nombre.hasError('minlength')">
+                            <b>La contraseña debe tener al menos 3 caracteres!</b>
+                        </mat-error>
+                        <mat-error *ngIf="nombre.hasError('maxlength')">
+                            <b>La contraseña debe tener al menos 20 caracteres!</b>
+                        </mat-error>
+                        <mat-error *ngIf="apellidos.hasError('pattern')">
+                            <b>No se permiten números!</b>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -39,7 +57,13 @@
                         <mat-label>Usuario <i class="fas fa-user"></i></mat-label>
                         <input matInput [formControl]="userName" placeholder="Usuario" required>
                         <mat-error *ngIf="userName.hasError('required')">
-                            Campo <strong>usuario</strong> es obligatorio
+                            <b>Campo usuario es obligatorio!</b>
+                        </mat-error>
+                        <mat-error *ngIf="userName.hasError('pattern')">
+                            <b>No se permiten números!</b>
+                        </mat-error>
+                        <mat-error *ngIf="userName.hasError('minlength')">
+                            <b>El nombre debe tener al menos 5 caracteres!</b>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -48,7 +72,10 @@
                         <mat-label>Contraseña <i class="fas fa-key"></i></mat-label>
                         <input matInput type="key" [formControl]="password" placeholder="Contraseña" required>
                         <mat-error *ngIf="password.hasError('required')">
-                            Campo <strong>password</strong> obligatorio
+                            <b>Campo password obligatorio!</b>
+                        </mat-error>
+                        <mat-error *ngIf="password.hasError('minlength')">
+                            <b>La contraseña debe tener al menos 8 caracteres!</b>
                         </mat-error>
                     </mat-form-field>
                 </div>
@@ -59,7 +86,10 @@
                         <mat-label>Correo electrónico <i class="fas fa-envelope-open"></i></mat-label>
                         <input matInput [formControl]="email" placeholder="Correo electrónico" required>
                         <mat-error *ngIf="email.hasError('required')">
-                            Campo <strong>email</strong> es obligatorio
+                            <b>Campo email obligatorio!</b>
+                        </mat-error>
+                        <mat-error *ngIf="email.hasError('pattern')">
+                            <b>Email no válido!</b>
                         </mat-error>
                     </mat-form-field>
                 </div>

@@ -23,9 +23,7 @@ export class RegistrarComponent implements OnInit {
   myForm: FormGroup;
   private usuario: any = {};
 
-  // Expresones regulares para el formulario de registro.
-  private exNom: any = /^([a-zA-Z]{3,15})$/
-  private exApe: any = /^([a-zA-Z]{3,25})$/
+  // Expresión regular para el formulario de registro.
   private exEmail: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   get nombre() { return this.myForm.get('nombre'); }
@@ -46,14 +44,14 @@ export class RegistrarComponent implements OnInit {
 
   }
 
-  // Validaciones para los campos de registro.
+  // Validaciones para el formulariod e registro de usuario.
   createForm() {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.pattern(this.exNom)]),
-      apellidos: new FormControl('', [Validators.required, Validators.pattern(this.exApe)]),
-      userName: new FormControl('', [Validators.required]),
+      nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'),  Validators.minLength(3),Validators.maxLength(10)]),
+      apellidos: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3),Validators.maxLength(20)]),
+      userName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(10),Validators.pattern('[a-zA-Z]*')]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required, Validators.minLength(8)])
     });
   }
 

@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/bootswatch/dist/materia/bootstrap.min.css";
+@import '~swiper/swiper-bundle';
+@import '~swiper/swiper-bundle.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css';
 @font-face {
     font-family: 'password';
     font-style: normal;

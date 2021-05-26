@@ -33,10 +33,10 @@ export class ListaCorteComponent implements OnInit {
   }
 
   cargarImagen(): void {
-    this.spinner.show();
+    //this.spinner.show();
     this.logOut=true;
     this.imgService.lista().subscribe(data => {
-      this.spinner.hide();
+      //this.spinner.hide();
       this.cortes=data;
     },
       (err: any) => {

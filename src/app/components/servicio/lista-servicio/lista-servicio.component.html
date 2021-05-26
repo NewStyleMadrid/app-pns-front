@@ -16,10 +16,10 @@
             <tbody>
                 <tr *ngFor="let servicio of servicios">
                     <th scope="row">{{servicio.id}}</th>
-                    <td>{{servicio.tipoServicio}}</td>
-                    <td>{{servicio.precioMujer}} €</td>
+                    <td class="text-uppercase">{{servicio.tipoServicio}}</td>
+                    <td>{{servicio.precioMujer}}</td>
                     <td>{{servicio.precioHombre}} €</td>
-                    <td>{{servicio.precioNinio}} €</td>
+                    <td>{{servicio.precioNinio}}</td>
                     <td>{{servicio.precioAdulto}} €</td>
                 </tr>
             </tbody>
