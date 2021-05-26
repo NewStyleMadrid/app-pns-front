@@ -19,3 +19,9 @@
 .card-footer:hover {
     color: orange;
 }
+
+input[type=key] {
+    font-family: 'password';
+    width: 100px;
+    height: 16px;
+}
