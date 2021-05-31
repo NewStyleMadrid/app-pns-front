@@ -1,6 +1,7 @@
 export class JwtModel {
-    token: string;
-
+    id ?: number;
+    token: string
+    
     constructor(token: string) {
         this.token = token;
     }
