@@ -3,14 +3,17 @@ import { Router } from '@angular/router';
 
 const TOKEN_KEY = 'AuthToken';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class TokenService {
 
+  roles: Array<string> = [];
+
   constructor(private router: Router) { }
 
-  public setToken(token: string): void {
+  public setToken(token: string,): void {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);
   }
@@ -58,4 +61,5 @@ export class TokenService {
     //window.location.reload();
     this.router.navigate(['/login']);
   }
+
 }

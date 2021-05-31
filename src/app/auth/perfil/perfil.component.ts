@@ -31,14 +31,33 @@ export class PerfilComponent implements OnInit {
     private tokenService: TokenService
   ) { }
 
+  currentUser: any;
+
+  //constructor(private token: TokenStorageService) { }
+
+
+
   ngOnInit() {
+    //console.log(this.userName=this.tokenService.getUserName());
+    //const id = this.activatedRoute.snapshot.params.username;
     if (this.tokenService.getToken()) {
-      this.userName=this.tokenService.getUserName();
-    }else{
+      this.userName = this.tokenService.getUserName();
+      /*
+      const id = this.activatedRoute.snapshot.params.username;
+      this.authService.detalle(id).subscribe(data => {
+          this.form.nombre = data.nombre;
+      },
+        (err: any) => {
+          this.failInit = true;
+          this.router.navigate(['/']);
+        }
+      );*/
+    } else {
       //this.isLogged = false;
-      this.userName='';
+      this.userName = '';
     }
-  
+    
+
   }
 
   onUpdatePerfil(): void {
