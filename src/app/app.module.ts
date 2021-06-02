@@ -89,7 +89,7 @@ import {
   SWIPER_CONFIG
 } from 'ngx-swiper-wrapper';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { DialogoConfirmacionComponent } from './components/home/dialogo-confirmacion/dialogo-confirmacion.component';
+
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -151,8 +151,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     EditarServicioComponent,
     ListaServicioComponent,
     ListadoServicioComponent,
-    EditarHomeComponent,
-    DialogoConfirmacionComponent
+    EditarHomeComponent
   ],
   imports: [
     BrowserModule,

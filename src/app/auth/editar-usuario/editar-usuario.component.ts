@@ -19,6 +19,7 @@ export class EditarUsuarioComponent implements OnInit {
   msjErr = '';
   msjOK = '';
   failInit = false;
+  isAdmin = false;
 
   constructor(
     private authService: AuthService,
@@ -29,8 +30,10 @@ export class EditarUsuarioComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.spinner.show();
     const id = this.activatedRoute.snapshot.params.id;
     this.authService.detalle(id).subscribe(data => {
+      this.spinner.hide();
       this.form.nombre = data.nombre;
       this.form.apellidos = data.apellidos;
       this.form.userName = data.userName;
@@ -45,18 +48,15 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   onUpdate(): void {
-    this.spinner.show();
     const id = this.activatedRoute.snapshot.params.id;
     this.authService.actualizar(id, this.form).subscribe(
       data => {
-        this.spinner.hide();
         this.toastr.success('Usuario actualizado!', ' ', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/lista-usuarios']); // Me lleva al home principal
       },
       err => {
-        this.spinner.hide();
         this.msjErr = err.error.mensaje;
         this.toastr.error(this.msjErr, 'Error al actualizar!', {
           timeOut: 3000, positionClass: 'toast-top-center',

@@ -1,4 +1,7 @@
 <app-menu></app-menu>
+<ngx-spinner *ngIf="isAdmin" bdColor="rgba(0, 0, 0, 0.8)" size="default" color="#fff" type="ball-clip-rotate" [fullScreen]="true">
+    <p style="color: white"> Actualizando usuario... </p>
+</ngx-spinner>
 <div class="container">
     <div class="card text-center">
         <div class="card-header ">
