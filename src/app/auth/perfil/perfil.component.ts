@@ -42,6 +42,7 @@ export class PerfilComponent implements OnInit {
     //const id = this.activatedRoute.snapshot.params.username;
     if (this.tokenService.getToken()) {
       this.userName = this.tokenService.getUserName();
+
       /*
       const id = this.activatedRoute.snapshot.params.username;
       this.authService.detalle(id).subscribe(data => {
@@ -56,12 +57,11 @@ export class PerfilComponent implements OnInit {
       //this.isLogged = false;
       this.userName = '';
     }
-    
+
 
   }
 
   onUpdatePerfil(): void {
-    /*
     this.spinner.show();
     const id = this.activatedRoute.snapshot.params.id;
     this.authService.actualizar(id, this.form).subscribe(
@@ -80,7 +80,5 @@ export class PerfilComponent implements OnInit {
         });
         // console.log(err.error.message);
       });
-  }
-*/
   }
 }
