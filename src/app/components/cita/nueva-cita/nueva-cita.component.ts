@@ -1,9 +1,11 @@
+import { NuevoUsuario } from './../../../models/nuevo-usuario';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cita } from 'src/app/models/cita';
 import { CitaService } from 'src/app/service/cita.service';
+
 
 @Component({
   selector: 'app-nueva-cita',
@@ -25,7 +27,7 @@ export class NuevaCitaComponent implements OnInit {
     {value: '13:30', viewValue: '13:30'},
     {value: '14:15', viewValue: '14:15'},
   ];
- 
+
   horaControl = new FormControl(this.horas[2].value);
 */
 
@@ -37,15 +39,21 @@ export class NuevaCitaComponent implements OnInit {
   mensajeFail = '';
   mensajeOK = '';
   myForm: FormGroup;
+  usuario: any;
   private cita: any = {};
+  authService: any;
+  tokenService: any;
+  isLoginFail: boolean;
+  errorMsg: any;
+  userName= '';
 
   get servicio() { return this.myForm.get('servicio'); }
   get fecha() { return this.myForm.get('fecha'); }
 
 
   constructor(
-    private citaService: CitaService, 
-    private toastr: ToastrService, 
+    private citaService: CitaService,
+    private toastr: ToastrService,
     private router: Router) { this.myForm = this.createForm(); }
 
   ngOnInit() {
@@ -55,7 +63,7 @@ export class NuevaCitaComponent implements OnInit {
   createForm() {
     return new FormGroup({
       fecha: new FormControl('', [Validators.required]),
-      servicio: new FormControl('', [Validators.required])
+      servicio: new FormControl('', [Validators.required]),
     });
   }
 
@@ -63,9 +71,15 @@ export class NuevaCitaComponent implements OnInit {
 
     console.log(this.servicio.value);
     console.log(this.fecha.value);
-   
+    console.log(this.usuario.value);
+
+    if (this.tokenService.getToken()) {
+      this.userName = this.tokenService.getUserName();
+      this.usuario = this.authService.detalleNom(this.usuario);
+    }
+
     if (this.myForm.valid) {
-    this.cita=new Cita(this.servicio.value, this.fecha.value);
+    this.cita=new Cita(this.servicio.value, this.fecha.value,this.usuario.value);
     this.citaService.crear(this.cita).subscribe(
       data => {
         console.log(data);
@@ -84,6 +98,9 @@ export class NuevaCitaComponent implements OnInit {
       }
     );
     }
+  }
+  closeLogin() {
+    throw new Error('Method not implemented.');
   }
 
   volver(): void {

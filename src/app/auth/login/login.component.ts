@@ -27,17 +27,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     if (this.tokenService.getToken()) {
       this.isLoginFail = false;
-     
+
     }
   }
 
   onLogin(): void {
     this.usuario = new LoginUsuario(this.form.userName, this.form.password);
-    this.authService.login(this.usuario).subscribe(data => {
-      this.tokenService.setToken(data.token);
-      this.isLoginFail = false;
-      this.closeLogin();
-      window.location.reload();
+    this.authService.login(this.usuario).subscribe(
+      data => {
+        this.tokenService.setToken(data.token);
+        this.isLoginFail = false;
+        this.closeLogin();
+        window.location.reload();
     },
       (err: any) => {
         this.isLoginFail = true;
