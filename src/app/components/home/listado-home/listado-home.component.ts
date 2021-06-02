@@ -5,7 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Home } from 'src/app/models/home';
 import { HomeService } from 'src/app/service/home.service';
 import { TokenService } from 'src/app/service/token.service';
-import { DialogoConfirmacionComponent } from '../dialogo-confirmacion/dialogo-confirmacion.component';
 
 @Component({
   selector: 'app-listado-home',
@@ -45,21 +44,6 @@ export class ListadoHomeComponent implements OnInit {
         console.log(err);
       }
     );
-  }
-
-  mostrarDialogo(): void {
-    this.dialogo
-      .open(DialogoConfirmacionComponent, {
-        data: `¿Seguro que desear eliminar la imagen?`
-      })
-      .afterClosed()
-      .subscribe((confirmado: Boolean) => {
-        if (confirmado) {
-          alert("Imagen eliminada!");
-        } else {
-          alert("Eliminación cancelada!");
-        }
-      });
   }
 
   borrar(id: number) {
