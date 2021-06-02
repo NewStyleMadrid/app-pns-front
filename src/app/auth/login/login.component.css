@@ -18,12 +18,12 @@ input:focus {
 /** Imagen login**/
 
 .imgLogin {
-    background-image: url(/assets/login.png);
+    background-image: url(/assets/login2.png);
     background-repeat: no-repeat;
     background-position: center;
     height: 125px;
     width: 100%;
-    background-size: 25%;
+    background-size: 30%;
     position: relative;
 }
 

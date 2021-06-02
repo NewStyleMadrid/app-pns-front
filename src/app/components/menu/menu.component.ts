@@ -26,8 +26,8 @@ export class MenuComponent implements OnInit {
  
   dialogLogin(): void {
     const dialogRef = this.uDialog.open(LoginComponent, {
-      width: '530px',
-      height: '610px'
+      width: '450px',
+      height: '510px'
     });
     console.log("Dialogo login abierto.");
     dialogRef.afterClosed().subscribe(result => {
