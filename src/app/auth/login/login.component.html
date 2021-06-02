@@ -9,7 +9,7 @@
     </div>
     <div class="modal-body justify-content-center">
         <form #f="ngForm" name="form" (ngSubmit)="onLogin()" novalidate>
-            <mat-form-field class="inputLogin-full-width" appearance="outline">
+            <mat-form-field class="inputLogin-full-width mt-2" appearance="outline">
                 <mat-label for="userName">Usuario</mat-label>
                 <input matInput name="userName" id="userName" [(ngModel)]="form.userName" placeholder="Usuario" autocomplete="off" required>
                 <mat-icon matSuffix>account_circle</mat-icon>
@@ -20,14 +20,16 @@
                 <mat-icon matSuffix>https</mat-icon>
             </mat-form-field>
             <div *ngIf="f.submitted && isLoginFail;" class="alert alert-danger text-center">{{ errorMsg }}Campos obligatorios!</div>
+            <!--
             <div class="input-group form-group">
                 <button type="submit" class="btn btn-outline-danger form-control"><i class="fab fa-google"></i> Iniciar con Google</button>
             </div>
             <div class="input-group form-group">
                 <button type="submit" class="btn btn-outline-primary form-control"><i class="fab fa-facebook"></i> Iniciar con Facebook</button>
             </div>
-            <div class="form-group text-center">
-                <button type="submit" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+            -->
+            <div class="form-group text-center mt-3">
+                <button type="submit" class="btn btn-outline-dark btn-lg"><i class="fas fa-sign-in-alt"></i> Entrar</button>
             </div>
         </form>
     </div>
