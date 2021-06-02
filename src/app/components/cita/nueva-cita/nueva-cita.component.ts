@@ -73,8 +73,6 @@ export class NuevaCitaComponent implements OnInit {
     console.log(this.fecha.value);
     console.log(this.usuario.value);
 
-
-
     if (this.tokenService.getToken()) {
       this.userName = this.tokenService.getUserName();
       this.usuario = this.authService.detalleNom(this.usuario);
