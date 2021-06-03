@@ -46,7 +46,6 @@ export class PerfilComponent implements OnInit {
         this.router.navigate(['/']);
       }
     );
-
   }
   onUpdatePerfil(): void {
     this.authService.perfil(this.tokenService.getUserName()).subscribe(data => {
@@ -64,6 +63,6 @@ export class PerfilComponent implements OnInit {
             timeOut: 3000, positionClass: 'toast-top-center',
           });
         });
-    });
+    }); 
   }
 }

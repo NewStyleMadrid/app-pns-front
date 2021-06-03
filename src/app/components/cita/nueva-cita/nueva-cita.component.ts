@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Cita } from 'src/app/models/cita';
 import { CitaService } from 'src/app/service/cita.service';
+import { AuthService } from 'src/app/service/auth.service';
+import { TokenService } from 'src/app/service/token.service';
 
 
 @Component({
@@ -32,8 +34,8 @@ export class NuevaCitaComponent implements OnInit {
 */
 
   //producto: Producto;
-  isCreate=false;
-  noCreate=false;
+  isCreate = false;
+  noCreate = false;
   creado = false;
   failCita = false;
   mensajeFail = '';
@@ -41,23 +43,27 @@ export class NuevaCitaComponent implements OnInit {
   myForm: FormGroup;
   usuario: any;
   private cita: any = {};
-  authService: any;
-  tokenService: any;
   isLoginFail: boolean;
   errorMsg: any;
-  userName= '';
+  userName = '';
 
   get servicio() { return this.myForm.get('servicio'); }
   get fecha() { return this.myForm.get('fecha'); }
 
 
   constructor(
+    private authServcice: AuthService,
     private citaService: CitaService,
     private toastr: ToastrService,
+    private tokenService: TokenService,
     private router: Router) { this.myForm = this.createForm(); }
 
   ngOnInit() {
-
+    /*
+    this.authServcice.perfil(this.tokenService.getUserName()).subscribe(data => {
+      console.log(this.usuario=data);
+    });
+    */
   }
 
   createForm() {
@@ -68,37 +74,29 @@ export class NuevaCitaComponent implements OnInit {
   }
 
   onCreate(): void {
-
-    console.log(this.servicio.value);
-    console.log(this.fecha.value);
-    console.log(this.usuario.value);
-
-    if (this.tokenService.getToken()) {
-      this.userName = this.tokenService.getUserName();
-      this.usuario = this.authService.detalleNom(this.usuario);
-    }
-
     if (this.myForm.valid) {
-    this.cita=new Cita(this.servicio.value, this.fecha.value,this.usuario.value);
-    this.citaService.crear(this.cita).subscribe(
-      data => {
-        console.log(data);
-        this.isCreate = true;
-        this.noCreate = false;
-        this.toastr.success('Cita creada!', '', {
-          timeOut: 3000, positionClass: 'toast-top-center'
-        });
-        this.router.navigate(['/lista-cita']);
-      },
-      err => {
-        this.toastr.error(err.error.mensaje, ' ', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
-        });
-        // this.router.navigate(['/']);
-      }
-    );
+      this.authServcice.perfil(this.tokenService.getUserName()).subscribe(data => {
+        this.cita = new Cita(this.servicio.value, this.fecha.value, this.usuario = data);
+        this.citaService.crear(this.cita).subscribe(
+          data => {
+            console.log(data);
+            this.isCreate = true;
+            this.noCreate = false;
+            this.toastr.success('Cita creada!', '', {
+              timeOut: 3000, positionClass: 'toast-top-center'
+            });
+            this.router.navigate(['/lista-cita']);
+          },
+          err => {
+            this.toastr.error(err.error.mensaje, ' ', {
+              timeOut: 3000, positionClass: 'toast-top-center',
+            });
+            // this.router.navigate(['/']);
+          });
+      });
     }
   }
+
   closeLogin() {
     throw new Error('Method not implemented.');
   }
@@ -107,10 +105,9 @@ export class NuevaCitaComponent implements OnInit {
     window.history.back();
   }
 }
-
 /*
 interface Hora {
   value: string;
   viewValue: string;
-}
+
 */

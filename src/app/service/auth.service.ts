@@ -33,10 +33,6 @@ export class AuthService {
     return this.http.get<NuevoUsuario>(this.authURL + `detalle/${id}`, cabecera);
   }
 
-  public detalleNom(nombre: string): Observable<NuevoUsuario> {
-    return this.http.get<NuevoUsuario>(this.authURL + `detalle/${nombre}`, cabecera);
-  }
-
   public perfil(userName: string): Observable<NuevoUsuario> {
     return this.http.get<NuevoUsuario>(this.authURL + `perfil/${userName}`, cabecera);
   }

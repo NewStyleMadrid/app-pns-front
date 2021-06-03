@@ -3,6 +3,7 @@ import { Sort } from '@angular/material/sort';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { Cita } from 'src/app/models/cita';
+import { AuthService } from 'src/app/service/auth.service';
 import { CitaService } from 'src/app/service/cita.service';
 import { TokenService } from 'src/app/service/token.service';
 
@@ -23,11 +24,12 @@ export class ListaCitaComponent implements OnInit {
     private citaService: CitaService,
     private toastr: ToastrService,
     private tokenService: TokenService,
+    private authServcice: AuthService
   ) { }
 
   ngOnInit() {
-    this.cargarCitas();
-    this.isAdmin = this.tokenService.isAdmin();
+    console.log(this.cargarCitas());
+    
   }
 
   cargarCitas(): void {
@@ -39,6 +41,7 @@ export class ListaCitaComponent implements OnInit {
       }
     );
   }
+
   /**** Metodo para filtrar en la tabla ****/
   sortData(sort: Sort) {
     this.citaService.lista().subscribe(data => {
