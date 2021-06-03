@@ -33,12 +33,12 @@ export class AuthService {
     return this.http.get<NuevoUsuario>(this.authURL + `detalle/${id}`, cabecera);
   }
 
-  public detalleNom(nombre: String): Observable<NuevoUsuario> {
+  public detalleNom(nombre: string): Observable<NuevoUsuario> {
     return this.http.get<NuevoUsuario>(this.authURL + `detalle/${nombre}`, cabecera);
   }
 
-  public perfil(id: number, usuario: NuevoUsuario): Observable<any> {
-    return this.http.put<any>(this.authURL + `perfil/${id}`, usuario);
+  public perfil(userName: string): Observable<NuevoUsuario> {
+    return this.http.get<NuevoUsuario>(this.authURL + `perfil/${userName}`, cabecera);
   }
 
   public actualizar(id: number, usuario: NuevoUsuario): Observable<any> {
