@@ -7,6 +7,8 @@ import { Cita } from 'src/app/models/cita';
 import { CitaService } from 'src/app/service/cita.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { TokenService } from 'src/app/service/token.service';
+import { ServicioService } from 'src/app/service/servicio.service';
+import { Servicio } from 'src/app/models/servicio';
 
 
 @Component({
@@ -46,7 +48,10 @@ export class NuevaCitaComponent implements OnInit {
   isLoginFail: boolean;
   errorMsg: any;
   userName = '';
+  selectedValue: string;
 
+  servicios:Servicio[];
+  
   get servicio() { return this.myForm.get('servicio'); }
   get fecha() { return this.myForm.get('fecha'); }
 
@@ -55,6 +60,7 @@ export class NuevaCitaComponent implements OnInit {
     private authServcice: AuthService,
     private citaService: CitaService,
     private toastr: ToastrService,
+    private servicioService: ServicioService, 
     private tokenService: TokenService,
     private router: Router) { this.myForm = this.createForm(); }
 
@@ -64,12 +70,14 @@ export class NuevaCitaComponent implements OnInit {
       console.log(this.usuario=data);
     });
     */
+    console.log(this.cargarServicios());
+
   }
 
   createForm() {
     return new FormGroup({
       fecha: new FormControl('', [Validators.required]),
-      servicio: new FormControl('', [Validators.required]),
+      servicio: new FormControl(),
     });
   }
 
@@ -95,6 +103,14 @@ export class NuevaCitaComponent implements OnInit {
           });
       });
     }
+  }
+
+  // Servicio prueba
+  cargarServicios() {
+    this.servicioService.lista().subscribe(data => {
+      console.log(data);
+      this.servicios=data;
+    });
   }
 
   closeLogin() {
