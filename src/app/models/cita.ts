@@ -2,12 +2,12 @@ import { NuevoUsuario } from 'src/app/models/nuevo-usuario';
 
 export class Cita {
 
-    tiposervicio: string;
+    tipoServicio: string;
     fecha: Date;
     usuario: NuevoUsuario;
 
-    constructor(tiposervicio: string, fecha: Date, usuario: NuevoUsuario) {
-        this.tiposervicio = tiposervicio;
+    constructor(tipoServicio: string, fecha: Date, usuario: NuevoUsuario) {
+        this.tipoServicio = tipoServicio;
         this.fecha = fecha;
         this.usuario = usuario;
     }

@@ -11,6 +11,10 @@ import { ServicioService } from 'src/app/service/servicio.service';
 import { Servicio } from 'src/app/models/servicio';
 
 
+interface Hora {
+  value: string;
+  viewValue: string;
+}
 @Component({
   selector: 'app-nueva-cita',
   templateUrl: './nueva-cita.component.html',
@@ -18,22 +22,6 @@ import { Servicio } from 'src/app/models/servicio';
 
 })
 export class NuevaCitaComponent implements OnInit {
-
-  /*
-
-  horas: Hora[] = [
-    {value: '09:00', viewValue: '09:00'},
-    {value: '09:45', viewValue: '09:45'},
-    {value: '10:30', viewValue: '10:30'},
-    {value: '11:15', viewValue: '11:15'},
-    {value: '12:00', viewValue: '12:00'},
-    {value: '12:45', viewValue: '12:45'},
-    {value: '13:30', viewValue: '13:30'},
-    {value: '14:15', viewValue: '14:15'},
-  ];
-
-  horaControl = new FormControl(this.horas[2].value);
-*/
 
   //producto: Producto;
   isCreate = false;
@@ -48,9 +36,22 @@ export class NuevaCitaComponent implements OnInit {
   isLoginFail: boolean;
   errorMsg: any;
   userName = '';
-  selectedValue: string;
+  servicios:Servicio[]=[];
+  selectedValue='';
+  selectedHora='';
 
-  servicios:Servicio[];
+  horas: Hora[] = [
+    {value: '10:00', viewValue: '10:00'},
+    {value: '11:00', viewValue: '11:00'},
+    {value: '12:00', viewValue: '12:00'},
+    {value: '13:00', viewValue: '13:00'},
+    {value: '14:00', viewValue: '14:00'},
+    {value: '16:00', viewValue: '16:00'},
+    {value: '17:00', viewValue: '17:00'},
+    {value: '18:00', viewValue: '18:00'},
+    {value: '19:00', viewValue: '19:00'},
+  ];
+
   
   get servicio() { return this.myForm.get('servicio'); }
   get fecha() { return this.myForm.get('fecha'); }
@@ -64,20 +65,18 @@ export class NuevaCitaComponent implements OnInit {
     private tokenService: TokenService,
     private router: Router) { this.myForm = this.createForm(); }
 
-  ngOnInit() {
-    /*
+  ngOnInit() { 
+    this.cargarServicios(); //Cargamos los servicios ofrecidos.
     this.authServcice.perfil(this.tokenService.getUserName()).subscribe(data => {
-      console.log(this.usuario=data);
+      //console.log(this.usuario=data);
     });
-    */
-    console.log(this.cargarServicios());
-
+   
   }
 
   createForm() {
     return new FormGroup({
       fecha: new FormControl('', [Validators.required]),
-      servicio: new FormControl(),
+      servicio: new FormControl('', [Validators.required])
     });
   }
 
@@ -87,7 +86,7 @@ export class NuevaCitaComponent implements OnInit {
         this.cita = new Cita(this.servicio.value, this.fecha.value, this.usuario = data);
         this.citaService.crear(this.cita).subscribe(
           data => {
-            console.log(data);
+            //console.log(data);
             this.isCreate = true;
             this.noCreate = false;
             this.toastr.success('Cita creada!', '', {
@@ -105,13 +104,14 @@ export class NuevaCitaComponent implements OnInit {
     }
   }
 
-  // Servicio prueba
+  // Servicio ofrecidos
   cargarServicios() {
     this.servicioService.lista().subscribe(data => {
-      console.log(data);
+      //console.log(data);
       this.servicios=data;
     });
   }
+
 
   closeLogin() {
     throw new Error('Method not implemented.');
@@ -121,9 +121,4 @@ export class NuevaCitaComponent implements OnInit {
     window.history.back();
   }
 }
-/*
-interface Hora {
-  value: string;
-  viewValue: string;
 
-*/
