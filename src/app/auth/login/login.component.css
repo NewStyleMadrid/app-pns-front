@@ -35,7 +35,7 @@ input:focus {
 
 input[type=key] {
     font-family: 'password';
-    width: 100px;
+    width: 250px;
     height: 16px;
 }
 

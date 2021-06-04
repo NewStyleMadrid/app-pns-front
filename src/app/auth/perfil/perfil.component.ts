@@ -21,6 +21,7 @@ export class PerfilComponent implements OnInit {
   msjErr = '';
   msjOK = '';
   failInit = false;
+  usu: any = {};
 
   constructor(
     private authService: AuthService,
@@ -33,7 +34,7 @@ export class PerfilComponent implements OnInit {
   currentUser: any;
 
   ngOnInit() {
-    this.authService.perfil(this.tokenService.getUserName()).subscribe(data => {
+    this.authService.detallePerfil(this.tokenService.getUserName()).subscribe(data => {
       //console.log(data);
       this.form.nombre = data.nombre;
       this.form.apellidos = data.apellidos;
@@ -47,8 +48,9 @@ export class PerfilComponent implements OnInit {
       }
     );
   }
+
   onUpdatePerfil(): void {
-    this.authService.perfil(this.tokenService.getUserName()).subscribe(data => {
+    this.authService.detallePerfil(this.tokenService.getUserName()).subscribe(data => {
       this.authService.actualizar(data.id, this.form).subscribe(
         data => {
           this.toastr.success('Perfil actualizado!', ' ', {
@@ -58,10 +60,10 @@ export class PerfilComponent implements OnInit {
         },
         err => {
           this.msjErr = err.error.mensaje;
-          this.toastr.error(this.msjErr, 'Error al actualizar!', {
+          this.toastr.error(this.msjErr, 'Error al actualizar tu perfil!', {
             timeOut: 3000, positionClass: 'toast-top-center',
           });
         });
-    }); 
+    });
   }
 }

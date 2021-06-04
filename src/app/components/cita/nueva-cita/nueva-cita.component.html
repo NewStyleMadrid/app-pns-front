@@ -20,35 +20,6 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <!--
-                <p> Select servicio: {{selectedValue}} </p>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Elegir hora</mat-label>
-                            <mat-select [formControl]="hora" [(ngModel)]="selectedHora">
-                                <mat-option *ngFor="let hora of horas" [value]="hora.value">{{hora.viewValue}}</mat-option>
-                            </mat-select>
-                            <mat-error *ngIf="hora.hasError('required')">
-                                Campo hora es obligatorio!
-                            </mat-error>
-                        </mat-form-field>
-                        <p> Select hora: {{selectedHora}} </p>
-                    </div>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <mat-form-field appearance="fill">
-                            <mat-label>Servicio</mat-label>
-                            <input matInput [formControl]="servicio" placeholder="Servicio" required>
-                            <mat-error *ngIf="servicio.hasError('required')">
-                                Campo <strong>sercicio</strong> es obligatorio
-                            </mat-error>
-                        </mat-form-field>
-                    </div>
-                </div>
-                -->
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <mat-form-field appearance="fill">
@@ -56,6 +27,19 @@
                             <input matInput [formControl]="fecha" type="date" required>
                             <mat-error *ngIf="fecha.hasError('required')">
                                 Campo fecha obligatorio!
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Elegir hora</mat-label>
+                            <mat-select [formControl]="hora" [(ngModel)]="selectedHora">
+                                <mat-option *ngFor="let hora of horas" [value]="hora">{{hora | horacita}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="hora.hasError('required')">
+                                Campo hora obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>

@@ -43,6 +43,7 @@ export class ListaCitaComponent implements OnInit {
   }
 
   /**** Metodo para filtrar en la tabla ****/
+  
   sortData(sort: Sort) {
     this.citaService.lista().subscribe(data => {
       const datos = data.slice();

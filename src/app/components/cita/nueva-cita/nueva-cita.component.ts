@@ -9,12 +9,8 @@ import { AuthService } from 'src/app/service/auth.service';
 import { TokenService } from 'src/app/service/token.service';
 import { ServicioService } from 'src/app/service/servicio.service';
 import { Servicio } from 'src/app/models/servicio';
+import { Horas } from 'src/app/models/horas';
 
-
-interface Hora {
-  value: string;
-  viewValue: string;
-}
 @Component({
   selector: 'app-nueva-cita',
   templateUrl: './nueva-cita.component.html',
@@ -40,21 +36,12 @@ export class NuevaCitaComponent implements OnInit {
   selectedValue='';
   selectedHora='';
 
-  horas: Hora[] = [
-    {value: '10:00', viewValue: '10:00'},
-    {value: '11:00', viewValue: '11:00'},
-    {value: '12:00', viewValue: '12:00'},
-    {value: '13:00', viewValue: '13:00'},
-    {value: '14:00', viewValue: '14:00'},
-    {value: '16:00', viewValue: '16:00'},
-    {value: '17:00', viewValue: '17:00'},
-    {value: '18:00', viewValue: '18:00'},
-    {value: '19:00', viewValue: '19:00'},
-  ];
+  horas : Horas[] = [0,1,2,3,4,5,6,7];
 
   
   get servicio() { return this.myForm.get('servicio'); }
   get fecha() { return this.myForm.get('fecha'); }
+  get hora() { return this.myForm.get('hora'); }
 
 
   constructor(
@@ -76,14 +63,15 @@ export class NuevaCitaComponent implements OnInit {
   createForm() {
     return new FormGroup({
       fecha: new FormControl('', [Validators.required]),
-      servicio: new FormControl('', [Validators.required])
+      servicio: new FormControl('', [Validators.required]),
+      hora: new FormControl('', [Validators.required])
     });
   }
 
   onCreate(): void {
     if (this.myForm.valid) {
       this.authServcice.perfil(this.tokenService.getUserName()).subscribe(data => {
-        this.cita = new Cita(this.servicio.value, this.fecha.value, this.usuario = data);
+        this.cita = new Cita(this.servicio.value, this.fecha.value, this.hora.value, this.usuario = data);
         this.citaService.crear(this.cita).subscribe(
           data => {
             //console.log(data);
@@ -104,7 +92,7 @@ export class NuevaCitaComponent implements OnInit {
     }
   }
 
-  // Servicio ofrecidos
+  // Metodo para obetener los servicios
   cargarServicios() {
     this.servicioService.lista().subscribe(data => {
       //console.log(data);

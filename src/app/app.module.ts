@@ -89,6 +89,7 @@ import {
   SWIPER_CONFIG
 } from 'ngx-swiper-wrapper';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HoraCitaPipe } from './pipes/horacita.pipe';
 
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
@@ -151,7 +152,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     EditarServicioComponent,
     ListaServicioComponent,
     ListadoServicioComponent,
-    EditarHomeComponent
+    EditarHomeComponent,
+    HoraCitaPipe
   ],
   imports: [
     BrowserModule,
