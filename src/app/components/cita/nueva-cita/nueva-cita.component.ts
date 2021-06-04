@@ -18,8 +18,7 @@ import { Horas } from 'src/app/models/horas';
 
 })
 export class NuevaCitaComponent implements OnInit {
-
-  //producto: Producto;
+  
   isCreate = false;
   noCreate = false;
   creado = false;
@@ -86,7 +85,7 @@ export class NuevaCitaComponent implements OnInit {
             this.toastr.error(err.error.mensaje, ' ', {
               timeOut: 3000, positionClass: 'toast-top-center',
             });
-            // this.router.navigate(['/']);
+            this.router.navigate(['/']);
           });
       });
     }
