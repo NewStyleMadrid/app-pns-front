@@ -57,7 +57,6 @@ export class PerfilComponent implements OnInit {
           this.router.navigate(['/lista-usuarios']); // Me lleva al home principal
         },
         err => {
-          this.spinner.hide();
           this.msjErr = err.error.mensaje;
           this.toastr.error(this.msjErr, 'Error al actualizar!', {
             timeOut: 3000, positionClass: 'toast-top-center',
