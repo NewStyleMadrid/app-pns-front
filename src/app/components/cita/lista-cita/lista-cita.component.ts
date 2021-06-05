@@ -28,13 +28,14 @@ export class ListaCitaComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.cargarCitas());
-    
+    this.cargarCitas()
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   cargarCitas(): void {
     this.citaService.lista().subscribe(data => {
       this.citas = data;
+      //console.log(data);
     },
       (err: any) => {
         console.log(err);

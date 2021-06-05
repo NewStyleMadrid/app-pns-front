@@ -34,7 +34,6 @@ export class NuevaCitaComponent implements OnInit {
   servicios:Servicio[]=[];
   selectedValue='';
   selectedHora='';
-
   horas : Horas[] = [0,1,2,3,4,5,6,7];
 
   
@@ -98,7 +97,6 @@ export class NuevaCitaComponent implements OnInit {
       this.servicios=data;
     });
   }
-
 
   closeLogin() {
     throw new Error('Method not implemented.');

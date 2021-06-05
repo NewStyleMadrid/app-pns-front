@@ -15,28 +15,30 @@ export class ListadoCorteComponent implements OnInit {
 
   cortes: Corte[] = [];
   isAdmin = false;
-  paginaActual:number= 0;
+  paginaActual: number = 0;
   totalPages: Array<number>;
+  userName=false;
 
   constructor(
     private imagenService: CorteService,
     private toastr: ToastrService,
     private tokenService: TokenService,
     private modalService: NgbModal,
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.cargarCortes();
+    this.userName = this.tokenService.getUser();
     this.isAdmin = this.tokenService.isAdmin();
   }
 
   cargarCortes(): void {
     this.imagenService.listado().subscribe(data => {
       this.cortes = data;
-      console.log(data);
+      //console.log(data);
     },
       (err: any) => {
-        console.log(err);
+        //console.log(err);
       }
     );
   }

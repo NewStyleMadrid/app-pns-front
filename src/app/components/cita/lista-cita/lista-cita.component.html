@@ -3,17 +3,23 @@
     <thead class=" table table-success">
         <tr>
             <th mat-sort-header="id" *ngIf="isAdmin">ID</th>
+            <th mat-sort-header="nombre">Nombre</th>
+            <th mat-sort-header="apellidos">Apellidos</th>
+            <th mat-sort-header="email">Email</th>
             <th mat-sort-header="hora">Hora</th>
             <th mat-sort-header="fecha">Fecha</th>
             <th mat-sort-header="servicio">Servicio</th>
             <th scope="col">Editar</th>
-            <th scope="col"></th>
             <th scope="col" *ngIf="isAdmin">Borrar</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let cita of citas |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
             <td *ngIf="isAdmin">{{cita.id}}</td>
+            <td>{{cita.usuario.nombre}}</td>
+            <td>{{cita.usuario.apellidos}}</td>
+            <td>{{cita.usuario.email}}</td>
             <td>{{cita.hora | horacita}}</td>
             <td>{{cita.fecha}}</td>
             <td>{{cita.tipoServicio}}</td>

@@ -23,10 +23,12 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <mat-form-field appearance="fill">
-                            <mat-label>Fecha cita</mat-label>
-                            <input matInput [formControl]="fecha" type="date" required>
-                            <mat-error *ngIf="fecha.hasError('required')">
-                                Campo fecha obligatorio!
+                            <mat-label>Elegir hora</mat-label>
+                            <mat-select [formControl]="hora" [(ngModel)]="selectedHora">
+                                <mat-option *ngFor="let hora of horas" [value]="hora">{{hora | horacita}}</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="hora.hasError('required')">
+                                Campo hora obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -34,12 +36,10 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <mat-form-field appearance="fill">
-                            <mat-label>Elegir hora</mat-label>
-                            <mat-select [formControl]="hora" [(ngModel)]="selectedHora">
-                                <mat-option *ngFor="let hora of horas" [value]="hora">{{hora | horacita}}</mat-option>
-                            </mat-select>
-                            <mat-error *ngIf="hora.hasError('required')">
-                                Campo hora obligatorio!
+                            <mat-label>Fecha cita</mat-label>
+                            <input matInput [formControl]="fecha" type="date" required>
+                            <mat-error *ngIf="fecha.hasError('required')">
+                                Campo fecha obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>

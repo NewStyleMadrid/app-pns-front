@@ -23,6 +23,6 @@
 
 input[type=key] {
     font-family: 'password';
-    width: 250px;
-    height: 100px;
+    width: 160px;
+    height: 16px;
 }
