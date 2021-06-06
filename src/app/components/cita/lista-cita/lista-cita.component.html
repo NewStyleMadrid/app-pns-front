@@ -9,9 +9,7 @@
             <th mat-sort-header="hora">Hora</th>
             <th mat-sort-header="fecha">Fecha</th>
             <th mat-sort-header="servicio">Servicio</th>
-            <th scope="col">Editar</th>
-            <th scope="col" *ngIf="isAdmin">Borrar</th>
-            <th></th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -23,8 +21,10 @@
             <td>{{cita.hora | horacita}}</td>
             <td>{{cita.fecha}}</td>
             <td>{{cita.tipoServicio}}</td>
-            <td><button class="btn btn-outline-warning" routerLink="/editar-cita/{{cita.id}}"><i class="far fa-edit"></i> </button></td>
-            <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(cita.id)"><i class="far fa-trash-alt"></i> </button></td>
+            <td>
+                <button class="btn btn-outline-warning" routerLink="/editar-cita/{{cita.id}}"><i class="far fa-edit"></i> Editar cita </button>
+                <button class="btn btn-outline-danger ml-3" (click)="borrar(cita.id)"><i class="fas fa-times"></i> Cancelar cita </button>
+            </td>
         </tr>
     </tbody>
 </table>
