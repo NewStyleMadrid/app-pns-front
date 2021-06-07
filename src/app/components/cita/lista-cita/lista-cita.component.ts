@@ -65,13 +65,13 @@ export class ListaCitaComponent implements OnInit {
   borrar(id: number) {
     this.citaService.borrar(id).subscribe(
       data => {
-        this.toastr.success('Cita Eliminado', ' ', {
+        this.toastr.success('Cita Eliminada', ' ', {
           timeOut: 2000, positionClass: 'toast-top-center'
         });
         this.cargarCitas();
       },
       err => {
-        this.toastr.error(err.error.mensaje, 'Erro al eliminar', {
+        this.toastr.error(err.error.mensaje, 'Error al eliminar', {
           timeOut: 2000, positionClass: 'toast-top-center',
         });
       }

@@ -10,6 +10,7 @@ import { TokenService } from 'src/app/service/token.service';
 import { ServicioService } from 'src/app/service/servicio.service';
 import { Servicio } from 'src/app/models/servicio';
 import { Horas } from 'src/app/models/horas';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-nueva-cita',
@@ -48,6 +49,7 @@ export class NuevaCitaComponent implements OnInit {
     private toastr: ToastrService,
     private servicioService: ServicioService, 
     private tokenService: TokenService,
+    private spinner: NgxSpinnerService,
     private router: Router) { this.myForm = this.createForm(); }
 
   ngOnInit() { 
@@ -67,12 +69,14 @@ export class NuevaCitaComponent implements OnInit {
   }
 
   onCreate(): void {
+    this.spinner.show();
     if (this.myForm.valid) {
       this.authServcice.perfil(this.tokenService.getUserName()).subscribe(data => {
         this.cita = new Cita(this.servicio.value, this.fecha.value, this.hora.value, this.usuario = data);
         this.citaService.crear(this.cita).subscribe(
           data => {
             //console.log(data);
+            this.spinner.hide();
             this.isCreate = true;
             this.noCreate = false;
             this.toastr.success('Cita creada!', '', {
