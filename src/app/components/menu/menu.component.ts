@@ -29,9 +29,7 @@ export class MenuComponent implements OnInit {
       width: '450px',
       height: '510px'
     });
-    console.log("Dialogo login abierto.");
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialogo login cerrado.");
     });
   }
 
@@ -41,9 +39,7 @@ export class MenuComponent implements OnInit {
       width: '750px',
       height: '460px'
     });
-    console.log("Dialogo registro abierto.");
     dialogRef.afterClosed().subscribe(result => {
-      console.log("Dialogo registro cerrado.");
     })
   }
 

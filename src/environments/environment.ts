@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 // https://app-pns-304215.ew.r.appspot.com
 export const environment = {
-  production: false,
+  production: true,
+
   authURL: 'http://localhost:8080/auth/',
   imagenURL: 'http://localhost:8080/corte/',
   homeURL: 'http://localhost:8080/home/',
@@ -11,6 +12,17 @@ export const environment = {
   servicioURL: 'http://localhost:8080/servicio/',
   citaURL: 'http://localhost:8080/cita/',
   productosURL: 'http://localhost:8080/productos?'
+
+  /*
+    authURL: 'https://app-pns-304215.ew.r.appspot.com/auth/',
+    imagenURL: 'https://app-pns-304215.ew.r.appspot.com/corte/',
+    homeURL: 'https://app-pns-304215.ew.r.appspot.com/home/',
+    productoURL: 'https://app-pns-304215.ew.r.appspot.com/producto/',
+    servicioURL: 'https://app-pns-304215.ew.r.appspot.com/servicio/',
+    citaURL: 'https://app-pns-304215.ew.r.appspot.com/cita/',
+    productosURL: 'https://app-pns-304215.ew.r.appspot.com/productos?'
+  
+   */
 
 };
 
