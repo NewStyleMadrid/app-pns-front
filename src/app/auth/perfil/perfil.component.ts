@@ -63,6 +63,7 @@ export class PerfilComponent implements OnInit {
           this.toastr.error(this.msjErr, 'Error al actualizar tu perfil!', {
             timeOut: 3000, positionClass: 'toast-top-center',
           });
+          this.router.navigate(['/']); // Me lleva al home principal
         });
     });
   }
