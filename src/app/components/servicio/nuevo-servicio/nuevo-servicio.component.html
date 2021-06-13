@@ -14,7 +14,10 @@
                             <mat-label>Tipo de servicio</mat-label>
                             <input matInput [formControl]="tipoServicio" placeholder="Tipo servicio" required>
                             <mat-error *ngIf="tipoServicio.hasError('required')">
-                                Campo <strong>servicio</strong> es obligatorio
+                                Campo servicio es obligatorio!
+                            </mat-error>
+                            <mat-error *ngIf="tipoServicio.hasError('pattern')">
+                                No se permiten números!
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -25,7 +28,7 @@
                             <mat-label>Precio Mujer</mat-label>
                             <input matInput [formControl]="precioMujer" placeholder="€" required>
                             <mat-error *ngIf="precioMujer.hasError('required')">
-                                Campo <strong>servicio</strong> es obligatorio
+                                Precio mujer obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -34,7 +37,7 @@
                             <mat-label>Precio Hombre</mat-label>
                             <input matInput [formControl]="precioHombre" placeholder="€" required>
                             <mat-error *ngIf="precioHombre.hasError('required')">
-                                Campo <strong>servicio</strong> es obligatorio
+                                Precio hombre obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>
@@ -45,16 +48,16 @@
                             <mat-label>Precio Niño</mat-label>
                             <input matInput [formControl]="precioNinio" placeholder="€" required>
                             <mat-error *ngIf="precioNinio.hasError('required')">
-                                Campo <strong>precio</strong> obligatorio
+                                Precio niño obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>
                     <div class="form-group col-md-6">
                         <mat-form-field>
-                            <mat-label>Precio Adulto</mat-label>
+                            <mat-label>Tercera edad</mat-label>
                             <input matInput [formControl]="precioAdulto" placeholder="€" required>
                             <mat-error *ngIf="precioAdulto.hasError('required')">
-                                Campo <strong>precio</strong> obligatorio
+                                Precio tercera edad obligatorio!
                             </mat-error>
                         </mat-form-field>
                     </div>

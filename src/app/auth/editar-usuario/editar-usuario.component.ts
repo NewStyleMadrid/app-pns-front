@@ -58,9 +58,10 @@ export class EditarUsuarioComponent implements OnInit {
       },
       err => {
         this.msjErr = err.error.mensaje;
-        this.toastr.error(this.msjErr, 'Error al actualizar!', {
+        this.toastr.error(this.msjErr, ' Error al actualizar! ', {
           timeOut: 3000, positionClass: 'toast-top-center',
         });
+        this.router.navigate(['/']); // Me lleva al home principal
         // console.log(err.error.message);
       });
   }

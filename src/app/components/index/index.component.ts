@@ -16,7 +16,7 @@ export class IndexComponent implements OnInit {
   ngOnInit() {
     if (this.tokenService.getToken()) {
       this.isLogged = true;
-      this.username = this.tokenService.getUsername();
+      this.username = this.tokenService.getUserName();
     } else {
       this.isLogged = false;
       this.username = '';

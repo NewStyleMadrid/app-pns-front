@@ -35,7 +35,7 @@ export class NuevoServicioComponent implements OnInit {
 
   createForm() {
     return new FormGroup({
-      tipoServicio: new FormControl('', [Validators.required]),
+      tipoServicio: new FormControl('', [Validators.required,Validators.pattern('[a-zA-ZáéíóúüÁÉÍÓÚÜñÑÇ ]*')]),
       precioMujer: new FormControl('', [Validators.required]),
       precioHombre: new FormControl('', [Validators.required, Validators.pattern(this.exPrecio)]),
       precioNinio: new FormControl('', [Validators.required]),
