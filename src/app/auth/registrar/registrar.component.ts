@@ -47,8 +47,8 @@ export class RegistrarComponent implements OnInit {
   // Validaciones para el formulariod e registro de usuario.
   createForm() {
     return new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'),  Validators.minLength(3),Validators.maxLength(10)]),
-      apellidos: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*'), Validators.minLength(3),Validators.maxLength(20)]),
+      nombre: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúüÁÉÍÓÚÜñÑÇç ]*'),  Validators.minLength(3),Validators.maxLength(10)]),
+      apellidos: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúüÁÉÍÓÚÜñÑÇç ]*'), Validators.minLength(3),Validators.maxLength(20)]),
       userName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(10),Validators.pattern('[a-zA-Z]*')]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)])
