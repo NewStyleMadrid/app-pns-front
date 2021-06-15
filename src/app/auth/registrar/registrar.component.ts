@@ -51,7 +51,7 @@ export class RegistrarComponent implements OnInit {
       apellidos: new FormControl('', [Validators.required, Validators.pattern('[a-zA-ZáéíóúüÁÉÍÓÚÜñÑÇç ]*'), Validators.minLength(3),Validators.maxLength(20)]),
       userName: new FormControl('', [Validators.required, Validators.minLength(5),Validators.maxLength(10),Validators.pattern('[a-zA-Z]*')]),
       email: new FormControl('', [Validators.required, Validators.pattern(this.exEmail)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(8)])
+      password: new FormControl('', [Validators.required,Validators.pattern('[a-zA-Z$%&_/-@#=?¿]'), Validators.minLength(8)])
     });
   }
 

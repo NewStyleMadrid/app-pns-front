@@ -74,6 +74,9 @@
                         <mat-error *ngIf="password.hasError('required')">
                             <b>Campo password obligatorio!</b>
                         </mat-error>
+                        <mat-error *ngIf="password.hasError('pattern')">
+                            <b>No se permiten caracteres: .  / ¡ ! :  * ç </b>
+                        </mat-error>
                         <mat-error *ngIf="password.hasError('minlength')">
                             <b>La contraseña debe tener al menos 8 caracteres!</b>
                         </mat-error>
