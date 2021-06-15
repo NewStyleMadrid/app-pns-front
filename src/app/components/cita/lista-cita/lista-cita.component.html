@@ -15,13 +15,13 @@
     <tbody>
         <tr *ngFor="let cita of citas |  paginate: { itemsPerPage: 10, currentPage: paginaActual }">
             <td *ngIf="isAdmin">{{cita.id}}</td>
-            <td>{{cita.usuario.nombre}}</td>
-            <td>{{cita.usuario.apellidos}}</td>
-            <td>{{cita.usuario.email}}</td>
-            <td>{{cita.hora | horacita}}</td>
-            <td>{{cita.fecha}}</td>
-            <td>{{cita.tipoServicio}}</td>
-            <td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin">{{cita.usuario.nombre}}</td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin">{{cita.usuario.apellidos}}</td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin">{{cita.usuario.email}}</td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin">{{cita.hora | horacita}}</td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin">{{cita.fecha}}</td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin ">{{cita.tipoServicio}}</td>
+            <td *ngIf="username==cita.usuario.userName || isAdmin">
                 <button class="btn btn-outline-warning" *ngIf="!isAdmin" routerLink="/editar-cita/{{cita.id}}"><i class="far fa-edit"></i> Editar cita </button>
                 <button class="btn btn-outline-danger ml-3" (click)="borrar(cita.id)"><i class="fas fa-times"></i> Cancelar cita </button>
             </td>

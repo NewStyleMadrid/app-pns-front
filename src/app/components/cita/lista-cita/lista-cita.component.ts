@@ -19,16 +19,18 @@ export class ListaCitaComponent implements OnInit {
   paginaActual: number = 0;
   totalPages: Array<number>;
   disableThirdHeader = false;
+  username = false;
 
   constructor(
     private citaService: CitaService,
     private toastr: ToastrService,
     private tokenService: TokenService,
-    private authServcice: AuthService
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
-    this.cargarCitas()
+    this.cargarCitas();
+    this.username = this.tokenService.getUser();
     this.isAdmin = this.tokenService.isAdmin();
   }
 
@@ -38,13 +40,13 @@ export class ListaCitaComponent implements OnInit {
       //console.log(data);
     },
       (err: any) => {
-        console.log(err);
+        //console.log(err);
       }
     );
   }
 
   /**** Metodo para filtrar en la tabla ****/
-  
+
   sortData(sort: Sort) {
     this.citaService.lista().subscribe(data => {
       const datos = data.slice();
