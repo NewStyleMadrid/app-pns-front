@@ -2,14 +2,14 @@
 <table class="table table-hover table-light">
     <thead class=" table table-success">
         <tr>
-            <th scope="col">ID <i class="fas fa-sort"></i></th>
-            <th scope="col">ID Cloudinary<i class="fas fa-sort"></i></th>
-            <th scope="col">Nombre de la imagen<i class="fas fa-sort"></i></th>
-            <th scope="col">Imagen URL<i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">ID <i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">ID Cloudinary<i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">Nombre de la imagen<i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">Imagen URL<i class="fas fa-sort"></i></th>
             <!--<th scope="col"><i class="fas fa-sort" (click)="sort()"></i></th> Mayo a menor-->
-            <th *ngIf="isAdmin" scope="col">Ver</th>
-            <th scope="col" *ngIf="isAdmin">Editar</th>
-            <th scope="col" *ngIf="isAdmin">Borrar</th>
+            <!--<th class="text-uppercase" *ngIf="isAdmin" scope="col">Ver</th>-->
+            <th class="text-uppercase" scope="col" *ngIf="isAdmin">Editar</th>
+            <th class="text-uppercase" scope="col" *ngIf="isAdmin">Borrar</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +18,7 @@
             <td>{{home.imagenId}}</td>
             <td>{{home.name}}</td>
             <td>{{home.imagenUrl}}</td>
-            <td *ngIf="isAdmin"><button class="btn btn-outline-primary"><i class="far fa-eye"></i> </button></td>
+            <!--<td *ngIf="isAdmin"><button class="btn btn-outline-primary"><i class="far fa-eye"></i> </button></td>-->
             <td><button class="btn btn-outline-warning" *ngIf="isAdmin" routerLink="/editar-home/{{home.id}}"><i class="far fa-edit"></i> </button></td>
             <td><button class="btn btn-outline-danger" *ngIf="isAdmin" (click)="borrar(home.id)"><i class="far fa-trash-alt"></i> </button></td>
         </tr>

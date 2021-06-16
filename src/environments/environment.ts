@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 // https://app-pns-304215.ew.r.appspot.com
 export const environment = {
-  production: true,
+  production: false,
 
   authURL: 'http://localhost:8080/auth/',
   imagenURL: 'http://localhost:8080/corte/',

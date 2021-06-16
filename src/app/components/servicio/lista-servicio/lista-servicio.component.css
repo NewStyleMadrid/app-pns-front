@@ -11,3 +11,26 @@
 .my-pagination /deep/ .ngx-pagination .current {
     background: #292b2c;
 }
+
+
+/*Fotos servicios*/
+
+.imgTijera {
+    background-image: url(/assets/corte-tijera.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 125px;
+    width: 100%;
+    background-size: 70%;
+    position: relative;
+}
+
+.imgMaquina {
+    background-image: url(/assets/corte-maquina.PNG);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 125px;
+    width: 100%;
+    background-size: 70%;
+    position: relative;
+}

@@ -2,14 +2,14 @@
 <table class="table table-hover table-light">
     <thead class=" table table-success">
         <tr>
-            <th scope="col">ID <i class="fas fa-sort"></i></th>
-            <th scope="col">ID Cloudinary <i class="fas fa-sort"></i></th>
-            <th scope="col">Nombre deñ diseño <i class="fas fa-sort"></i></th>
-            <th scope="col">Imagen URL<i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">ID <i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">ID Cloudinary <i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">Nombre del corte <i class="fas fa-sort"></i></th>
+            <th class="text-uppercase" scope="col">Imagen URL<i class="fas fa-sort"></i></th>
             <!--<th scope="col"><i class="fas fa-sort" (click)="sort()"></i></th> Mayo a menor-->
-            <th *ngIf="isAdmin" scope="col">Ver</th>
-            <th scope="col" *ngIf="isAdmin">Editar</th>
-            <th scope="col" *ngIf="isAdmin">Borrar</th>
+            <th class="text-uppercase" *ngIf="isAdmin" scope="col">Ver</th>
+            <th class="text-uppercase" scope="col" *ngIf="isAdmin">Editar</th>
+            <th class="text-uppercase" scope="col" *ngIf="isAdmin">Borrar</th>
         </tr>
     </thead>
     <tbody>

@@ -45,6 +45,8 @@
     background-color: white;
     position: absolute;
     -webkit-transition: all ease-in-out 250ms;
+    -moz-transition: all ease-in-out 250ms;
+    -o-transition: all ease-in-out 250ms;
     transition: all ease-in-out 250ms;
     margin: 0 0 0 10%;
 }

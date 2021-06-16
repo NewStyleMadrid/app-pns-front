@@ -14,12 +14,14 @@ footer a {
 }
 
 footer a:hover {
-    color: black;
+    color: white;
+    font-weight: bold;
     text-decoration: none;
 }
 
 footer i:hover {
-    color: black;
+    color: white;
+    font-weight: bold;
     text-decoration: none;
 }
 

@@ -2,13 +2,13 @@
 <table class="table table-hover table-light" matSort (matSortChange)="sortData($event)">
     <thead class=" table table-success">
         <tr>
-            <th mat-sort-header="id" *ngIf="isAdmin">ID</th>
-            <th mat-sort-header="nombre">Nombre</th>
-            <th mat-sort-header="apellidos">Apellidos</th>
-            <th mat-sort-header="email">Email</th>
-            <th mat-sort-header="hora">Hora</th>
-            <th mat-sort-header="fecha">Fecha</th>
-            <th mat-sort-header="servicio">Servicio</th>
+            <th class="text-uppercase" mat-sort-header="id" *ngIf="isAdmin">ID</th>
+            <th class="text-uppercase" mat-sort-header="nombre">Nombre</th>
+            <th class="text-uppercase" mat-sort-header="apellidos">Apellidos</th>
+            <th class="text-uppercase" mat-sort-header="email">Email</th>
+            <th class="text-uppercase" mat-sort-header="hora">Hora</th>
+            <th class="text-uppercase" mat-sort-header="fecha">Fecha</th>
+            <th class="text-uppercase" mat-sort-header="servicio">Servicio</th>
             <th></th>
         </tr>
     </thead>

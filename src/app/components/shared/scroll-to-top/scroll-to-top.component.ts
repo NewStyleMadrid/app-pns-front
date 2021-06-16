@@ -15,7 +15,7 @@ export class ScrollToTopComponent implements OnInit {
     @HostListener('window:scroll', [])
 
     onWindowScroll(): void {
-        if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
+        if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 400) {
             this.windowScrolled = true;
         }
         else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {

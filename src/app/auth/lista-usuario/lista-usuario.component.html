@@ -17,15 +17,15 @@
 <table class="table table-hover table-light" matSort (matSortChange)="sortData($event)">
     <thead class=" table table-success">
         <tr>
-            <th mat-sort-header="id">Id </th>
-            <th mat-sort-header="nombre">Nombre </th>
-            <th mat-sort-header="apellidos">Apellidos </th>
-            <th mat-sort-header="email">Correo </th>
-            <th mat-sort-header="userName">Usuario </th>
-            <th mat-sort-header="password">Contraseña </th>
+            <th class="text-uppercase" mat-sort-header="id">Id </th>
+            <th class="text-uppercase" mat-sort-header="nombre">Nombre </th>
+            <th class="text-uppercase" mat-sort-header="apellidos">Apellidos </th>
+            <th class="text-uppercase" mat-sort-header="email">Correo </th>
+            <th class="text-uppercase" mat-sort-header="userName">Usuario </th>
+            <th class="text-uppercase" mat-sort-header="password">Contraseña </th>
             <!--<th *ngIf="isAdmin" scope="col">Ver</th>-->
-            <th scope="col" *ngIf="isAdmin">Editar</th>
-            <th scope="col" *ngIf="isAdmin">Borrar</th>
+            <th class="text-uppercase" scope="col" *ngIf="isAdmin">Editar</th>
+            <th class="text-uppercase" scope="col" *ngIf="isAdmin">Borrar</th>
         </tr>
     </thead>
     <tbody>
